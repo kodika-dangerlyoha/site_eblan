@@ -294,10 +294,10 @@ header {
             cursor: pointer;
             & img {
                 margin-left: 3px;
-                height: 12px;
+                height: 10px;
                 filter: invert(1);
                 opacity: 0.5;
-                transform: translateX(0px);
+                transform: translateX(0px) translateY(1px);
                 transition: 0.15s;
             }
             & h3 {
@@ -306,7 +306,7 @@ header {
             }
             &:hover img{
                 opacity: 1;
-                transform: translateX(5px);
+                transform: translateX(5px) translateY(1px);
             }
         }
         &__grid {
@@ -389,6 +389,7 @@ header {
                 margin-bottom: 10px;
                 letter-spacing: 1px;
                 text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                // font-family: robotoConc;
             }
             &__priceBlock {
                 display: flex;
@@ -396,17 +397,19 @@ header {
                 &__buttonBasket {
                     position: relative;
                     background: $mainGradient_100;
-                    padding: 7px 20px 7px 20px;
-                    border-radius: 10px;
+                    padding: 12px 20px 12px 20px;
+                    border-radius: 11px;
                     transition: 0.15s;
-                    margin-right: 10px;
+                    margin-right: 20px;
                     cursor: pointer;
                     overflow: hidden;
                     box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
                     &__text {
+                        font-size: 16px;
                         font-weight: 600;
                         z-index: 2;
                         cursor: pointer;
+                        // font-family: robotoConc;
                     }
                     &__forHover {
                         z-index: 1;
@@ -423,15 +426,17 @@ header {
                 }
                 &__price {
                     font-weight: 700;
-                    font-size: 18px;
-                    margin-right: 5px;
+                    font-size: 28px;
+                    margin-right: 16px;
+                    // font-family: robotoConc;
                 }
                 &__percent {
                     border-radius: 7px;
-                    padding: 5px;
+                    padding: 4px 8px 4px 8px;
                     background: $mainGradient_100;
-                    font-size: 14px;
+                    font-size: 16px;
                     font-weight: 700;
+                    // font-family: robotoConc;
                 }
             }
         }
