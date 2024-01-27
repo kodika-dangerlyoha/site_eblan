@@ -1320,6 +1320,27 @@ header {
                 border-radius: 50%;
                 cursor: pointer;
                 transition: 0.15s;
+                & img {
+                    filter: grayscale(1);
+                }
+                &_activeSteam {
+                    background-color: rgba(35, 56, 77, 1);
+                    & img{
+                        filter: grayscale(0);
+                    }
+                }
+                &_activeDs {
+                    background-color: rgba(88, 101, 242, 0.2);
+                    & img{
+                        filter: grayscale(0);
+                    }
+                }
+                &_activeVK {
+                    background-color: rgba(0, 119, 255, 0.2);
+                    & img{
+                        filter: grayscale(0);
+                    }
+                }
                 &:hover {
                     transform: scale(0.95);
                 }
@@ -1395,6 +1416,7 @@ header {
             &__game {
                 width: 200px;
                 &__banner {
+                    display: block;
                     width: 100%;
                     position: relative;
                     border-radius: 10px;
