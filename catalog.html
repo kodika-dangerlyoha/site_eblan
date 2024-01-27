@@ -17,7 +17,7 @@
 		<div class="centerBlock">
 			<div class="centerBlock__buttonCatalog txt flex-center" onclick="openCatalogNavs()">
 				<div class="centerBlock__buttonCatalog__forHover"></div>
-				<div class="centerBlock__buttonCatalog__text txt">аталог игр</div>
+				<div class="centerBlock__buttonCatalog__text txt">Каталог игр</div>
 			</div>
 			<div class="centerBlock__searchBlock">
 				<input type="text">
@@ -108,35 +108,88 @@
 
     <div class="filters">
         <div class="filters__main">
-            <div class="filters__main__nav">
+            <div class="filters__main__nav filters__floating__nav" onclick="open_filter(0)">
                 <div class="filters__main__nav__text txt">Категории</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_list">
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Одиночный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Кооперативный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Сетевой</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Локальный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Массовый мультиплеер</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Многопользовательский</div>
+				</div>
             </div>
-            <div class="filters__main__nav">
+            <div class="filters__main__nav filters__floating__nav" onclick="open_filter(1)">
                 <div class="filters__main__nav__text txt">Сортировка</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_list">
+					<div class="filters__floating__nav__floatBlock_list__nav txt">По популярности</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Цена: от минимальной</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Цена: от максимальной</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Скидка</div>
+				</div>
             </div>
-            <div class="filters__main__nav filters__main__nav_filter" onclick="openFilter()">
+            <div class="filters__main__nav filters__main__nav_filter" onclick="openFilters()">
                 <img src="img/icons/filter 1.png" alt="">
                 <div class="filters__main__nav__text txt">Фильтр</div>
             </div>
         </div>
         <div class="filters__floating">
-            <div class="filters__floating__nav">
+            <div class="filters__floating__nav" onclick="open_filter(2)">
                 <div class="filters__floating__nav__text txt">Цена</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_rangeFilter">
+					<div class="filters__floating__nav__floatBlock_rangeFilter__race">
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__point filters__floating__nav__floatBlock_rangeFilter__race__point_min"></div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__point filters__floating__nav__floatBlock_rangeFilter__race__point_max"></div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__interval"></div>
+					</div>
+					<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval">
+						<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">0</div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">1789</div>
+					</div>
+				</div>
             </div>
-            <div class="filters__floating__nav">
+            <div class="filters__floating__nav" onclick="open_filter(3)">
                 <div class="filters__floating__nav__text txt">Платформа</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_list">
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Steam</div>
+				</div>
             </div>
-            <div class="filters__floating__nav">
+            <div class="filters__floating__nav" onclick="open_filter(4)">
                 <div class="filters__floating__nav__text txt">Режим игры</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_list">
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Одиночный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Кооперативный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Сетевой</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Локальный</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Массовый мультиплеер</div>
+					<div class="filters__floating__nav__floatBlock_list__nav txt">Многопользовательский</div>
+				</div>
             </div>
-            <div class="filters__floating__nav">
+            <div class="filters__floating__nav" onclick="open_filter(5)">
                 <div class="filters__floating__nav__text txt">Год выпуска</div>
                 <img src="img/icons/arrRight32.png" alt="">
+				<div class="filters__floating__nav__border"></div>
+				<div class="filters__floating__nav__floatBlock filters__floating__nav__floatBlock_rangeFilter">
+					<div class="filters__floating__nav__floatBlock_rangeFilter__race">
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__point filters__floating__nav__floatBlock_rangeFilter__race__point_min"></div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__point filters__floating__nav__floatBlock_rangeFilter__race__point_max"></div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__race__interval"></div>
+					</div>
+					<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval">
+						<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">0</div>
+						<div class="filters__floating__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">1789</div>
+					</div>
+				</div>
             </div>
         </div>
     </div>
@@ -1306,6 +1359,7 @@
 	</footer>
      
      <script type="text/javascript" src="scripts/variables.js"></script>
+     <script type="text/javascript" src="scripts/functions.js"></script>
      <script type="text/javascript" src="scripts/script.js"></script>
 </body>
 </html>

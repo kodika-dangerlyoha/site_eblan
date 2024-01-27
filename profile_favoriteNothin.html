@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style\style.css">
+</head>
+<body class="bodySearch">
+
+	<header id="header">
+		<div id="header__bg"></div>
+		<div class="logoBlock">
+			<img class="logo" src="img/logo/logo.png" alt="">
+		</div>
+		<div class="centerBlock">
+			<div class="centerBlock__buttonCatalog txt flex-center" onclick="openCatalogNavs()">
+				<div class="centerBlock__buttonCatalog__forHover"></div>
+				<div class="centerBlock__buttonCatalog__text txt">Каталог игр</div>
+			</div>
+			<div class="centerBlock__searchBlock">
+				<input type="text">
+				<div class="centerBlock__searchBlock__icon">
+					<img src="img/icons/search32.png" alt="">
+				</div>
+			</div>
+			<div class="centerBlock__catalogNavsBlock">
+				<div class="centerBlock__catalogNavsBlock__head">
+					<h3 class="txt">Категории</h3>
+					<img src="img/icons/arrRight32.png" alt="">
+				</div>
+				<div class="centerBlock__catalogNavsBlock__grid">
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Экшен
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Приключения
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Все игры
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Казуальные
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Гонки
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Спорт
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Стратегии
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Ролевые
+					</div>
+				</div>
+				<div class="centerBlock__catalogNavsBlock__head">
+					<h3 class="txt">Платформы</h3>
+					<img src="img/icons/arrRight32.png" alt="">
+				</div>
+				<div class="centerBlock__catalogNavsBlock__grid">
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navs">
+			<div class="navs__nav">
+				<img src="img/icons/bell64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/basket64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/user64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/like64.png" alt="">
+			</div>
+		</div>
+	</header>
+
+	<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
+
+    <div class="profileContaier">
+        <div class="profileContaier__face">
+            <div class="profileContaier__face__avatarBlock">
+                <div class="profileContaier__face__avatarBlock__imgBlock">
+                    <img src="img/avatar/ef3211dba7d1269a0a56d88a776a6ccc.jpg" alt="">
+                    <div class="profileContaier__face__avatarBlock__imgBlock__lvl txt flex-center">12</div>
+                    <div class="profileContaier__face__avatarBlock__imgBlock__forHover">
+                        <img src="img/icons/photo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="profileContaier__face__nickname txt">sud1miy</div>
+            <div class="profileContaier__face__links">
+                <a class="profileContaier__face__links__link flex-center">
+                    <img src="img/icons/icon-stm 1.svg" alt="">
+                </a>
+                <a class="profileContaier__face__links__link flex-center">
+                    <img src="img/icons/icon-dcr 1.svg" alt="">
+                </a>
+                <a class="profileContaier__face__links__link flex-center">
+                    <img src="img/icons/image 12.png" alt="">
+                </a>
+            </div>
+            <div class="profileContaier__face__information">
+                <div class="profileContaier__face__information__row">
+                    <div class="profileContaier__face__information__row__infName txt">Игр куплено</div>
+                    <div class="profileContaier__face__information__row__infValue txt">2</div>
+                </div>
+                <div class="profileContaier__face__information__row">
+                    <div class="profileContaier__face__information__row__infName txt">Отзывов оставлено</div>
+                    <div class="profileContaier__face__information__row__infValue txt">1</div>
+                </div>
+                <div class="profileContaier__face__information__row">
+                    <div class="profileContaier__face__information__row__infName txt">Комментариев оставлено</div>
+                    <div class="profileContaier__face__information__row__infValue txt">0</div>
+                </div>
+                <div class="profileContaier__face__information__row profileContaier__face__information__row_last">
+                    <div class="profileContaier__face__information__row__infName txt">Дополнений куплено</div>
+                    <div class="profileContaier__face__information__row__infValue txt">0</div>
+                </div>
+            </div>
+            <div class="profileContaier__face__registrationData txt">Зарегистрирован 20.07.2006</div>
+        </div>
+        <div class="profileContaier__info">
+            <div class="profileContaier__info__head">
+                <div class="profileContaier__info__head__nav">
+                    <div class="profileContaier__info__head__nav__text txt">Избранное</div>
+                    <div class="profileContaier__info__head__nav__strip profileContaier__info__head__nav__strip_active"></div>
+                </div>
+                <div class="profileContaier__info__head__nav">
+                    <div class="profileContaier__info__head__nav__text txt">Реферельная программа</div>
+                    <div class="profileContaier__info__head__nav__strip"></div>
+                </div>
+                <div class="profileContaier__info__head__nav">
+                    <div class="profileContaier__info__head__nav__text txt">Мои игры</div>
+                    <div class="profileContaier__info__head__nav__strip"></div>
+                </div>
+                <div class="profileContaier__info__head__nav">
+                    <div class="profileContaier__info__head__nav__text txt">Достижения</div>
+                    <div class="profileContaier__info__head__nav__strip"></div>
+                </div>
+            </div>
+            <div class="profileContaier__info__nothingFavorite">
+                <img src="img/icons/sad.png" alt="">
+                <div class="profileContaier__info__nothingFavorite__text txt">Туть пусто :(</div>
+            </div>
+        </div>
+    </div>
+
+	<footer class="footer">
+		<div class="footer__top">
+			<div class="footer__top__logo">
+				<img src="img/logo/logo.png" alt="">
+			</div>
+			<div class="footer__top__links">
+				<div class="footer__top__links__column">
+					<h4 class="txt">Категории</h4>
+					<div class="footer__top__links__column__nav txt">Хиты продаж</div>
+					<div class="footer__top__links__column__nav txt">Новинки</div>
+					<div class="footer__top__links__column__nav txt">Ожидаемое</div>
+				</div>
+				<div class="footer__top__links__column">
+					<h4 class="txt">Помощь</h4>
+					<div class="footer__top__links__column__nav txt">FAQ</div>
+					<div class="footer__top__links__column__nav txt">Гарантии</div>
+					<div class="footer__top__links__column__nav txt">Контакты</div>
+				</div>
+				<div class="footer__top__links__column">
+					<h4 class="txt">Полезное</h4>
+					<div class="footer__top__links__column__nav txt">Отзывы о нас</div>
+					<div class="footer__top__links__column__nav txt">Правила использования</div>
+					<div class="footer__top__links__column__nav txt">Политика конфиденциальности</div>
+				</div>
+			</div>
+			<div class="footer__top__socialТetwork">
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_ds"><img src="img/platforms/discord.svg" alt=""></div>
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_steam"><img src="img/platforms/steam.svg" alt=""></div>
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_vk"><img src="img/platforms/vk.png" alt=""></div>
+			</div>
+		</div>
+		<div class="footer__bottom">
+			<div class="footer__bottom__text txt">Copyright © 2023 COMPANY NAME - All rights reserved</div>
+			<div class="footer__bottom__paymentMethods">
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/visa.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/kiwi.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mc.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/ukassa.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mir.svg" alt=""></div>
+			</div>
+		</div>
+	</footer>
+     
+     <script type="text/javascript" src="scripts/variables.js"></script>
+     <script type="text/javascript" src="scripts/functions.js"></script>
+     <script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>
