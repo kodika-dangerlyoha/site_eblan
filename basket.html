@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style\style.css">
+</head>
+<body class="bodySearch">
+
+	<header id="header">
+		<div id="header__bg"></div>
+		<div class="logoBlock">
+			<img class="logo" src="img/logo/logo.png" alt="">
+		</div>
+		<div class="centerBlock">
+			<div class="centerBlock__buttonCatalog txt flex-center" onclick="openCatalogNavs()">
+				<div class="centerBlock__buttonCatalog__forHover"></div>
+				<div class="centerBlock__buttonCatalog__text txt">Каталог игр</div>
+			</div>
+			<div class="centerBlock__searchBlock">
+				<input type="text">
+				<div class="centerBlock__searchBlock__icon">
+					<img src="img/icons/search32.png" alt="">
+				</div>
+			</div>
+			<div class="centerBlock__catalogNavsBlock">
+				<div class="centerBlock__catalogNavsBlock__head">
+					<h3 class="txt">Категории</h3>
+					<img src="img/icons/arrRight32.png" alt="">
+				</div>
+				<div class="centerBlock__catalogNavsBlock__grid">
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Экшен
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Приключения
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Все игры
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Казуальные
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Гонки
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Спорт
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Стратегии
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Ролевые
+					</div>
+				</div>
+				<div class="centerBlock__catalogNavsBlock__head">
+					<h3 class="txt">Платформы</h3>
+					<img src="img/icons/arrRight32.png" alt="">
+				</div>
+				<div class="centerBlock__catalogNavsBlock__grid">
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
+						<img src="img/icons/sim.svg" alt="">
+						Симуляторы
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navs">
+			<div class="navs__nav">
+				<img src="img/icons/bell64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/basket64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/user64.png" alt="">
+			</div>
+			<div class="navs__nav">
+				<img src="img/icons/like64.png" alt="">
+			</div>
+		</div>
+	</header>
+
+	<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
+
+    <div class="basketContainer">
+        <div class="basketContainer__gameList">
+            <h2 class="txt">Корзина</h2>
+            <div class="basketContainer__gameList__games">
+                <div class="basketContainer__gameList__games__game">
+					<div class="basketContainer__gameList__games__game__left">
+						<div class="basketContainer__gameList__games__game__left__imgBlock">
+							<img src="img/banners/farmsim.png" alt="">
+						</div>
+						<div class="basketContainer__gameList__games__game__left__nameBlock">
+							<div class="basketContainer__gameList__games__game__left__nameBlock__name">
+								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
+									<img src="img/icons/steamIcon29.png" alt="">
+								</div>
+								<div class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</div>
+							</div>
+							<a class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
+						</div>
+					</div>
+					<div class="basketContainer__gameList__games__game__right">
+						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
+						<div class="basketContainer__gameList__games__game__right__closeBlock">
+							<img src="img/icons/cross2_32.png" alt="">
+						</div>
+					</div>
+                </div>
+				<div class="basketContainer__gameList__games__game basketContainer__gameList__games__game_lastGame">
+					<div class="basketContainer__gameList__games__game__left">
+						<div class="basketContainer__gameList__games__game__left__imgBlock">
+							<img src="img/banners/farmsim.png" alt="">
+						</div>
+						<div class="basketContainer__gameList__games__game__left__nameBlock">
+							<div class="basketContainer__gameList__games__game__left__nameBlock__name">
+								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
+									<img src="img/icons/steamIcon29.png" alt="">
+								</div>
+								<div class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</div>
+							</div>
+							<a class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
+						</div>
+					</div>
+					<div class="basketContainer__gameList__games__game__right">
+						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
+						<div class="basketContainer__gameList__games__game__right__closeBlock">
+							<img src="img/icons/cross2_32.png" alt="">
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <div class="basketContainer__info">
+            <h2 class="txt">Итого</h2>
+			<div class="basketContainer__info__totalBlock">
+				<form action="">
+					<input type="text" class="txt" placeholder="Имя аккаунта">
+					<input type="text" class="txt" placeholder="Email">
+					<div class="basketContainer__info__totalBlock__nav">
+						<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
+						<img src="img/icons/arrRight32.png" alt="">
+						<div class="basketContainer__info__totalBlock__nav__border"></div>
+						<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_rangeFilter">
+							<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race">
+								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point_min"></div>
+								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point_max"></div>
+								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__interval"></div>
+							</div>
+							<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval">
+								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">0</div>
+								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">1789</div>
+							</div>
+						</div>
+					</div>
+					<input type="text" class="txt" placeholder="Промокод">
+					<div class="basketContainer__info__totalBlock__calcPrice">
+						<div class="basketContainer__info__totalBlock__calcPrice__oldPrice">
+							<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__this txt">Оффициальная цена</div>
+							<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__value txt">5620 ₽</div>
+						</div>
+						<div class="basketContainer__info__totalBlock__calcPrice__discount">
+							<div class="basketContainer__info__totalBlock__calcPrice__discount__this txt">Скидка</div>
+							<div class="basketContainer__info__totalBlock__calcPrice__discount__value txt">26%</div>
+						</div>
+					</div>
+					<div class="basketContainer__info__totalBlock__totalPrice txt">
+						<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
+						<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
+					</div>
+				</form>
+			</div>
+        </div>
+    </div>
+
+	<footer class="footer">
+		<div class="footer__top">
+			<div class="footer__top__logo">
+				<img src="img/logo/logo.png" alt="">
+			</div>
+			<div class="footer__top__links">
+				<div class="footer__top__links__column">
+					<h4 class="txt">Категории</h4>
+					<div class="footer__top__links__column__nav txt">Хиты продаж</div>
+					<div class="footer__top__links__column__nav txt">Новинки</div>
+					<div class="footer__top__links__column__nav txt">Ожидаемое</div>
+				</div>
+				<div class="footer__top__links__column">
+					<h4 class="txt">Помощь</h4>
+					<div class="footer__top__links__column__nav txt">FAQ</div>
+					<div class="footer__top__links__column__nav txt">Гарантии</div>
+					<div class="footer__top__links__column__nav txt">Контакты</div>
+				</div>
+				<div class="footer__top__links__column">
+					<h4 class="txt">Полезное</h4>
+					<div class="footer__top__links__column__nav txt">Отзывы о нас</div>
+					<div class="footer__top__links__column__nav txt">Правила использования</div>
+					<div class="footer__top__links__column__nav txt">Политика конфиденциальности</div>
+				</div>
+			</div>
+			<div class="footer__top__socialТetwork">
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_ds"><img src="img/platforms/discord.svg" alt=""></div>
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_steam"><img src="img/platforms/steam.svg" alt=""></div>
+				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_vk"><img src="img/platforms/vk.png" alt=""></div>
+			</div>
+		</div>
+		<div class="footer__bottom">
+			<div class="footer__bottom__text txt">Copyright © 2023 COMPANY NAME - All rights reserved</div>
+			<div class="footer__bottom__paymentMethods">
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/visa.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/kiwi.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mc.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/ukassa.svg" alt=""></div>
+				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mir.svg" alt=""></div>
+			</div>
+		</div>
+	</footer>
+     
+     <script type="text/javascript" src="scripts/variables.js"></script>
+     <script type="text/javascript" src="scripts/functions.js"></script>
+     <script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>

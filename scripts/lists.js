@@ -108,3 +108,24 @@ let games = [
         'oldPrice': 5120,
     },
 ]
+
+let basketProducts = [
+    {
+        'id': 0,
+        'name': "Call Of Duty: Cold War 2",
+        'link': "",
+        'imgH': "img/banners/farmsim.png",
+        'imgW': "img/banners/img1.png",
+        'newPrice': 4599,
+        'oldPrice': 5120,
+    },
+    {
+        'id': 1,
+        'name': "Call Of Duty: Cold War 2",
+        'link': "",
+        'imgH': "img/banners/farmsim.png",
+        'imgW': "img/banners/img1.png",
+        'newPrice': 4599,
+        'oldPrice': 5120,
+    },
+]
