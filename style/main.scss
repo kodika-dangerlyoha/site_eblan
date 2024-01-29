@@ -176,6 +176,12 @@ header {
     padding: 15px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
+.basket_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0);
+}
 #header__bg {
     position: absolute;
     top: 0;
@@ -1672,6 +1678,10 @@ header {
                     outline: none;
                     cursor: text;
                     margin-bottom: 10px;
+                    transition: 0.15s;
+                    &:focus {
+                        border: 2px solid #6C6C6C;
+                    }
                 }
             }
             &__nav {
@@ -1824,6 +1834,7 @@ header {
             &__totalPrice {
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 10px;
                 &__this {
                     font-size: 18px;
                     font-weight: 400;
@@ -1831,6 +1842,81 @@ header {
                 &__value {
                     font-size: 20px;
                     font-weight: 600;
+                }
+            }
+            &__buyButton {
+                position: relative;
+                background: $mainGradient_100;
+                border-radius: 7px;
+                overflow: hidden;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin-bottom: 10px;
+                border: none;
+                cursor: pointer;
+                transition: 0.15s;
+                &__text {
+                    font-size: 18px;
+                    font-weight: 600;
+                    position: relative;
+                    z-index: 2;
+                    text-align: center;
+                    cursor: pointer;
+                }
+                &__forHover {
+                    z-index: 1;
+                    background-color: $lightBlue;
+                    opacity: 0;
+                    transition: 0.15s;
+                }
+                &:hover &__forHover{
+                    opacity: 1;
+                }
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+            &__agreeBlock {
+                display: flex;
+                &__checkBox {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 22px;
+                    width: 22px;
+                    padding: 4px;
+                    border: 2px solid #3D3D3D;
+                    border-radius: 7px;
+                    margin-right: 10px;
+                    transition: 0.15s;
+                    cursor: pointer;
+                    &__checkMark {
+                        opacity: 0;
+                        height: 14px;
+                        width: 14px;
+                        transform: translateY(-5px);
+                        transition: 0.15s;
+                        & img {
+                            filter: invert(1);
+                            height: 100%;
+                        }
+                    }
+                    &:hover {
+                        border-color: $lightBlue;
+                    }
+                }
+                &__label {
+                    color: #999;
+                    font-weight: 300;
+                    font-size: 14px;
+                    & a {
+                        text-decoration: underline;
+                        color: rgb(255, 255, 255);
+                        transition: 0.15s;
+                        &:hover {
+                            color: $lightBlue;
+                        }
+                    }
                 }
             }
         }

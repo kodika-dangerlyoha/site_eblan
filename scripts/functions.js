@@ -66,3 +66,16 @@ function open_filter(z) {
     // oldZ = z;
     console.log(check_open_filters);
 }
+
+function basket_checkBox_click() {
+    if (check_active_basket_checkBox) {
+        document.querySelector('#basket_checkMark').style.opacity = "0";
+        document.querySelector('#basket_checkMark').style.transform = "translateY(-5px)";
+        check_active_basket_checkBox = false;
+    }
+    else {
+        document.querySelector('#basket_checkMark').style.opacity = "1";
+        document.querySelector('#basket_checkMark').style.transform = "translateY(0px)";
+        check_active_basket_checkBox = true;
+    }
+}

@@ -9,98 +9,10 @@
 </head>
 <body class="bodySearch">
 
-	<header id="header">
+	<header class="basket_header" id="header">
 		<div id="header__bg"></div>
 		<div class="logoBlock">
 			<img class="logo" src="img/logo/logo.png" alt="">
-		</div>
-		<div class="centerBlock">
-			<div class="centerBlock__buttonCatalog txt flex-center" onclick="openCatalogNavs()">
-				<div class="centerBlock__buttonCatalog__forHover"></div>
-				<div class="centerBlock__buttonCatalog__text txt">Каталог игр</div>
-			</div>
-			<div class="centerBlock__searchBlock">
-				<input type="text">
-				<div class="centerBlock__searchBlock__icon">
-					<img src="img/icons/search32.png" alt="">
-				</div>
-			</div>
-			<div class="centerBlock__catalogNavsBlock">
-				<div class="centerBlock__catalogNavsBlock__head">
-					<h3 class="txt">Категории</h3>
-					<img src="img/icons/arrRight32.png" alt="">
-				</div>
-				<div class="centerBlock__catalogNavsBlock__grid">
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Экшен
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Приключения
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Симуляторы
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Все игры
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Казуальные
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Гонки
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Спорт
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Стратегии
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Ролевые
-					</div>
-				</div>
-				<div class="centerBlock__catalogNavsBlock__head">
-					<h3 class="txt">Платформы</h3>
-					<img src="img/icons/arrRight32.png" alt="">
-				</div>
-				<div class="centerBlock__catalogNavsBlock__grid">
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Симуляторы
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Симуляторы
-					</div>
-					<div class="centerBlock__catalogNavsBlock__grid__nav txt">
-						<img src="img/icons/sim.svg" alt="">
-						Симуляторы
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="navs">
-			<div class="navs__nav">
-				<img src="img/icons/bell64.png" alt="">
-			</div>
-			<div class="navs__nav">
-				<img src="img/icons/basket64.png" alt="">
-			</div>
-			<div class="navs__nav">
-				<img src="img/icons/user64.png" alt="">
-			</div>
-			<div class="navs__nav">
-				<img src="img/icons/like64.png" alt="">
-			</div>
 		</div>
 	</header>
 
@@ -160,7 +72,7 @@
             <h2 class="txt">Итого</h2>
 			<div class="basketContainer__info__totalBlock">
 				<form action="">
-					<input type="text" class="txt" placeholder="Имя аккаунта">
+					<input type="text" class="txt" placeholder="Трейд ссылка">
 					<input type="text" class="txt" placeholder="Email">
 					<div class="basketContainer__info__totalBlock__nav">
 						<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
@@ -192,6 +104,18 @@
 					<div class="basketContainer__info__totalBlock__totalPrice txt">
 						<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
 						<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
+					</div>
+					<button class="basketContainer__info__totalBlock__buyButton">
+						<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
+						<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
+					</button>
+					<div class="basketContainer__info__totalBlock__agreeBlock">
+						<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">
+							<div class="basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark" id="basket_checkMark">
+								<img src="img/icons/check16.png" alt="">
+							</div>
+						</div>
+						<div class="basketContainer__info__totalBlock__agreeBlock__label txt">Я согласен с Условиями и <a href="">политикой конфиденциальности</a></div>
 					</div>
 				</form>
 			</div>
