@@ -79,3 +79,35 @@ function basket_checkBox_click() {
         check_active_basket_checkBox = true;
     }
 }
+
+function hover_close_basket(n) {
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover')[n].style.background = "linear-gradient(to right, transparent, rgba(255, 0, 0, 0.23))";
+}
+function unhover_close_basket(n) {
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover')[n].style.background = "linear-gradient(to right, rgba(1, 162, 255, 0.2), transparent)";
+}
+
+function open_paymentMethods() {
+    if (check_open_paymentMethods) {
+        document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock').style.display = "none";
+        document.querySelector('.basketContainer__info__totalBlock__nav__border').style.opacity = "0";
+        document.querySelector('.basketContainer__info__totalBlock__nav').style.borderRadius = "7px 7px 7px 7px";
+        check_open_paymentMethods = false;
+    }
+    else {
+        document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock').style.display = "block";
+        document.querySelector('.basketContainer__info__totalBlock__nav__border').style.opacity = "1";
+        document.querySelector('.basketContainer__info__totalBlock__nav').style.borderRadius = "7px 7px 0px 0px";
+        check_open_paymentMethods = true;
+    }
+}
+
+function chooseBank(n, nameBank) {
+    if (document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active') != null) {
+        document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active').classList.remove('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+        document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+    }
+    else {
+        document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+    }
+}

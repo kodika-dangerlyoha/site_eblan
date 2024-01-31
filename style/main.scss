@@ -1584,7 +1584,9 @@ header {
             background: rgb(50, 50, 50);
             padding-left: 30px;
             padding-right: 30px;
+            overflow: hidden;
             &__game {
+                position: relative;
                 padding-top: 30px;
                 padding-bottom: 30px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.10);
@@ -1592,6 +1594,8 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 &__left {
+                    position: relative;
+                    z-index: 2;
                     display: flex;
                     align-items: center;
                     &__imgBlock {
@@ -1616,16 +1620,28 @@ header {
                             &__text {
                                 font-size: 18px;
                                 font-weight: 600;
+                                cursor: pointer;
+                                transition: 0.15s;
+                                &:hover {
+                                    color: $lightBlue;
+                                }
                             }
                         }
                         &__linkPlatform {
                             color: rgba(153, 153, 153, 1);
                             font-weight: 300;
                             font-size: 16px;
+                            cursor: pointer;
+                            transition: 0.15s;
+                            &:hover {
+                                color: rgb(255, 255, 255);
+                            }
                         }
                     }
                 }
                 &__right {
+                    position: relative;
+                    z-index: 2;
                     display: flex;
                     align-items: center;
                     &__price {
@@ -1647,9 +1663,22 @@ header {
                         }
                     }
                 }
-
                 &_lastGame {
                     border-bottom: none;
+                }
+                &__forHover {
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    bottom: 0;
+                    right: -30px;
+                    left: -30px;
+                    background: linear-gradient(to right, rgba(1, 162, 255, 0.2), transparent);
+                    opacity: 0;
+                    transition: 0.15s;
+                }
+                &:hover &__forHover{
+                    opacity: 1;
                 }
             }
         }
@@ -1672,7 +1701,7 @@ header {
                     height: 50px;
                     border-radius: 7px;
                     border: 2px solid #3D3D3D;
-                    background: rgba(16, 16, 16, 0.40);
+                    background: rgb(36, 36, 36);
                     padding-left: 17px;
                     font-size: 16px;
                     outline: none;
@@ -1689,10 +1718,9 @@ header {
                 height: 56px;
                 border-radius: 7px;
                 border: 2px solid #3D3D3D;
-                background: rgba(16, 16, 16, 0.40);
+                background: rgb(36, 36, 36);
                 padding-left: 17px;
                 font-size: 16px;
-                cursor: pointer;
                 margin-bottom: 10px;
                 display: flex;
                 align-items: center;
@@ -1708,8 +1736,10 @@ header {
                     border: 2px solid rgb(150, 150, 150);
                     border-radius: 7px 7px 0 0;
                     opacity: 0;
+                    cursor: pointer;
                 }
                 &__floatBlock {
+                    position: relative;
                     display: none;
                     position: absolute;
                     left: -2px;
@@ -1717,70 +1747,62 @@ header {
                     top: 51px;
                     padding-left: 15px;
                     padding-right: 15px;
-                    padding-bottom: 10px;
+                    padding-bottom: 15px;
                     border-radius: 0px 0px 7px 7px;
                     border: 2px solid #969696;
                     border-top: none;
-                    background: rgba(29, 29, 29, 1);
+                    background: rgb(36, 36, 36);
                     box-shadow: 0 25px 25px -20px rgba(0, 0, 0, 1);
-                    &_list {
-                        &__nav {
-                            font-weight: 200;
-                            padding: 3px 0 3px 0;
-                            color: rgb(210, 210, 210, 1);
-                            transition: 0.15s;
-                            cursor: pointer;
-                            &:hover {
-                                color: rgba(255, 255, 255, 1);
-                            }
-                        }
-                    }
-                    &_rangeFilter {
-                        padding-top: 5px;
-                        &__race {
+                    &_paymentMethods {
+                        &__grid {
                             position: relative;
-                            height: 3px;
-                            border-radius: 3px;
-                            background: rgba(217, 217, 217, 0.39);
-                            margin-bottom: 10px;
-                            &__point {
-                                position: absolute;
-                                z-index: 2;
-                                top: -3px;
-                                height: 9px;
-                                width: 9px;
-                                border-radius: 50%;
-                                background-color: rgb(255, 255, 255);
-                                &_min {
-                                    left: 0px;
-                                    transform: translateX(-50%);
-                                }
-                                &_max {
-                                    right: 50px;
-                                    transform: translateX(50%);
-                                }
-                            }
-                            &__interval {
-                                position: absolute;
-                                z-index: 1;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 50px;
-                                background-color: $lightBlue;
-                            }
-                        }
-                        &__valuesInterval {
-                            display: flex;
-                            gap: 10px;
-                            &__value {
-                                padding-top: 5px;
-                                padding-bottom: 5px;
-                                width: 100%;
+                            display: grid;
+                            grid-gap: 10px;
+                            grid-template-columns: repeat(3, minmax(0px, 1fr));
+                            &__bank {
+                                display: flex;
+                                justify-content: center;
+                                padding: 10px;
                                 border-radius: 7px;
-                                background-color: #3D3D3D;
-                                font-size: 14px;
-                                font-weight: 300;
+                                background: rgb(61, 61, 61);
+                                border: 2px solid rgba(100, 100, 100, 0);
+                                cursor: pointer;
+                                transition: 0.08s;
+                                & img {
+                                    height: 25px;
+                                    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.2));
+                                    -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.2));
+                                }
+                                &_ukassa {
+                                    & img {
+                                        transform: scale(0.75);
+                                    }
+                                }
+                                &_mc {
+                                    & img {
+                                        transform: scale(1.2);
+                                    }
+                                }
+                                &_mir {
+                                    & img {
+                                        transform: scale(0.8);
+                                    }
+                                }
+                                &_visa {
+                                    & img {
+                                        transform: scale(0.9);
+                                    }
+                                }
+                                &:hover {
+                                    transform: scale(0.98);
+                                    background: rgb(71, 71, 71);
+                                }
+                                &:active {
+                                    transform: scale(0.95);
+                                }
+                                &_active {
+                                    border: 2px solid rgba(150, 150, 150, 1);
+                                }
                             }
                         }
                     }
@@ -1790,7 +1812,7 @@ header {
                     font-size: 16px;
                     cursor: pointer;
                 }
-                & img {
+                &__img {
                     height: 14px;
                     filter: invert(0.8);
                     transform: rotate(90deg);

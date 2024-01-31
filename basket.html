@@ -22,29 +22,8 @@
         <div class="basketContainer__gameList">
             <h2 class="txt">Корзина</h2>
             <div class="basketContainer__gameList__games">
-                <div class="basketContainer__gameList__games__game">
-					<div class="basketContainer__gameList__games__game__left">
-						<div class="basketContainer__gameList__games__game__left__imgBlock">
-							<img src="img/banners/farmsim.png" alt="">
-						</div>
-						<div class="basketContainer__gameList__games__game__left__nameBlock">
-							<div class="basketContainer__gameList__games__game__left__nameBlock__name">
-								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
-									<img src="img/icons/steamIcon29.png" alt="">
-								</div>
-								<div class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</div>
-							</div>
-							<a class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
-						</div>
-					</div>
-					<div class="basketContainer__gameList__games__game__right">
-						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
-						<div class="basketContainer__gameList__games__game__right__closeBlock">
-							<img src="img/icons/cross2_32.png" alt="">
-						</div>
-					</div>
-                </div>
 				<div class="basketContainer__gameList__games__game basketContainer__gameList__games__game_lastGame">
+					<div class="basketContainer__gameList__games__game__forHover"></div>
 					<div class="basketContainer__gameList__games__game__left">
 						<div class="basketContainer__gameList__games__game__left__imgBlock">
 							<img src="img/banners/farmsim.png" alt="">
@@ -54,14 +33,14 @@
 								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
 									<img src="img/icons/steamIcon29.png" alt="">
 								</div>
-								<div class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</div>
+								<a href="" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</a>
 							</div>
-							<a class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
+							<a href="" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
 						</div>
 					</div>
 					<div class="basketContainer__gameList__games__game__right">
 						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
-						<div class="basketContainer__gameList__games__game__right__closeBlock">
+						<div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(0)" onmouseover="hover_close_basket(0)" onmouseout="unhover_close_basket(0)">
 							<img src="img/icons/cross2_32.png" alt="">
 						</div>
 					</div>
@@ -76,17 +55,25 @@
 					<input type="text" class="txt" placeholder="Email">
 					<div class="basketContainer__info__totalBlock__nav">
 						<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
-						<img src="img/icons/arrRight32.png" alt="">
-						<div class="basketContainer__info__totalBlock__nav__border"></div>
-						<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_rangeFilter">
-							<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race">
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point_min"></div>
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__point_max"></div>
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__race__interval"></div>
-							</div>
-							<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval">
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">0</div>
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_rangeFilter__valuesInterval__value flex-center txt">1789</div>
+						<img class="basketContainer__info__totalBlock__nav__img" src="img/icons/arrRight32.png" alt="">
+						<div class="basketContainer__info__totalBlock__nav__border" onclick="open_paymentMethods()"></div>
+						<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
+							<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
+								<div onclick="chooseBank(0, 'mir')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
+									<img src="img/banks/mir.svg" alt="">
+								</div>
+								<div onclick="chooseBank(1, 'kiwi')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
+									<img src="img/banks/kiwi.svg" alt="">
+								</div>
+								<div onclick="chooseBank(2, 'visa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
+									<img src="img/banks/visa.svg" alt="">
+								</div>
+								<div onclick="chooseBank(3, 'ukassa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
+									<img src="img/banks/ukassa.svg" alt="">
+								</div>
+								<div onclick="chooseBank(4, 'master_card')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
+									<img src="img/banks/mc.svg" alt="">
+								</div>
 							</div>
 						</div>
 					</div>
