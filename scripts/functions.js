@@ -111,3 +111,21 @@ function chooseBank(n, nameBank) {
         document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
     }
 }
+
+function addInBasket() {
+    if (document.querySelector('.mainInfo__info__interactions__bottom__buttonBasket_active') != null) {
+        document.querySelector('.mainInfo__info__interactions__bottom__buttonBasket').classList.remove('mainInfo__info__interactions__bottom__buttonBasket_active');
+    }
+    else {
+        document.querySelector('.mainInfo__info__interactions__bottom__buttonBasket').classList.add('mainInfo__info__interactions__bottom__buttonBasket_active');
+    }
+}
+
+function addInFavorite() {
+    if (document.querySelector('.mainInfo__info__interactions__top__buttonFavorite_active') != null) {
+        document.querySelector('.mainInfo__info__interactions__top__buttonFavorite').classList.remove('mainInfo__info__interactions__top__buttonFavorite_active');
+    }
+    else {
+        document.querySelector('.mainInfo__info__interactions__top__buttonFavorite').classList.add('mainInfo__info__interactions__top__buttonFavorite_active');
+    }
+}
