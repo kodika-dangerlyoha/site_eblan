@@ -21,6 +21,7 @@ window.addEventListener("scroll", function(){
             if (checkOpen_miniGameCard == false) {
                 document.querySelector('.miniGameCard').style.display = "flex";
                 document.querySelector('#centerHeader_gameCard').style.opacity = "0";
+                document.querySelector('#centerHeader_gameCard').style.transform = "translateY(-40px)";
         
                 setTimeout(function() {
                     document.querySelector('#centerHeader_gameCard').style.display = "none";
@@ -31,7 +32,7 @@ window.addEventListener("scroll", function(){
                     document.querySelector('.miniGameCard').style.transform = "translateX(-50%) translateY(0px) scale(1)";
                     document.querySelector('.mainInfo').style.opacity = "0";
                     document.querySelector('.mainInfo').style.transform = "translateY(-100px) scale(0.6)";
-                }, 100);
+                }, 60);
                 checkOpen_miniGameCard = true;
             }
         }
@@ -47,11 +48,12 @@ window.addEventListener("scroll", function(){
                 
                 setTimeout(function() {
                     document.querySelector('.miniGameCard').style.display = "none";
-                }, 300)
+                }, 200)
         
                 setTimeout(function() {
-                    document.querySelector('#centerHeader_gameCard').style.opacity = "1";
-                }, 310)
+                document.querySelector('#centerHeader_gameCard').style.transform = "translateY(0px)";
+                document.querySelector('#centerHeader_gameCard').style.opacity = "1";
+                }, 210)
                 checkOpen_miniGameCard = false;
             }
         }

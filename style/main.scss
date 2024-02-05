@@ -2004,7 +2004,7 @@ header {
     margin-bottom: 20px;
     transform: translateY(0px) scale(1);
     opacity: 1;
-    transition: 0.3s;
+    transition: 0.2s;
     &__banner {
         width: 700px;
         height: 400px;
@@ -2532,7 +2532,7 @@ header {
     opacity: 0;
     justify-content: space-between;
     align-items: center;
-    transition: 0.3s;
+    transition: 0.2s;
     &__left {
         display: flex;
         align-items: center;
@@ -2666,5 +2666,6 @@ header {
 }
 
 #centerHeader_gameCard {
+    transform: translateY(0px);
     transition: 0.15s;
 }
