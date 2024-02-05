@@ -236,6 +236,7 @@ header {
             transition: 0.15s;
         }
         &__text {
+            transform: translateY(-1px);
             position: relative;
             z-index: 2;
             cursor: pointer;
@@ -260,6 +261,10 @@ header {
             font-family: robotoFlex;
             font-size: 16px;
             color: rgb(255, 255, 255);
+            transition: 0.15s;
+            &:hover {
+                background-color: rgba(186, 186, 186, 70%);
+            }
             &:focus {
                 background-color: rgb(156, 156, 156);
             }
