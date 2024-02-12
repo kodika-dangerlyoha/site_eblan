@@ -38,33 +38,35 @@ function openCatalogNavs() {
     }
 }
 
+function close_filter(z, n) {
+    document.querySelectorAll('.filters__floating__nav__floatBlock')[z].style.display = "none";
+    document.querySelectorAll('.filters__floating__nav__border')[z].style.opacity = "0";
+    document.querySelectorAll('.filters__floating__nav')[z].style.borderRadius = "7px 7px 7px 7px";
+    check_open_filters.splice(n, 1);
+    // console.log("close");
+}
+
 function open_filter(z) {
-    // let oldZ = 0;
     let checkOpen = false;
     for (let i = 0; i < check_open_filters.length; i++) {
         if (check_open_filters[i] == z) {
             checkOpen = true;
-            check_open_filters.splice(i, 1);
+            close_filter(z, i);
         }
     }
 
-    if (checkOpen) {
-        document.querySelectorAll('.filters__floating__nav__floatBlock')[z].style.display = "none";
-        document.querySelectorAll('.filters__floating__nav__border')[z].style.opacity = "0";
-        document.querySelectorAll('.filters__floating__nav')[z].style.borderRadius = "7px 7px 7px 7px";
-    }
-    else {
-        // document.querySelectorAll('.filters__floating__nav__floatBlock')[oldZ].style.display = "none";
-        // document.querySelectorAll('.filters__floating__nav__border')[oldZ].style.opacity = "0";
-        // document.querySelectorAll('.filters__floating__nav')[oldZ].style.borderRadius = "7px 7px 7px 7px";
+    if (checkOpen == false) {
+
+        for (let i = 0; i < check_open_filters.length; i++) {
+            close_filter(check_open_filters[i], i);
+        }
 
         document.querySelectorAll('.filters__floating__nav__floatBlock')[z].style.display = "block";
         document.querySelectorAll('.filters__floating__nav__border')[z].style.opacity = "1";
         document.querySelectorAll('.filters__floating__nav')[z].style.borderRadius = "7px 7px 0px 0px";
         check_open_filters.push(z);
     }
-    // oldZ = z;
-    console.log(check_open_filters);
+    // console.log(check_open_filters);
 }
 
 function basket_checkBox_click() {

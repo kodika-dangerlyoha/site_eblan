@@ -770,9 +770,16 @@ header {
                 height: 3px;
                 border-radius: 2px;
                 background: transparent;
+                transition: 0.15s;
                 &_active {
                     background: $lightBlue;
+                    &:hover {
+                        background: $lightBlue;
+                    }
                 }
+            }
+            &:hover &__strip{
+                background: rgb(255, 255, 255);
             }
         }
     }
@@ -2353,9 +2360,16 @@ header {
             height: 3px;
             border-radius: 2px;
             background: transparent;
+            transition: 0.15s;
             &_active {
                 background: $lightBlue;
+                &:hover {
+                    background: $lightBlue;
+                }
             }
+        }
+        &:hover &__strip{
+            background: rgb(255, 255, 255);
         }
     }
 }
