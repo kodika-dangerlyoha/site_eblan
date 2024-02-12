@@ -1689,9 +1689,25 @@ header {
                     bottom: 0;
                     right: -30px;
                     left: -30px;
-                    background: linear-gradient(to right, rgba(1, 162, 255, 0.2), transparent);
                     opacity: 0;
                     transition: 0.15s;
+                    &__bg {
+                        position: absolute;
+                        z-index: 1;
+                        top: 0;
+                        bottom: 0;
+                        right: -30px;
+                        left: -30px;
+                        transition: 0.15s;
+                        &_blue {
+                            background: linear-gradient(to right, rgba(1, 162, 255, 0.2), transparent);
+                            opacity: 1;
+                        }
+                        &_red {
+                            background: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.23));
+                            opacity: 0;
+                        }
+                    }
                 }
                 &:hover &__forHover{
                     opacity: 1;
@@ -1712,25 +1728,106 @@ header {
                 display: flex;
                 flex-direction: column;
                 justify-content: start;
-                & input {
-                    display: block;
-                    height: 50px;
-                    border-radius: 7px;
-                    border: 2px solid #3D3D3D;
-                    background: rgb(36, 36, 36);
-                    padding-left: 17px;
-                    font-size: 16px;
-                    outline: none;
-                    cursor: text;
-                    margin-bottom: 10px;
-                    transition: 0.15s;
-                    &:focus {
-                        border: 2px solid #6C6C6C;
+                & .for-input {
+                    position: relative;
+                    z-index: 1;
+                    & input {
+                        display: block;
+                        box-sizing: border-box;
+                        height: 56px;
+                        width: 100%;
+                        border-radius: 7px;
+                        border: 2px solid #3D3D3D;
+                        background: rgb(36, 36, 36);
+                        padding-left: 17px;
+                        font-size: 16px;
+                        outline: none;
+                        cursor: text;
+                        margin-bottom: 10px;
+                        transition: 0.15s;
+                        &:focus {
+                            border: 2px solid #6C6C6C;
+                        }
+                    }
+                    &__questionIconBlock {
+                        position: absolute;
+                        top: 0;
+                        height: 56px;
+                        right: 17px;
+                        display: flex;
+                        align-items: center;
+                        &__icon {
+                            height: 25px;
+                            width: 25px;
+                            border-radius: 50%;
+                            border: 2px solid rgb(61, 61, 61);
+                            cursor: help;
+                            & img {
+                                filter: invert(0.8);
+                                width: 16px;
+                            }
+                        }
+                    }
+                    &__notification {
+                        position: absolute;
+                        top: 50%;
+                        left: calc(100% + 12px);
+                        width: 220px;
+                        padding: 10px;
+                        border: 3px solid rgb(134, 58, 58);
+                        border-radius: 7px;
+                        background-color: rgb(50, 50, 50);
+                        transform: translateY(calc(-50% - 5px));
+                        display: none;
+                        &_gray {
+                            border: 3px solid $colorBody;
+                        }
+                        &__heading {
+                            margin-bottom: 5px;
+                            font-size: 12px;
+                            font-weight: 500;
+                        }
+                        &__info {
+                            color: rgb(237, 237, 237);                      
+                            font-size: 12px;
+                            font-weight: 300;
+                        }
+                        &__triangleForm {
+                            box-sizing: content-box;
+                            position: absolute;
+                            z-index: 1;
+                            left: 0;
+                            top: 50%;
+                            left: -12px;
+                            transform: rotate(45deg) translateY(-50%);
+                            height: 6px;
+                            width: 6px;
+                            border: 3px solid rgb(134, 58, 58);
+                            background-color: rgb(50, 50, 50);
+                            &_gray {
+                                border: 3px solid $colorBody;
+                            }
+                        }
+                        &__hideTriangle {
+                            position: absolute;
+                            z-index: 2;
+                            left: 0;
+                            top: 50%;
+                            left: -8px;
+                            transform: rotate(45deg) translateY(-50%);
+                            height: 12px;
+                            width: 12px;
+                            background-color: rgb(50, 50, 50);
+                        }
+                    }
+                    &:nth-child(3) {
+                        z-index: 2;
                     }
                 }
             }
             &__nav {
                 position: relative;
+                z-index: 2;
                 height: 56px;
                 border-radius: 7px;
                 border: 2px solid #3D3D3D;

@@ -83,10 +83,13 @@ function basket_checkBox_click() {
 }
 
 function hover_close_basket(n) {
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover')[n].style.background = "linear-gradient(to right, transparent, rgba(255, 0, 0, 0.23))";
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_blue')[n].style.opacity = "0";
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_red')[n].style.opacity = "1";
 }
+
 function unhover_close_basket(n) {
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover')[n].style.background = "linear-gradient(to right, rgba(1, 162, 255, 0.2), transparent)";
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_blue')[n].style.opacity = "1";
+    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_red')[n].style.opacity = "0";
 }
 
 function open_paymentMethods() {
@@ -130,4 +133,12 @@ function addInFavorite() {
     else {
         document.querySelector('.mainInfo__info__interactions__top__buttonFavorite').classList.add('mainInfo__info__interactions__top__buttonFavorite_active');
     }
+}
+
+function open_notification(n) {
+    document.querySelectorAll('.for-input__notification')[n].style.display = "block";
+}
+
+function close_notification(n) {
+    document.querySelectorAll('.for-input__notification')[n].style.display = "none";
 }
