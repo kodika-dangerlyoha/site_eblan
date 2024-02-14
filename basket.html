@@ -79,9 +79,9 @@
         <div class="basketContainer__info">
             <h2 class="txt">Итого</h2>
 			<div class="basketContainer__info__totalBlock">
-				<form action="">
+				<form action="" name="buy">
 					<div class="for-input">
-						<input type="text" class="txt" placeholder="Трейд ссылка">
+						<input type="text" class="txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification(1)">
 						<div class="for-input__questionIconBlock">
 							<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notification(0)" onmouseout="close_notification(0)">
 								<img src="img/icons/question16.png" alt="">
@@ -93,12 +93,18 @@
 							<div class="for-input__notification__triangleForm for-input__notification__triangleForm_gray"></div>
 							<div class="for-input__notification__hideTriangle"></div>
 						</div>
+						<div class="for-input__notification">
+							<div class="for-input__notification__heading txt">Укажите трейд ссылку</div>
+							<!-- <div class="for-input__notification__info txt">Укажите вашу трейд ссылку для продолжения покупки</div> -->
+							<div class="for-input__notification__triangleForm"></div>
+							<div class="for-input__notification__hideTriangle"></div>
+						</div>
 					</div>
 					<div class="for-input">
-						<input type="text" class="txt" placeholder="Email">
+						<input type="text" class="txt" placeholder="Email" name="input_email" onclick="close_notification(2)">
 						<div class="for-input__notification">
 							<div class="for-input__notification__heading txt">Укажите Email</div>
-							<div class="for-input__notification__info txt">Укажите свой Email для продолжения покупки</div>
+							<!-- <div class="for-input__notification__info txt">Укажите свой Email для продолжения покупки</div> -->
 							<div class="for-input__notification__triangleForm"></div>
 							<div class="for-input__notification__hideTriangle"></div>
 						</div>
@@ -130,16 +136,16 @@
 						</div>
 						<div class="for-input__notification">
 							<div class="for-input__notification__heading txt">Выберите способ оплаты</div>
-							<div class="for-input__notification__info txt">Выберите способ оплаты для продолжения покупки</div>
+							<!-- <div class="for-input__notification__info txt">Выберите способ оплаты для продолжения покупки</div> -->
 							<div class="for-input__notification__triangleForm"></div>
 							<div class="for-input__notification__hideTriangle"></div>
 						</div>
 					</div>
 					<div class="for-input">
-						<input type="text" class="txt" placeholder="Промокод">
+						<input type="text" class="txt" placeholder="Промокод" name="input_promocode" onclick="close_notification(4)">
 						<div class="for-input__notification">
 							<div class="for-input__notification__heading txt">Промокод недействителен</div>
-							<div class="for-input__notification__info txt">Недействительные промокоды не могут быть использованы при покупке</div>
+							<!-- <div class="for-input__notification__info txt">Недействительные промокоды не могут быть использованы при покупке</div> -->
 							<div class="for-input__notification__triangleForm"></div>
 							<div class="for-input__notification__hideTriangle"></div>
 						</div>
@@ -158,10 +164,10 @@
 						<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
 						<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
 					</div>
-					<button class="basketContainer__info__totalBlock__buyButton">
+					<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
 						<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
 						<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
-					</button>
+					</div>
 					<div class="basketContainer__info__totalBlock__agreeBlock">
 						<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">
 							<div class="basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark" id="basket_checkMark">

@@ -1561,7 +1561,7 @@ header {
             cursor: pointer;
             transition: 0.1s;
             &:hover {
-                transform: scale(0.98);
+                background-color: rgba(45, 45, 45, 1);
             }
             &:active {
                 transform: scale(0.95);
@@ -1770,6 +1770,7 @@ header {
                     }
                     &__notification {
                         position: absolute;
+                        z-index: 1;
                         top: 50%;
                         left: calc(100% + 12px);
                         width: 220px;
@@ -1778,13 +1779,14 @@ header {
                         border-radius: 7px;
                         background-color: rgb(50, 50, 50);
                         transform: translateY(calc(-50% - 5px));
-                        display: none;
+                        visibility: hidden;
                         &_gray {
                             border: 3px solid $colorBody;
+                            z-index: 2;
                         }
                         &__heading {
-                            margin-bottom: 5px;
-                            font-size: 12px;
+                            margin: 0;
+                            font-size: 14px;
                             font-weight: 500;
                         }
                         &__info {

@@ -58,6 +58,6 @@ window.addEventListener("scroll", function(){
             }
         }
     }
-})
+});
 
 makeOffers_index();

@@ -25,6 +25,7 @@ function openCatalogNavs() {
             document.querySelector('.blackoutBlock').style.display = "none";
             document.querySelector('.centerBlock__catalogNavsBlock').style.display = "none";
         }, 160)
+        document.body.style.overflow = "auto";
         check_open_catalogNavs = false;
     }
     else {
@@ -34,6 +35,7 @@ function openCatalogNavs() {
             document.querySelector('.blackoutBlock').classList.add('blackoutBlock_active');
             document.querySelector('.centerBlock__catalogNavsBlock').classList.add('centerBlock__catalogNavsBlock_active');
         }, 10)
+        document.body.style.overflow = "hidden";
         check_open_catalogNavs = true;
     }
 }
@@ -111,9 +113,15 @@ function chooseBank(n, nameBank) {
     if (document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active') != null) {
         document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active').classList.remove('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
         document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+        selected_paymentMethod = nameBank;
+        close_notification(3);
+        console.log(nameBank);
     }
     else {
         document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+        selected_paymentMethod = nameBank;
+        close_notification(3);
+        console.log(nameBank);
     }
 }
 
@@ -136,9 +144,44 @@ function addInFavorite() {
 }
 
 function open_notification(n) {
-    document.querySelectorAll('.for-input__notification')[n].style.display = "block";
+    document.querySelectorAll('.for-input__notification')[n].style.visibility = "visible";
 }
 
 function close_notification(n) {
-    document.querySelectorAll('.for-input__notification')[n].style.display = "none";
+    document.querySelectorAll('.for-input__notification')[n].style.visibility = "hidden";
+}
+
+function goBuy() {
+    let promocodeActive = 'notselected';
+    let checkFalseValue = 0;
+    if (buyForm.input_tradeLink.value == "") {
+        open_notification(1);
+        checkFalseValue++;
+    }
+    if (buyForm.input_email.value == "") {
+        open_notification(2);
+        checkFalseValue++;
+    }
+    if (selected_paymentMethod == "notselected") {
+        open_notification(3);
+        checkFalseValue++;
+    }
+    if (buyForm.input_promocode.value != "") {
+        promocodeActive = 'incorrect';
+        promocodes.forEach(elem => {
+            if (elem.promoNumber == buyForm.input_promocode.value) {
+                promocodeActive = 'correct';
+            }
+        });
+        if (promocodeActive == 'incorrect') {
+            open_notification(4);
+            checkFalseValue++;
+        }
+    }
+
+    if (checkFalseValue == 0) {
+        console.log('buy');
+    }
+
+    console.log(checkFalseValue);
 }
