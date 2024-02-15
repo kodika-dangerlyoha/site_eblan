@@ -94,7 +94,7 @@
 			<div class="navs__nav">
 				<img src="img/icons/basket64.png" alt="">
 			</div>
-			<div class="navs__nav">
+			<div class="navs__nav" onclick="open_authorization()">
 				<img src="img/icons/user64.png" alt="">
 			</div>
 			<div class="navs__nav">
@@ -103,7 +103,53 @@
 		</div>
 	</header>
 
-	<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
+	<div class="blackoutBlock fixed-zero" onclick="openCatalogNavs()"></div>
+
+	<div class="authorization fixed-zero">
+		<div class="authorization__block authorization__block_logIn">
+			<h2 class="txt">Вход</h2>
+			<form action="" name="logIn">
+				<input class="def-input txt" type="email" name="email" placeholder="Email">
+				<input class="def-input txt" type="password" name="password" placeholder="Пароль">
+				<button class="txt">
+					<div class="text txt">Войти</div>
+					<div class="forHover absolute-zero"></div>
+				</button>
+			</form>
+			<div class="authorization__block__otherWays">
+				<div class="authorization__block__otherWays__nav txt" onclick="openRegistration()">Нет аккаунта</div>
+				<div class="authorization__block__otherWays__nav txt">Забыли пароль</div>
+			</div>
+			<div class="authorization__block__separator">
+				<div class="authorization__block__separator__strip"></div>
+				<div class="authorization__block__separator__text txt">или</div>
+				<div class="authorization__block__separator__strip"></div>
+			</div>
+			<div class="authorization__block__steamButton">
+				<img src="img/logo/steamLogoWText.png" alt="">
+			</div>
+		</div>
+		<div class="authorization__block authorization__block_registration">
+			<h2 class="txt">Регистрация</h2>
+			<form action="" name="registration">
+				<input class="def-input txt" type="email" name="email" placeholder="Email">
+				<input class="def-input txt" type="password" name="password" placeholder="Пароль">
+				<input class="def-input txt" type="password" name="repeat_password" placeholder="Подтвердите пароль">
+				<button class="txt">
+					<div class="text txt">Зарегистрироваться</div>
+					<div class="forHover absolute-zero"></div>
+				</button>
+			</form>
+			<div class="authorization__block__separator">
+				<div class="authorization__block__separator__strip"></div>
+				<div class="authorization__block__separator__text txt">или</div>
+				<div class="authorization__block__separator__strip"></div>
+			</div>
+			<div class="authorization__block__steamButton">
+				<img src="img/logo/steamLogoWText.png" alt="">
+			</div>
+		</div>
+	</div>
 
 	<div class="banner">
 		<div class="banner__imgBlock absolute-zero">

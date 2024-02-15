@@ -6,12 +6,7 @@ $colorBody: rgba(39, 39, 39, 1);
 $redGradient: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
 
 .blackoutBlock {
-    position: fixed;
     z-index: 45;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: rgba(0, 0, 0, 0.5);
     transition: 0.15s;
 
@@ -1732,22 +1727,7 @@ header {
                     position: relative;
                     z-index: 1;
                     & input {
-                        display: block;
-                        box-sizing: border-box;
-                        height: 56px;
-                        width: 100%;
-                        border-radius: 7px;
-                        border: 2px solid #3D3D3D;
-                        background: rgb(36, 36, 36);
-                        padding-left: 17px;
-                        font-size: 16px;
-                        outline: none;
-                        cursor: text;
-                        margin-bottom: 10px;
-                        transition: 0.15s;
-                        &:focus {
-                            border: 2px solid #6C6C6C;
-                        }
+
                     }
                     &__questionIconBlock {
                         position: absolute;
@@ -2786,4 +2766,127 @@ header {
 #centerHeader_gameCard {
     transform: translateY(0px);
     transition: 0.15s;
+}
+
+// ---------------------------- authorization
+
+.authorization {
+    display: none; // flex
+    justify-content: center;
+    align-items: center;
+    z-index: 60;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: .15s;
+    &__block {
+        width: 430px;
+        & h2 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        & form {
+            width: 100%;
+            margin-bottom: 10px;
+            & input {
+                margin-bottom: 15px;
+            }
+            & button {
+                position: relative;
+                background: $mainGradient_100;
+                border-radius: 7px;
+                overflow: hidden;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin-bottom: 0;
+                border: none;
+                cursor: pointer;
+                transition: 0.15s;
+                width: 100%;
+                & .text {
+                    font-size: 18px;
+                    font-weight: 600;
+                    position: relative;
+                    z-index: 2;
+                    text-align: center;
+                    cursor: pointer;
+                }
+                & .forHover {
+                    z-index: 1;
+                    background-color: $lightBlue;
+                    opacity: 0;
+                    transition: 0.15s;
+                }
+                &:hover .forHover{
+                    opacity: 1;
+                }
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+        }
+        &__otherWays {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            &__nav {
+                font-size: 14px;
+                font-weight: 300;
+                color: rgb(220, 220, 220);
+                transition: .15s;
+                cursor: pointer;
+                &:hover {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+        &__separator {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            &__strip {
+                height: 1px;
+                width: 100%;
+                background-color: rgb(150, 150, 150);
+            }
+            &__text {
+                margin-right: 5px;
+                margin-left: 5px;
+                font-size: 12px;
+                color: rgb(180, 180, 180);
+                transform: translateY(-2px);
+            }
+        }
+        &__steamButton {
+            background-color: rgb(61, 61, 61);
+            border-radius: 7px;
+            overflow: hidden;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+            border: none;
+            cursor: pointer;
+            transition: 0.15s;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 0 20px -5px rgba(0, 0, 0, .5);
+            & img {
+                height: 25px;
+                filter: invert(1);
+            }
+            &:hover {
+                background-color: rgb(55, 55, 55);
+            }
+        }
+        &_logIn {
+            display: block;
+        }
+        &_registration {
+            display: none;
+        }
+    }
 }

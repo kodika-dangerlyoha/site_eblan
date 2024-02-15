@@ -6,6 +6,7 @@ let check_open_filters = [];
 let check_active_basket_checkBox = false;
 let check_open_paymentMethods = false;
 let checkOpen_miniGameCard = false;
+let check_open_authorization = false;
 let selected_paymentMethod = "notselected";
 const promocodes = [
     {

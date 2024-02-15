@@ -55,3 +55,23 @@ div {
 
 	transition: 1s;
 }
+
+.def-input {
+	display: block;
+	box-sizing: border-box;
+	height: 56px;
+	width: 100%;
+	border-radius: 7px;
+	border: 2px solid #3D3D3D;
+	background: rgb(36, 36, 36);
+	padding-left: 17px;
+	font-size: 16px;
+	outline: none;
+	cursor: text;
+	margin-bottom: 10px;
+	transition: 0.15s;
+}
+
+.def-input:focus {
+	border: 2px solid #6C6C6C;
+}
