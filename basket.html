@@ -8,221 +8,244 @@
 	<link rel="stylesheet" href="style\style.css">
 </head>
 <body class="bodySearch">
-
-	<header class="basket_header" id="header">
-		<div id="header__bg"></div>
-		<div class="logoBlock">
-			<img class="logo" src="img/logo/logo.png" alt="">
-		</div>
-	</header>
-
-	<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
-
-    <div class="basketContainer">
-        <div class="basketContainer__gameList">
-            <h2 class="txt">Корзина</h2>
-            <div class="basketContainer__gameList__games">
-				<div class="basketContainer__gameList__games__game">
-					<div class="basketContainer__gameList__games__game__forHover">
-						<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
-						<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
-					</div>
-					<div class="basketContainer__gameList__games__game__left">
-						<div class="basketContainer__gameList__games__game__left__imgBlock">
-							<img src="img/banners/farmsim.png" alt="">
-						</div>
-						<div class="basketContainer__gameList__games__game__left__nameBlock">
-							<div class="basketContainer__gameList__games__game__left__nameBlock__name">
-								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
-									<img src="img/icons/steamIcon29.png" alt="">
+	<div class="forFullHeightScreen">
+		<div class="forFullHeightScreen__top">
+			<header class="basket_header" id="header">
+				<div id="header__bg"></div>
+				<div class="logoBlock">
+					<img class="logo" src="img/logo/logo.png" alt="">
+				</div>
+			</header>
+		
+			<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
+		
+			<div class="basketContainer">
+				<div class="basketContainer__gameList">
+					<h2 class="txt">Корзина</h2>
+					<div class="basketContainer__gameList__games">
+						<div class="basketContainer__gameList__games__game">
+							<div class="basketContainer__gameList__games__game__forHover">
+								<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
+								<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
+							</div>
+							<div class="basketContainer__gameList__games__game__left">
+								<div class="basketContainer__gameList__games__game__left__imgBlock">
+									<img src="img/banners/farmsim.png" alt="">
 								</div>
-								<a href="" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</a>
-							</div>
-							<a href="" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
-						</div>
-					</div>
-					<div class="basketContainer__gameList__games__game__right">
-						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
-						<div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(0)" onmouseover="hover_close_basket(0)" onmouseout="unhover_close_basket(0)">
-							<img src="img/icons/cross2_32.png" alt="">
-						</div>
-					</div>
-                </div>
-				<div class="basketContainer__gameList__games__game basketContainer__gameList__games__game_lastGame">
-					<div class="basketContainer__gameList__games__game__forHover">
-						<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
-						<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
-					</div>
-					<div class="basketContainer__gameList__games__game__left">
-						<div class="basketContainer__gameList__games__game__left__imgBlock">
-							<img src="img/banners/farmsim.png" alt="">
-						</div>
-						<div class="basketContainer__gameList__games__game__left__nameBlock">
-							<div class="basketContainer__gameList__games__game__left__nameBlock__name">
-								<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
-									<img src="img/icons/steamIcon29.png" alt="">
+								<div class="basketContainer__gameList__games__game__left__nameBlock">
+									<div class="basketContainer__gameList__games__game__left__nameBlock__name">
+										<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
+											<img src="img/icons/steamIcon29.png" alt="">
+										</div>
+										<a href="" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</a>
+									</div>
+									<a href="" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
 								</div>
-								<a href="" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</a>
 							</div>
-							<a href="" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
-						</div>
-					</div>
-					<div class="basketContainer__gameList__games__game__right">
-						<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
-						<div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(1)" onmouseover="hover_close_basket(1)" onmouseout="unhover_close_basket(1)">
-							<img src="img/icons/cross2_32.png" alt="">
-						</div>
-					</div>
-                </div>
-            </div>
-        </div>
-        <div class="basketContainer__info">
-            <h2 class="txt">Итого</h2>
-			<div class="basketContainer__info__totalBlock">
-				<form action="" name="buy">
-					<div class="for-input">
-						<input type="text" class="def-input txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification(1)">
-						<div class="for-input__questionIconBlock">
-							<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notification(0)" onmouseout="close_notification(0)">
-								<img src="img/icons/question16.png" alt="">
-							</div>
-						</div>
-						<div class="for-input__notification for-input__notification_gray">
-							<div class="for-input__notification__heading txt">Ваша трейд-ссылка в Steam</div>
-							<div class="for-input__notification__info txt">Ваш профиль > Инвентарь > предложения обмена > Кто может отправлять мне предложения обмена?</div>
-							<div class="for-input__notification__triangleForm for-input__notification__triangleForm_gray"></div>
-							<div class="for-input__notification__hideTriangle"></div>
-						</div>
-						<div class="for-input__notification">
-							<div class="for-input__notification__heading txt">Укажите трейд ссылку</div>
-							<!-- <div class="for-input__notification__info txt">Укажите вашу трейд ссылку для продолжения покупки</div> -->
-							<div class="for-input__notification__triangleForm"></div>
-							<div class="for-input__notification__hideTriangle"></div>
-						</div>
-					</div>
-					<div class="for-input">
-						<input type="email" class="def-input txt" placeholder="Email" name="input_email" onclick="close_notification(2)">
-						<div class="for-input__notification">
-							<div class="for-input__notification__heading txt">Укажите Email</div>
-							<!-- <div class="for-input__notification__info txt">Укажите свой Email для продолжения покупки</div> -->
-							<div class="for-input__notification__triangleForm"></div>
-							<div class="for-input__notification__hideTriangle"></div>
-						</div>
-					</div>
-					<div class="for-input">
-						<div class="basketContainer__info__totalBlock__nav">
-							<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
-							<img class="basketContainer__info__totalBlock__nav__img" src="img/icons/arrRight32.png" alt="">
-							<div class="basketContainer__info__totalBlock__nav__border" onclick="open_paymentMethods()"></div>
-							<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
-								<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
-									<div onclick="chooseBank(0, 'mir')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
-										<img src="img/banks/mir.svg" alt="">
-									</div>
-									<div onclick="chooseBank(1, 'kiwi')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
-										<img src="img/banks/kiwi.svg" alt="">
-									</div>
-									<div onclick="chooseBank(2, 'visa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
-										<img src="img/banks/visa.svg" alt="">
-									</div>
-									<div onclick="chooseBank(3, 'ukassa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
-										<img src="img/banks/ukassa.svg" alt="">
-									</div>
-									<div onclick="chooseBank(4, 'master_card')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
-										<img src="img/banks/mc.svg" alt="">
-									</div>
+							<div class="basketContainer__gameList__games__game__right">
+								<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
+								<div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(0)" onmouseover="hover_close_basket(0)" onmouseout="unhover_close_basket(0)">
+									<img src="img/icons/cross2_32.png" alt="">
 								</div>
 							</div>
 						</div>
-						<div class="for-input__notification">
-							<div class="for-input__notification__heading txt">Выберите способ оплаты</div>
-							<!-- <div class="for-input__notification__info txt">Выберите способ оплаты для продолжения покупки</div> -->
-							<div class="for-input__notification__triangleForm"></div>
-							<div class="for-input__notification__hideTriangle"></div>
-						</div>
-					</div>
-					<div class="for-input">
-						<input type="text" class="def-input txt" placeholder="Промокод" name="input_promocode" onclick="close_notification(4)">
-						<div class="for-input__notification">
-							<div class="for-input__notification__heading txt">Промокод недействителен</div>
-							<!-- <div class="for-input__notification__info txt">Недействительные промокоды не могут быть использованы при покупке</div> -->
-							<div class="for-input__notification__triangleForm"></div>
-							<div class="for-input__notification__hideTriangle"></div>
-						</div>
-					</div>
-					<div class="basketContainer__info__totalBlock__calcPrice">
-						<div class="basketContainer__info__totalBlock__calcPrice__oldPrice">
-							<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__this txt">Оффициальная цена</div>
-							<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__value txt">5620 ₽</div>
-						</div>
-						<div class="basketContainer__info__totalBlock__calcPrice__discount">
-							<div class="basketContainer__info__totalBlock__calcPrice__discount__this txt">Скидка</div>
-							<div class="basketContainer__info__totalBlock__calcPrice__discount__value txt">26%</div>
-						</div>
-					</div>
-					<div class="basketContainer__info__totalBlock__totalPrice txt">
-						<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
-						<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
-					</div>
-					<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
-						<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
-						<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
-					</div>
-					<div class="basketContainer__info__totalBlock__agreeBlock">
-						<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">
-							<div class="basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark" id="basket_checkMark">
-								<img src="img/icons/check16.png" alt="">
+						<div class="basketContainer__gameList__games__game basketContainer__gameList__games__game_lastGame">
+							<div class="basketContainer__gameList__games__game__forHover">
+								<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
+								<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
+							</div>
+							<div class="basketContainer__gameList__games__game__left">
+								<div class="basketContainer__gameList__games__game__left__imgBlock">
+									<img src="img/banners/farmsim.png" alt="">
+								</div>
+								<div class="basketContainer__gameList__games__game__left__nameBlock">
+									<div class="basketContainer__gameList__games__game__left__nameBlock__name">
+										<div class="basketContainer__gameList__games__game__left__nameBlock__name__platformImg">
+											<img src="img/icons/steamIcon29.png" alt="">
+										</div>
+										<a href="" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">Call Of Thunder 2</a>
+									</div>
+									<a href="" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
+								</div>
+							</div>
+							<div class="basketContainer__gameList__games__game__right">
+								<div class="basketContainer__gameList__games__game__right__price txt">1499 ₽</div>
+								<div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(1)" onmouseover="hover_close_basket(1)" onmouseout="unhover_close_basket(1)">
+									<img src="img/icons/cross2_32.png" alt="">
+								</div>
 							</div>
 						</div>
-						<div class="basketContainer__info__totalBlock__agreeBlock__label txt">Я согласен с Условиями и <a href="">политикой конфиденциальности</a></div>
 					</div>
-				</form>
-			</div>
-        </div>
-    </div>
-
-	<footer class="footer">
-		<div class="footer__top">
-			<div class="footer__top__logo">
-				<img src="img/logo/logo.png" alt="">
-			</div>
-			<div class="footer__top__links">
-				<div class="footer__top__links__column">
-					<h4 class="txt">Категории</h4>
-					<div class="footer__top__links__column__nav txt">Хиты продаж</div>
-					<div class="footer__top__links__column__nav txt">Новинки</div>
-					<div class="footer__top__links__column__nav txt">Ожидаемое</div>
 				</div>
-				<div class="footer__top__links__column">
-					<h4 class="txt">Помощь</h4>
-					<div class="footer__top__links__column__nav txt">FAQ</div>
-					<div class="footer__top__links__column__nav txt">Гарантии</div>
-					<div class="footer__top__links__column__nav txt">Контакты</div>
+				<div class="basketContainer__info">
+					<h2 class="txt" id="basketInfo_h2">Итого</h2>
+					<div class="basketContainer__info__totalBlock">
+						<form class="basketContainer__info__totalBlock__basketBlock" action="" name="buy">
+							<div class="for-input">
+								<input type="text" class="def-input txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification(1)">
+								<div class="for-input__questionIconBlock">
+									<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notification(0)" onmouseout="close_notification(0)">
+										<img src="img/icons/question16.png" alt="">
+									</div>
+								</div>
+								<div class="for-input__notification for-input__notification_gray">
+									<div class="for-input__notification__heading txt">Ваша трейд-ссылка в Steam</div>
+									<div class="for-input__notification__info txt">Ваш профиль > Инвентарь > предложения обмена > Кто может отправлять мне предложения обмена?</div>
+									<div class="for-input__notification__triangleForm for-input__notification__triangleForm_gray"></div>
+									<div class="for-input__notification__hideTriangle"></div>
+								</div>
+								<div class="for-input__notification">
+									<div class="for-input__notification__heading txt">Укажите трейд ссылку</div>
+									<!-- <div class="for-input__notification__info txt">Укажите вашу трейд ссылку для продолжения покупки</div> -->
+									<div class="for-input__notification__triangleForm"></div>
+									<div class="for-input__notification__hideTriangle"></div>
+								</div>
+							</div>
+							<div class="for-input">
+								<input type="email" class="def-input txt" placeholder="Email" name="input_email" onclick="close_notification(2)">
+								<div class="for-input__notification">
+									<div class="for-input__notification__heading txt">Укажите Email</div>
+									<!-- <div class="for-input__notification__info txt">Укажите свой Email для продолжения покупки</div> -->
+									<div class="for-input__notification__triangleForm"></div>
+									<div class="for-input__notification__hideTriangle"></div>
+								</div>
+							</div>
+							<div class="for-input">
+								<div class="basketContainer__info__totalBlock__nav">
+									<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
+									<img class="basketContainer__info__totalBlock__nav__img" src="img/icons/arrRight32.png" alt="">
+									<div class="basketContainer__info__totalBlock__nav__border" onclick="open_paymentMethods()"></div>
+									<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
+										<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
+											<div onclick="chooseBank(0, 'mir')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
+												<img src="img/banks/mir.svg" alt="">
+											</div>
+											<div onclick="chooseBank(1, 'kiwi')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
+												<img src="img/banks/kiwi.svg" alt="">
+											</div>
+											<div onclick="chooseBank(2, 'visa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
+												<img src="img/banks/visa.svg" alt="">
+											</div>
+											<div onclick="chooseBank(3, 'ukassa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
+												<img src="img/banks/ukassa.svg" alt="">
+											</div>
+											<div onclick="chooseBank(4, 'master_card')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
+												<img src="img/banks/mc.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="for-input__notification">
+									<div class="for-input__notification__heading txt">Выберите способ оплаты</div>
+									<!-- <div class="for-input__notification__info txt">Выберите способ оплаты для продолжения покупки</div> -->
+									<div class="for-input__notification__triangleForm"></div>
+									<div class="for-input__notification__hideTriangle"></div>
+								</div>
+							</div>
+							<div class="for-input">
+								<input type="text" class="def-input txt" placeholder="Промокод" name="input_promocode" onclick="close_notification(4)">
+								<div class="for-input__notification">
+									<div class="for-input__notification__heading txt">Промокод недействителен</div>
+									<!-- <div class="for-input__notification__info txt">Недействительные промокоды не могут быть использованы при покупке</div> -->
+									<div class="for-input__notification__triangleForm"></div>
+									<div class="for-input__notification__hideTriangle"></div>
+								</div>
+							</div>
+							<div class="basketContainer__info__totalBlock__calcPrice">
+								<div class="basketContainer__info__totalBlock__calcPrice__oldPrice">
+									<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__this txt">Оффициальная цена</div>
+									<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__value txt">5620 ₽</div>
+								</div>
+								<div class="basketContainer__info__totalBlock__calcPrice__discount">
+									<div class="basketContainer__info__totalBlock__calcPrice__discount__this txt">Скидка</div>
+									<div class="basketContainer__info__totalBlock__calcPrice__discount__value txt">26%</div>
+								</div>
+							</div>
+							<div class="basketContainer__info__totalBlock__totalPrice txt">
+								<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
+								<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
+							</div>
+							<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
+								<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
+								<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
+							</div>
+							<div class="basketContainer__info__totalBlock__agreeBlock">
+								<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">
+									<div class="basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark" id="basket_checkMark">
+										<img src="img/icons/check16.png" alt="">
+									</div>
+								</div>
+								<div class="basketContainer__info__totalBlock__agreeBlock__label txt">Я согласен с Условиями и <a href="">политикой конфиденциальности</a></div>
+							</div>
+						</form>
+						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center">
+							<img src="img/gif/loading.gif" alt="">
+						</div>
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+							<div class="basketContainer__info__totalBlock__basketBlock__profile">
+								<div class="basketContainer__info__totalBlock__basketBlock__profile__avatar">
+									<img src="img/avatar/ef3211dba7d1269a0a56d88a776a6ccc.jpg" alt="">
+								</div>
+								<div class="basketContainer__info__totalBlock__basketBlock__profile__nickname txt">Yeat</div>
+							</div>
+						</div>
+						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center">
+							<img src="img/gif/loading.gif" alt="">
+						</div>
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+							<img class="basketContainer__info__totalBlock__basketBlock__invertImg" src="img/icons/giftbox128.png" alt="">
+						</div>
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+							<img src="img/icons/heart128.png" alt="">
+						</div>
+					</div>
 				</div>
-				<div class="footer__top__links__column">
-					<h4 class="txt">Полезное</h4>
-					<div class="footer__top__links__column__nav txt">Отзывы о нас</div>
-					<div class="footer__top__links__column__nav txt">Правила использования</div>
-					<div class="footer__top__links__column__nav txt">Политика конфиденциальности</div>
-				</div>
-			</div>
-			<div class="footer__top__socialТetwork">
-				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_ds"><img src="img/platforms/discord.svg" alt=""></div>
-				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_steam"><img src="img/platforms/steam.svg" alt=""></div>
-				<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_vk"><img src="img/platforms/vk.png" alt=""></div>
 			</div>
 		</div>
-		<div class="footer__bottom">
-			<div class="footer__bottom__text txt">Copyright © 2023 COMPANY NAME - All rights reserved</div>
-			<div class="footer__bottom__paymentMethods">
-				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/visa.svg" alt=""></div>
-				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/kiwi.svg" alt=""></div>
-				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mc.svg" alt=""></div>
-				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/ukassa.svg" alt=""></div>
-				<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mir.svg" alt=""></div>
+	
+		<footer class="footer">
+			<div class="footer__top">
+				<div class="footer__top__logo">
+					<img src="img/logo/logo.png" alt="">
+				</div>
+				<div class="footer__top__links">
+					<div class="footer__top__links__column">
+						<h4 class="txt">Категории</h4>
+						<div class="footer__top__links__column__nav txt">Хиты продаж</div>
+						<div class="footer__top__links__column__nav txt">Новинки</div>
+						<div class="footer__top__links__column__nav txt">Ожидаемое</div>
+					</div>
+					<div class="footer__top__links__column">
+						<h4 class="txt">Помощь</h4>
+						<div class="footer__top__links__column__nav txt">FAQ</div>
+						<div class="footer__top__links__column__nav txt">Гарантии</div>
+						<div class="footer__top__links__column__nav txt">Контакты</div>
+					</div>
+					<div class="footer__top__links__column">
+						<h4 class="txt">Полезное</h4>
+						<div class="footer__top__links__column__nav txt">Отзывы о нас</div>
+						<div class="footer__top__links__column__nav txt">Правила использования</div>
+						<div class="footer__top__links__column__nav txt">Политика конфиденциальности</div>
+					</div>
+				</div>
+				<div class="footer__top__socialТetwork">
+					<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_ds"><img src="img/platforms/discord.svg" alt=""></div>
+					<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_steam"><img src="img/platforms/steam.svg" alt=""></div>
+					<div class="footer__top__socialТetwork__circle footer__top__socialТetwork__circle_vk"><img src="img/platforms/vk.png" alt=""></div>
+				</div>
 			</div>
-		</div>
-	</footer>
+			<div class="footer__bottom">
+				<div class="footer__bottom__text txt">Copyright © 2023 COMPANY NAME - All rights reserved</div>
+				<div class="footer__bottom__paymentMethods">
+					<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/visa.svg" alt=""></div>
+					<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/kiwi.svg" alt=""></div>
+					<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mc.svg" alt=""></div>
+					<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/ukassa.svg" alt=""></div>
+					<div class="footer__bottom__paymentMethods__imgBlock"><img src="img/banks/mir.svg" alt=""></div>
+				</div>
+			</div>
+		</footer>
+	</div>
      
      <script type="text/javascript" src="scripts/variables.js"></script>
      <script type="text/javascript" src="scripts/functions.js"></script>

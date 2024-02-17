@@ -60,4 +60,7 @@ window.addEventListener("scroll", function(){
     }
 });
 
+let windowInnerHeight = window.innerHeight;
+document.querySelector('.forFullHeightScreen').style.minHeight = `${windowInnerHeight}px`;
+
 makeOffers_index();

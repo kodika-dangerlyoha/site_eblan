@@ -23,3 +23,5 @@ const promocodes = [
     },
 ];
 let buyForm = document.forms.buy;
+const dictionary_for_basketH2 = ["Бот добавляет вас в друзья", "Примите приглашение от ", "Ожидайте подарок от бота", "Примите подарок от бота", "Спасибо за покупку"];
+let botName = "Yeat";

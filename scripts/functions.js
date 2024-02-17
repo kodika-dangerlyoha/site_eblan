@@ -180,7 +180,19 @@ function goBuy() {
     }
 
     if (checkFalseValue == 0) {
-        console.log('buy');
+        open_stepBuy(1);
+        setTimeout(function() {
+            open_stepBuy(2);
+        }, 2000)
+        setTimeout(function() {
+            open_stepBuy(3);
+        }, 4000)
+        setTimeout(function() {
+            open_stepBuy(4);
+        }, 6000)
+        setTimeout(function() {
+            open_stepBuy(5);
+        }, 8000)
     }
 
     console.log(checkFalseValue);
@@ -212,4 +224,15 @@ function open_authorization() {
 function openRegistration() {
     document.querySelector(".authorization__block_logIn").style.display = "none";
     document.querySelector(".authorization__block_registration").style.display = "block";
+}
+
+function open_stepBuy(n) {
+    document.querySelectorAll('.basketContainer__info__totalBlock__basketBlock').forEach(elem => {
+        elem.style.display = "none";
+    })
+    document.querySelectorAll('.basketContainer__info__totalBlock__basketBlock')[n].style.display = "flex";
+    document.querySelector('#basketInfo_h2').innerHTML = dictionary_for_basketH2[n - 1];
+    if (n == 2) {
+        document.querySelector('#basketInfo_h2').innerHTML += botName;
+    }
 }
