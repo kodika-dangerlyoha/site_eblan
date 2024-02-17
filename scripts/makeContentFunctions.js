@@ -9,6 +9,9 @@ function makeOffers_index() {
             let discount = Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100);
             let blockSiteHTML = `<div class="offers__grid__game__banner">
                                     <img src="${game.imgH}" alt="">
+                                    <div class="offers__grid__game__banner__videoBlock">
+                                        <video src="${game.treilerSrc}" autoplay loop muted>
+                                    </div>   
                                     <div class="offers__grid__game__banner__discount">
                                         <div class="offers__grid__game__banner__discount__inner txt">${discount}%</div>
                                     </div>

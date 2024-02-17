@@ -789,13 +789,29 @@ header {
                 width: 100%;
                 position: relative;
                 border-radius: 10px;
-                background-image: src('img/banner/img1.jpg');
+                // background-image: src('img/banner/img1.jpg');
                 background-size: cover;
                 transition: 0.15s;
                 cursor: pointer;
+                overflow: hidden;
                 & img {
+                    position: relative;
+                    z-index: 2;
                     border-radius: 10px;
                     width: 100%;
+                    transition: 0.15s;
+                }
+                &__videoBlock {
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: 0.15s;
+                    & video {
+                        width: 100%;
+                        display: none;
+                    }
                 }
                 &__discount {
                     position: absolute;
@@ -901,6 +917,15 @@ header {
             &:hover &__info__price{
                 transform: translateX(-85px);
                 text-shadow: 0 0 10px $colorBody;
+            }
+            &:hover &__banner img{
+                opacity: 0;
+            }
+            &:hover &__banner__videoBlock video{
+                display: block;
+            }
+            &:hover &__banner__videoBlock{
+                opacity: 1;
             }
         }
     }
