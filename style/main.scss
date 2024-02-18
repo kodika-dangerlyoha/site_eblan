@@ -2844,10 +2844,28 @@ header {
     &__block {
         width: 430px;
         & h2 {
-            text-align: center;
+            position: relative;
             margin: 0;
             margin-bottom: 20px;
             font-size: 32px;
+            & > div {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                padding: 10px;
+                cursor: pointer;
+                & > img {
+                    filter: invert(1);
+                    height: 20px;
+                    transition: 0.15s;
+                }
+                &:hover img {
+                    opacity: .8;
+                }
+            }
         }
         & form {
             width: 100%;

@@ -203,10 +203,13 @@ function open_authorization() {
         document.querySelector('.authorization').style.opacity = "0";
 
         setTimeout(() => {
+            document.querySelector(".authorization__block_logIn").style.display = "block";
+            document.querySelector(".authorization__block_registration").style.display = "none";
             document.querySelector('.authorization').style.display = "none";
         }, 160)
 
         document.body.style.overflow = "auto";
+
         check_open_authorization = false;
     }
     else {
