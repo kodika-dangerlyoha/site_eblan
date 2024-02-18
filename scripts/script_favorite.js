@@ -1,0 +1,1 @@
+makeFavorite_favorite();

@@ -143,8 +143,11 @@ function addInFavorite() {
     }
 }
 
-function open_notification(n) {
-    document.querySelectorAll('.for-input__notification')[n].style.visibility = "visible";
+function open_notifications(notification_list) {
+    notification_list.forEach(error_info => {
+        document.querySelector(`.for-input__notification_${error_info.name}`).style.visibility = "visible";
+        document.querySelector(`.for-input__notification_${error_info.name} .for-input__notification__heading`).innerHTML = error_info.message;
+    })
 }
 
 function close_notification(n) {
@@ -152,34 +155,47 @@ function close_notification(n) {
 }
 
 function goBuy() {
-    let promocodeActive = 'notselected';
-    let checkFalseValue = 0;
-    if (buyForm.input_tradeLink.value == "") {
-        open_notification(1);
-        checkFalseValue++;
-    }
-    if (buyForm.input_email.value == "") {
-        open_notification(2);
-        checkFalseValue++;
-    }
-    if (selected_paymentMethod == "notselected") {
-        open_notification(3);
-        checkFalseValue++;
-    }
-    if (buyForm.input_promocode.value != "") {
-        promocodeActive = 'incorrect';
-        promocodes.forEach(elem => {
-            if (elem.promoNumber == buyForm.input_promocode.value) {
-                promocodeActive = 'correct';
-            }
-        });
-        if (promocodeActive == 'incorrect') {
-            open_notification(4);
-            checkFalseValue++;
+    function check_promocode_request(promocode) {
+        return {
+            'status': false, // true or false
+            'message': "urcbtr rctbrc" // error 
         }
     }
 
-    if (checkFalseValue == 0) {
+    let error_dict = [];
+    
+    if (!buyForm.input_tradeLink.value) {
+        error_dict.push({
+            'name': "trade_link",
+            'message': "Укажите трейд ссылку" // text error
+        });
+    }
+    if (!buyForm.input_email.value) {
+        error_dict.push({
+            'name': "email",
+            'message': "Укажите Email" // text error
+        });
+    }
+    if (!selected_paymentMethod) {
+        error_dict.push({
+            'name': "paymentMethod",
+            'message': "Выберите способ оплаты" // text error
+        });
+    }
+    if (buyForm.input_promocode.value) {
+        let answer = check_promocode_request(String(buyForm.input_promocode.value));
+        if (!answer.status) {
+            error_dict.push({
+            'name': "promocode",
+            'message': answer.message // text error
+        });
+            
+        }
+    }
+
+    open_notifications(error_dict);
+
+    if (!error_dict.length) {
         open_stepBuy(1);
         setTimeout(function() {
             open_stepBuy(2);
@@ -194,8 +210,6 @@ function goBuy() {
             open_stepBuy(5);
         }, 8000)
     }
-
-    console.log(checkFalseValue);
 }
 
 function open_authorization() {

@@ -402,6 +402,7 @@ header {
     padding: 0 150px 30px 150px;
     &__imgBlock {
         z-index: 1;
+        animation: exit_banner 0.7s 1 ease-out;
         & img {
             width: 100%;
         }
@@ -577,7 +578,7 @@ header {
 .salesHits {
     position: relative;
     z-index: 10;
-    height: 600px;
+    height: 550px;
     padding: 20px 150px 15px 150px;
     overflow: hidden;
     &__bg {
@@ -604,11 +605,13 @@ header {
         justify-content: space-between;
         &__game {
             width: 280px;
+            height: 340px;
             &__banner {
                 width: 100%;
+                height: 100%;
                 position: relative;
                 border-radius: 10px;
-                background-image: src('img/banner/img1.jpg');
+                overflow: hidden;
                 background-size: cover;
                 transition: 0.15s;
                 cursor: pointer;
@@ -617,7 +620,7 @@ header {
                 }
                 &__discount {
                     position: absolute;
-                    bottom: 5px;
+                    bottom: 0px;
                     left: 0;
                     padding: 4px 4px 0 0;
                     border-radius: 0 10px 0 10px;
@@ -636,7 +639,7 @@ header {
             }
             &__info {
                 position: relative;
-                padding-top: 8px;
+                padding-top: 16px;
                 display: flex;
                 justify-content: space-between;
                 transition: 0.15s;
@@ -655,7 +658,7 @@ header {
                 &__buttons {
                     right: 0;
                     left: 0;
-                    top: 4px;
+                    top: 10px;
                     position: absolute;
                     z-index: 2;
                     display: flex;
@@ -722,7 +725,7 @@ header {
         z-index: 2;
         display: flex;
         justify-content: end;
-        margin-top: 30px;
+        margin-top: 70px;
         &__button {
             display: flex;
             align-items: center;
@@ -808,19 +811,27 @@ header {
                     transition: 0.15s;
                 }
                 &__videoBlock {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     position: absolute;
                     z-index: 1;
                     top: 0;
                     left: 0;
+                    bottom: 0;
+                    right: 0;
                     opacity: 0;
+                    background-color: $colorBody;
                     transition: 0.15s;
                     & video {
+                        border-radius: 10px;
                         width: 100%;
                         display: none;
                     }
                 }
                 &__discount {
                     position: absolute;
+                    z-index: 4;
                     bottom: 4px;
                     left: 0;
                     padding: 4px 4px 0 0;
@@ -926,12 +937,15 @@ header {
             }
             &:hover &__banner img{
                 opacity: 0;
+                transition-delay: 1s;
             }
             &:hover &__banner__videoBlock video{
                 display: block;
+                transition-delay: 1s;
             }
             &:hover &__banner__videoBlock{
                 opacity: 1;
+                transition-delay: 1s;
             }
         }
     }
@@ -1165,11 +1179,14 @@ header {
         justify-content: space-between;
         &__game {
             width: 280px;
+            height: 340px;
+            margin-bottom: 35px;
             &__banner {
                 width: 100%;
+                height: 100%;
                 position: relative;
                 border-radius: 10px;
-                background-image: src('img/banner/img1.jpg');
+                overflow: hidden;
                 background-size: cover;
                 transition: 0.15s;
                 cursor: pointer;
@@ -1178,7 +1195,7 @@ header {
                 }
                 &__discount {
                     position: absolute;
-                    bottom: 5px;
+                    bottom: 0px;
                     left: 0;
                     padding: 4px 4px 0 0;
                     border-radius: 0 10px 0 10px;
@@ -1197,7 +1214,7 @@ header {
             }
             &__info {
                 position: relative;
-                padding-top: 8px;
+                padding-top: 16px;
                 display: flex;
                 justify-content: space-between;
                 transition: 0.15s;
@@ -1216,7 +1233,7 @@ header {
                 &__buttons {
                     right: 0;
                     left: 0;
-                    top: 4px;
+                    top: 10px;
                     position: absolute;
                     z-index: 2;
                     display: flex;
@@ -1303,7 +1320,7 @@ header {
                 position: relative;
                 & img {
                     width: 100%;
-                    border-radius: 48px;
+                    border-radius: 30px;
                 }
                 &__lvl {
                     position: absolute;
@@ -2176,7 +2193,7 @@ header {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border-radius: 20px;
+        border-radius: 10px;
         padding: 20px;
         box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
         &__title {
