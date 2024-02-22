@@ -5,6 +5,41 @@ $darkBlue: rgba(1, 74, 255, 1);
 $colorBody: rgba(39, 39, 39, 1);
 $redGradient: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
 
+$lightBlue: rgba(1, 162, 255, 1);
+
+$icon_width: 2px;
+$circle_size: 16px;
+
+.iconBlock_search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    &__circle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        border: $icon_width solid rgb(255, 255, 255);
+        height: $circle_size;
+        width: $circle_size;
+        transition: 0.15s;
+    }
+    &__stick {
+        position: absolute;
+        top: calc($circle_size - 2px);
+        left: calc($circle_size - 2px);
+        height: $icon_width;
+        width: 8px;
+        background-color: rgb(255, 255, 255);
+        transform: rotate(45deg) translateY(3px);
+        transition: 0.15s;
+    }
+}
+
+
+
 .gridHorizontalGames {
     display: grid;
     grid-gap: 35px;
@@ -436,19 +471,25 @@ header {
         &__icon {
             position: absolute;
             right: 0px;
-            box-sizing: content-box;
-            padding-right: 15px;
-            padding-left: 15px;
             top: 0;
             bottom: 0;
+            box-sizing: content-box;
             display: flex;
             align-items: center;
-            width: 18px;
+            width: 22px;
+            padding-right: 15px;
+            padding-left: 15px;
             cursor: pointer;
-            & img {
-                display: block;
-                width: 100%;
-                filter: invert(1);
+            // & img {
+            //     display: block;
+            //     width: 100%;
+            //     filter: invert(1);
+            // }
+            &:hover .iconBlock_search__stick{
+                background-color: $lightBlue;
+            }
+            &:hover .iconBlock_search__circle{
+                border: $icon_width solid $lightBlue;
             }
         }
         &_searchPage {
@@ -888,7 +929,7 @@ header {
         z-index: 2;
         display: flex;
         justify-content: end;
-        margin-top: 70px;
+        margin-top: 20px;
         &__button {
             display: flex;
             align-items: center;
@@ -1512,7 +1553,7 @@ header {
                     opacity: 0;
                     transition: 0.15s;
                     background-color: rgba(0, 0, 0, 0.7);
-                    border-radius: 48px;
+                    border-radius: 30px;
                     cursor: pointer;
                     & img {
                         filter: brightness(2);

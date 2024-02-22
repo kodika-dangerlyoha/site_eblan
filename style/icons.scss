@@ -1,0 +1,45 @@
+// $lightBlue: rgba(1, 162, 255, 1);
+
+// $icon_width: 2px;
+// $circle_size: 16px;
+
+// body {
+//     background-color: black;
+// }
+// .iconBlock_search {
+//     position: relative;
+//     height: 100%;
+//     width: 22px;
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     display: flex;
+//     align-items: center;
+//     // border: 1px solid rgb(150, 150, 150);
+//     &__circle {
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//         border-radius: 50%;
+//         border: $icon_width solid rgb(255, 255, 255);
+//         height: $circle_size;
+//         width: $circle_size;
+//         transition: 0.15s;
+//     }
+//     &__stick {
+//         position: absolute;
+//         top: calc($circle_size - 2px);
+//         left: calc($circle_size - 2px);
+//         height: $icon_width;
+//         width: 10px;
+//         background-color: rgb(255, 255, 255);
+//         transform: rotate(45deg) translateY(3px);
+//         transition: 0.15s;
+//     }
+//     &:hover &__stick{
+//         background-color: $lightBlue;
+//     }
+//     &:hover &__circle{
+//         border: $icon_width solid $lightBlue;
+//     }
+// }
+
