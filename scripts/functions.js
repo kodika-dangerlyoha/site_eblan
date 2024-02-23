@@ -253,3 +253,4 @@ function open_stepBuy(n) {
         document.querySelector('#basketInfo_h2').innerHTML += botName;
     }
 }
+

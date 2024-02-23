@@ -16,6 +16,14 @@ function get_game_banner() {
     return games[3];
 }
 
+function get_editions() {
+    return games[0].editions;
+}
+
+function get_categories_game() {
+    return games[0].categories;
+}
+
 function makeOffers_index() {
     let gameList = "";
     
@@ -166,4 +174,45 @@ function makeFavorite_favorite() {
                         </div>`;
 
     div.innerHTML = blockSiteHTML;
+}
+
+function make_editions() {
+    let editionList = "";
+    
+    get_editions().forEach(edition => {
+        editionList += get_edition_game_html(
+            edition, 
+            Math.round((edition.oldPrice - edition.newPrice) / edition.oldPrice * 100)
+        )
+    });
+
+    document.querySelector('#edition #edition_grid').innerHTML = editionList;
+    document.getElementsByClassName('editions__grid__edition')[0].classList.add('editions__grid__edition_active');
+    document.getElementsByClassName('editions__grid__edition__percent')[0].classList.add('editions__grid__edition__percent_active');
+}
+
+function make_desscription() {
+    console.log(games[0].description.replace('<br>', ''));
+    document.querySelector('#description').innerHTML = games[0].description.replace(/<br>/g, '');
+}
+
+function make_game_card_info() {
+    let gameList = "";
+    let categories_list = "";
+
+    document.getElementById('game_banner').src = games[0].bigBanner;
+    document.getElementById('treiler').src = games[0].treilerSrc;
+    document.getElementById('game_img').src = games[0].imgH;
+
+    get_categories_game().forEach(category => {
+        categories_list += get_categories_game_html(category);
+    })
+    
+    gameList += get_info_game_html(
+        games[0], 
+        Math.round((games[0].oldPrice - games[0].newPrice) / games[0].oldPrice * 100),
+        categories_list
+    )
+
+    document.querySelector('#game_info').innerHTML = gameList;
 }

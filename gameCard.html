@@ -132,17 +132,43 @@
     <div class="bigImgBlock">
         <div class="bigImgBlock__bg"></div>
         <div class="bigImgBlock__border"></div>
-        <img src="img/banners/ngg.jpg" alt="">
+        <img src="img/banners/ngg.jpg" alt="" id="game_banner">
     </div>
 
     <div class="forScroll"></div>
 
     <div class="mainInfo">
         <div class="mainInfo__banner">
-            <img src="img/banners/52nahuy.jpg" alt="">
+            <img src="img/banners/52nahuy.jpg" alt="" id="game_img">
+            <div class="mainInfo__banner__playButton absolute-zero flex-center" onclick="play_treiler()">
+                <div class="mainInfo__banner__playButton__icon">
+                    <img src="img/icons/play-button64.png" alt="">
+                </div>
+            </div>
+            <div class="mainInfo__banner__treilerBlock absolute-zero">
+                <video src="video/50.MP4" id="treiler" loop></video>
+                <div class="mainInfo__banner__treilerBlock__interface">
+                    <div class="mainInfo__banner__treilerBlock__interface__button" onclick="play_pause_treiler()">
+                        <img src="img/icons/pause24.png" alt="" id="button_icon_play_pause">
+                    </div>
+                    <div class="mainInfo__banner__treilerBlock__interface__race" id="race">
+                        <div class="mainInfo__banner__treilerBlock__interface__race__valueRace" id="value_race"></div>
+                        <div class="mainInfo__banner__treilerBlock__interface__race__hoverRace" id="hover_race"></div>
+                    </div>
+                    <div class="mainInfo__banner__treilerBlock__interface__button mainInfo__banner__treilerBlock__interface__button_volume">
+                        <img src="img/icons/volume24.png" alt="">
+                        <div class="mainInfo__banner__treilerBlock__interface__volumeRace" id="volume_race">
+                            <div class="mainInfo__banner__treilerBlock__interface__volumeRace__value" id="volume_race_value"></div>
+                        </div>
+                    </div>
+                    <div class="mainInfo__banner__treilerBlock__interface__button">
+                        <img src="img/icons/fullscreen24.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mainInfo__info">
-            <div>
+        <div class="mainInfo__info" id="game_info">
+            <!-- <div>
                 <div class="mainInfo__info__title txt">52 No Gletcher Gang</div>
                 <div class="mainInfo__info__category">
                     <a href="" class="mainInfo__info__category__nav">
@@ -201,13 +227,13 @@
                         <img src="img/icons/basket64_2.png" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
-    <div class="editions">
-        <div class="editions__grid">
-            <a href="#" class="editions__grid__edition editions__grid__edition_active">
+    <div class="editions" id="edition">
+        <div class="editions__grid" id="edition_grid">
+            <!-- <a href="#" class="editions__grid__edition editions__grid__edition_active">
                 <div class="editions__grid__edition__left">
                     <div class="editions__grid__edition__left__title txt">titleEdition</div>
                     <div class="editions__grid__edition__left__price txt">1900 ₽</div>
@@ -234,7 +260,7 @@
                     <div class="editions__grid__edition__left__price txt">1900 ₽</div>
                 </div>
                 <div class="editions__grid__edition__percent txt">40%</div>
-            </a>
+            </a> -->
         </div>
     </div>
 
@@ -254,7 +280,7 @@
     </div>
 
     <div class="information">
-        <div class="information__description">
+        <div class="information__description" id="description">
             <h3 class="txt">Титулованная серия впервые на ПК</h3>
             <p class="txt">Первая часть серии в своё время вышла на консолях прошлого поколения, 
                 собрала уйму наград и благополучно миновала просторы ПК, чем вызвала массу негодования и скорби в игровом сообществе. 
@@ -330,6 +356,7 @@
 	<script type="text/javascript" src="scripts/lists.js"></script>
 	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
 	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script type="text/javascript" src="scripts/treiler.js"></script>
 	<script type="text/javascript" src="scripts/makeContentFunctions.js"></script>
 	<script type="text/javascript" src="scripts/carousel.js"></script>
 	<script type="text/javascript" src="scripts/script.js"></script>
