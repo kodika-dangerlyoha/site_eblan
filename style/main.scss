@@ -2393,12 +2393,25 @@ header {
             opacity: 0;
             z-index: 3;
             background-color: rgba(0, 0, 0, 0.3);
+            flex-direction: column;
             transition: 0.15s;
             cursor: pointer;
             &__icon {
+                transform: scale(1.3);
+                transition: 0.15s;
+                margin-bottom: 5px;
                 & img {
+                    width: 54px;
                     filter: invert(1);
                 }
+            }
+            &__text {
+                font-size: 18px;
+                font-weight: 700;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                transform: translateY(-10px);
+                transition: 0.15s;
             }
         }
         &__treilerBlock {
@@ -2489,6 +2502,13 @@ header {
         }
         &:hover &__playButton {
             opacity: 1;
+        }
+
+        &:hover &__playButton__icon {
+            transform: scale(1);
+        }
+        &:hover &__playButton__text{
+            transform: translateY(0px);
         }
         &:hover &__treilerBlock__interface{
             bottom: 5px;
