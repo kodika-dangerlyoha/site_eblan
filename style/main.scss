@@ -2392,7 +2392,8 @@ header {
         &__playButton {
             opacity: 0;
             z-index: 3;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(1px);
             flex-direction: column;
             transition: 0.15s;
             cursor: pointer;
@@ -2451,6 +2452,15 @@ header {
                     &_volume {
                         &:hover .mainInfo__banner__treilerBlock__interface__volumeRace{
                             opacity: 1;
+                        }
+                    }
+                    &_hover {
+                        &:hover {
+                            transform: scale(0.95);
+                            opacity: 0.85;
+                        }
+                        &:active {
+                            transform: scale(0.7);
                         }
                     }
                 }
