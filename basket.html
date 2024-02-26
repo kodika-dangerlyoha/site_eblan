@@ -22,7 +22,9 @@
 			<div class="basketContainer">
 				<div class="basketContainer__gameList">
 					<h2 class="txt">Корзина</h2>
-					<div class="basketContainer__gameList__games">
+					<div class="basketContainer__gameList__games" id="basket_games_list">
+						<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
+						<div class="basketContainer__gameList__games__border"></div>
 						<div class="basketContainer__gameList__games__game">
 							<div class="basketContainer__gameList__games__game__forHover">
 								<div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
@@ -112,24 +114,24 @@
 							</div>
 							<div class="for-input">
 								<div class="basketContainer__info__totalBlock__nav">
-									<div class="basketContainer__info__totalBlock__nav__text txt">Способ оплаты</div>
+									<div class="basketContainer__info__totalBlock__nav__text txt" id="text_pay_method">Способ оплаты</div>
 									<img class="basketContainer__info__totalBlock__nav__img" src="img/icons/arrRight32.png" alt="">
 									<div class="basketContainer__info__totalBlock__nav__border" onclick="open_paymentMethods()"></div>
 									<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
 										<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
-											<div onclick="chooseBank(0, 'mir')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
+											<div onclick="chooseBank(0, '00001')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
 												<img src="img/banks/mir.svg" alt="">
 											</div>
-											<div onclick="chooseBank(1, 'kiwi')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
+											<div onclick="chooseBank(1, '00003')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
 												<img src="img/banks/kiwi.svg" alt="">
 											</div>
-											<div onclick="chooseBank(2, 'visa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
+											<div onclick="chooseBank(2, '00002')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
 												<img src="img/banks/visa.svg" alt="">
 											</div>
-											<div onclick="chooseBank(3, 'ukassa')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
+											<div onclick="chooseBank(3, '00004')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
 												<img src="img/banks/ukassa.svg" alt="">
 											</div>
-											<div onclick="chooseBank(4, 'master_card')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
+											<div onclick="chooseBank(4, '00005')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
 												<img src="img/banks/mc.svg" alt="">
 											</div>
 										</div>
@@ -154,16 +156,16 @@
 							<div class="basketContainer__info__totalBlock__calcPrice">
 								<div class="basketContainer__info__totalBlock__calcPrice__oldPrice">
 									<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__this txt">Оффициальная цена</div>
-									<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__value txt">5620 ₽</div>
+									<div class="basketContainer__info__totalBlock__calcPrice__oldPrice__value txt" id="basket_oldPrice">5620 ₽</div>
 								</div>
 								<div class="basketContainer__info__totalBlock__calcPrice__discount">
 									<div class="basketContainer__info__totalBlock__calcPrice__discount__this txt">Скидка</div>
-									<div class="basketContainer__info__totalBlock__calcPrice__discount__value txt">26%</div>
+									<div class="basketContainer__info__totalBlock__calcPrice__discount__value txt" id="basket_discount">26%</div>
 								</div>
 							</div>
 							<div class="basketContainer__info__totalBlock__totalPrice txt">
 								<div class="basketContainer__info__totalBlock__totalPrice__this txt">Сумма к оплате</div>
-								<div class="basketContainer__info__totalBlock__totalPrice__value txt">4999 ₽</div>
+								<div class="basketContainer__info__totalBlock__totalPrice__value txt" id="basket_newPrice">4999 ₽</div>
 							</div>
 							<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
 								<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
@@ -199,6 +201,7 @@
 							<img src="img/icons/heart128.png" alt="">
 						</div>
 					</div>
+					<a href="index.html" class="basketContainer__info__exitButton txt" id="exit_button">Вернуться к покупкам</a>
 				</div>
 			</div>
 		</div>
@@ -247,8 +250,12 @@
 		</footer>
 	</div>
      
-     <script type="text/javascript" src="scripts/variables.js"></script>
-     <script type="text/javascript" src="scripts/functions.js"></script>
-     <script type="text/javascript" src="scripts/script.js"></script>
+	<script type="text/javascript" src="scripts/variables.js"></script>
+	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
+	<script type="text/javascript" src="scripts/lists.js"></script>
+	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script type="text/javascript" src="scripts/makeContentFunctions.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+	<script type="text/javascript" src="scripts/script_basket.js"></script>
 </body>
 </html>

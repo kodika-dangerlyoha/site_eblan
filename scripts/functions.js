@@ -109,19 +109,31 @@ function open_paymentMethods() {
     }
 }
 
-function chooseBank(n, nameBank) {
+const bank_list = {
+    "00001": "Мир",
+    "00002": "Visa",
+    "00003": "Kiwi",
+    "00004": "Ю Касса",
+    "00005": "Mastercard",
+}
+
+function chooseBank_inner(bank_id) {
+    selected_paymentMethod = bank_id;
+    close_notification(3);
+    console.log(bank_id);
+    open_paymentMethods();
+    document.getElementById("text_pay_method").textContent = bank_list[bank_id];
+}
+
+function chooseBank(n, bank_id) {
     if (document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active') != null) {
         document.querySelector('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active').classList.remove('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
         document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
-        selected_paymentMethod = nameBank;
-        close_notification(3);
-        console.log(nameBank);
+        chooseBank_inner(bank_id);
     }
     else {
         document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
-        selected_paymentMethod = nameBank;
-        close_notification(3);
-        console.log(nameBank);
+        chooseBank_inner(bank_id);
     }
 }
 
@@ -158,11 +170,12 @@ function goBuy() {
     function check_promocode_request(promocode) {
         return {
             'status': false, // true or false
-            'message': "urcbtr rctbrc" // error 
+            'message': "Недействительный промокод" // error 
         }
     }
 
     let error_dict = [];
+
     
     if (!buyForm.input_tradeLink.value) {
         error_dict.push({
@@ -193,10 +206,24 @@ function goBuy() {
         }
     }
 
+    if (!check_active_basket_checkBox) {
+        error_dict.push({
+            'name': "check_box",
+            'message': "Согласитесь с Условиями и политикой конфиденциальности" // text error
+        });
+    }
+
     open_notifications(error_dict);
 
     if (!error_dict.length) {
         open_stepBuy(1);
+
+        document.querySelectorAll('.basketContainer__gameList__games__game__right__closeBlock').forEach(elem => {
+            elem.classList.add('basketContainer__gameList__games__game__right__closeBlock_hidden')
+        });
+
+        document.getElementById("exit_button").classList.add('basketContainer__info__exitButton_hidden');
+
         setTimeout(function() {
             open_stepBuy(2);
         }, 2000)
@@ -208,6 +235,14 @@ function goBuy() {
         }, 6000)
         setTimeout(function() {
             open_stepBuy(5);
+
+            document.querySelectorAll('.basketContainer__gameList__games__game__forHover').forEach(elem => {
+                elem.style.opacity = "0";
+            });
+
+            document.getElementById("exit_button").classList.remove('basketContainer__info__exitButton_hidden');
+
+            document.querySelector('#basket_games_list_bg').style.opacity = "1";
         }, 8000)
     }
 }
@@ -254,3 +289,11 @@ function open_stepBuy(n) {
     }
 }
 
+function deleteGame_from_basket(game_id, n) {
+    delete basketProducts[n];
+    make_basket_info();
+    console.log(basketProducts);
+
+    document.querySelectorAll('.basketContainer__gameList__games__game')[n].classList.add('basketContainer__gameList__games__game_hidden');
+
+}

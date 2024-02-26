@@ -1,5 +1,5 @@
 const get_horizont_game_html = (game, discount) => {
-    return `<div class = "gridHorizontalGames__game">
+    return `<a href = "${game.link}" class = "gridHorizontalGames__game">
                 <div class="gridHorizontalGames__game__banner">
                     <img src="${game.imgH}" alt="">
                     <div class="gridHorizontalGames__game__banner__videoBlock">
@@ -23,11 +23,11 @@ const get_horizont_game_html = (game, discount) => {
                     <div class="gridHorizontalGames__game__info__name txt">${game.name}</div>
                     <div class="gridHorizontalGames__game__info__price txt">${game.newPrice}₽</div>
                 </div>
-            </div>`
+            </a>`
 };
 
 const get_vertical_game_html = (game, discount) => {
-    return `<div class = "catalog__grid__game">
+    return `<a href = "${game.link}" class = "catalog__grid__game">
                 <div class="catalog__grid__game__banner">
                     <img src="${game.imgW}" alt="">
                     <div class="catalog__grid__game__banner__discount">
@@ -48,7 +48,7 @@ const get_vertical_game_html = (game, discount) => {
                     <div class="catalog__grid__game__info__name txt">${game.name}</div>
                     <div class="catalog__grid__game__info__price txt">${game.newPrice} ₽</div>
                 </div>
-            </div>`
+            </a>`
 };
 
 const get_carousel_game_html = (n, game, discount) => {
@@ -143,5 +143,32 @@ const get_categories_game_html = (category) => {
                 </div>
             </a>`
 };
+
+const get_basket_game_html = (game, n) => {
+    return `<div class="basketContainer__gameList__games__game">
+                <div class="basketContainer__gameList__games__game__forHover">
+                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
+                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
+                </div>
+                <div class="basketContainer__gameList__games__game__left">
+                    <div class="basketContainer__gameList__games__game__left__imgBlock">
+                        <img src="${game.imgH}" alt="">
+                    </div>
+                    <div class="basketContainer__gameList__games__game__left__nameBlock">
+                        <div class="basketContainer__gameList__games__game__left__nameBlock__name">
+
+                            <a href="${game.link}" class="basketContainer__gameList__games__game__left__nameBlock__name__text txt">${game.name}</a>
+                        </div>
+                        <a href="${game.steamLink}" class="basketContainer__gameList__games__game__left__nameBlock__linkPlatform txt">Игра в Steam</a>
+                    </div>
+                </div>
+                <div class="basketContainer__gameList__games__game__right">
+                    <div class="basketContainer__gameList__games__game__right__price txt">${game.newPrice} ₽</div>
+                    <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(${game.id}, ${n})" onmouseover="hover_close_basket(${n})" onmouseout="unhover_close_basket(${n})">
+                        <img src="img/icons/cross2_32.png" alt="">
+                    </div>
+                </div>
+            </div>`
+}
 
 // export {get_horizont_game_html}

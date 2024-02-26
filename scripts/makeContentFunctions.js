@@ -24,6 +24,10 @@ function get_categories_game() {
     return games[0].categories;
 }
 
+function get_basket_game_list() {
+    return basketProducts;
+}
+
 function makeOffers_index() {
     let gameList = "";
     
@@ -63,15 +67,21 @@ function makeSalesHits_index() {
     document.querySelector('#salesHits #salesHits_content').innerHTML = gameList;
 }
 
-function makeBanner_index() {
-    let gameList = "";
-    
-    gameList += get_banner_game_html(
-        get_game_banner(), 
-        Math.round((get_game_banner().oldPrice - get_game_banner().newPrice) / get_game_banner().oldPrice * 100)
-    )
+function makeBanner_index(game_info) {
+    let discount = Math.round((game_info.oldPrice - game_info.newPrice) / game_info.oldPrice * 100);
 
-    document.querySelector('#containerWborder #bannerSecond').innerHTML = gameList;
+    document.getElementById('bannerSecond').src = game_info.link;
+    document.getElementById('banners_second_img').src = game_info.bigBanner;
+    document.getElementById('banner_second_discount').innerText = discount + "%";
+    document.getElementById('banner_second_price').innerText = game_info.newPrice + " ₽";
+    document.getElementById('banner_second_title').innerText = game_info.name;
+    
+    // gameList += get_banner_game_html(
+    //     get_game_banner(), 
+    //     Math.round((get_game_banner().oldPrice - get_game_banner().newPrice) / get_game_banner().oldPrice * 100)
+    // )
+
+    // document.querySelector('#containerWborder #bannerSecond').innerHTML = gameList;
 }
 
 function makeCarousel_index(n) {
@@ -215,4 +225,35 @@ function make_game_card_info() {
     )
 
     document.querySelector('#game_info').innerHTML = gameList;
+}
+
+function make_basket_info() {
+    let new_price = 0;
+    let old_price = 0;
+
+    get_basket_game_list().forEach(game => {
+        new_price += game.newPrice;
+        old_price += game.oldPrice;
+    })
+
+    let discount = Math.round((old_price - new_price) / old_price * 100);
+
+    document.getElementById('basket_newPrice').innerText = new_price + " ₽";
+    document.getElementById('basket_oldPrice').innerText = old_price + " ₽";
+    document.getElementById('basket_discount').innerText = discount + "%";
+}
+
+function make_basket() {
+    let gameList = `<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
+                    <div class="basketContainer__gameList__games__border"></div>`;
+    let n = 0;
+
+    get_basket_game_list().forEach(game => {
+        gameList += get_basket_game_html(game, n);
+        n++;
+    })
+
+    make_basket_info();
+
+    document.querySelector('#basket_games_list').innerHTML = gameList;
 }
