@@ -2189,6 +2189,15 @@ header {
                         }
                     }
                 }
+                &_active {
+                    border-radius: 7px 7px 0px 0px;
+                }
+                &_active > &__floatBlock {
+                    display: block;
+                }
+                &_active > &__border {
+                    opacity: 1;
+                }
                 &__text {
                     font-weight: 400;
                     font-size: 16px;
@@ -2282,6 +2291,9 @@ header {
             }
             &__agreeBlock {
                 display: flex;
+                border: 3px solid transparent;
+                margin-bottom: 0;
+                transition: 0.15s;
                 &__checkBox {
                     display: flex;
                     align-items: center;
@@ -2321,6 +2333,13 @@ header {
                             color: $lightBlue;
                         }
                     }
+                }
+                &_notification {
+                    padding: 8px;
+                    margin-bottom: -16px;
+                    border-radius: 7px;
+                    border: 3px solid rgb(134, 58, 58);
+                    transform: scale(1.05);
                 }
             }
             &__basketBlock {

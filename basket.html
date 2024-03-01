@@ -86,11 +86,11 @@
 							<div class="for-input">
 								<input type="text" class="def-input txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification(1)">
 								<div class="for-input__questionIconBlock">
-									<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notification(0)" onmouseout="close_notification(0)">
+									<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notifacation_gray()" onmouseout="close_notification(0)">
 										<img src="img/icons/question16.png" alt="">
 									</div>
 								</div>
-								<div class="for-input__notification for-input__notification_gray">
+								<div class="for-input__notification for-input__notification_gray" id="notification_gray">
 									<div class="for-input__notification__heading txt">Ваша трейд-ссылка в Steam</div>
 									<div class="for-input__notification__info txt">Ваш профиль > Инвентарь > предложения обмена > Кто может отправлять мне предложения обмена?</div>
 									<div class="for-input__notification__triangleForm for-input__notification__triangleForm_gray"></div>
@@ -113,25 +113,26 @@
 								</div>
 							</div>
 							<div class="for-input">
+								<input type="text" name="bank_id" style="display: none;">
 								<div class="basketContainer__info__totalBlock__nav">
 									<div class="basketContainer__info__totalBlock__nav__text txt" id="text_pay_method">Способ оплаты</div>
 									<img class="basketContainer__info__totalBlock__nav__img" src="img/icons/arrRight32.png" alt="">
-									<div class="basketContainer__info__totalBlock__nav__border" onclick="open_paymentMethods()"></div>
+									<div class="basketContainer__info__totalBlock__nav__border" onclick="open_payment_methods_handler()"></div>
 									<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
 										<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
-											<div onclick="chooseBank(0, '00001')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
+											<div onclick="choose_bank(0, '00001')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
 												<img src="img/banks/mir.svg" alt="">
 											</div>
-											<div onclick="chooseBank(1, '00003')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
+											<div onclick="choose_bank(1, '00003')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
 												<img src="img/banks/kiwi.svg" alt="">
 											</div>
-											<div onclick="chooseBank(2, '00002')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
+											<div onclick="choose_bank(2, '00002')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
 												<img src="img/banks/visa.svg" alt="">
 											</div>
-											<div onclick="chooseBank(3, '00004')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
+											<div onclick="choose_bank(3, '00004')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
 												<img src="img/banks/ukassa.svg" alt="">
 											</div>
-											<div onclick="chooseBank(4, '00005')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
+											<div onclick="choose_bank(4, '00005')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
 												<img src="img/banks/mc.svg" alt="">
 											</div>
 										</div>

@@ -145,7 +145,7 @@ const get_categories_game_html = (category) => {
 };
 
 const get_basket_game_html = (game, n) => {
-    return `<div class="basketContainer__gameList__games__game">
+    return `<div class="basketContainer__gameList__games__game" gameId="${game.id}">
                 <div class="basketContainer__gameList__games__game__forHover">
                     <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
                     <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
@@ -164,7 +164,7 @@ const get_basket_game_html = (game, n) => {
                 </div>
                 <div class="basketContainer__gameList__games__game__right">
                     <div class="basketContainer__gameList__games__game__right__price txt">${game.newPrice} ₽</div>
-                    <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="deleteGame_from_basket(${game.id}, ${n})" onmouseover="hover_close_basket(${n})" onmouseout="unhover_close_basket(${n})">
+                    <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="delete_game_basket(${game.id}, ${n})" onmouseover="hover_close_basket(${n})" onmouseout="unhover_close_basket(${n})">
                         <img src="img/icons/cross2_32.png" alt="">
                     </div>
                 </div>
