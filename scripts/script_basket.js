@@ -5,14 +5,18 @@ function get_basket_list_request() {
 }
 
 function delete_basket_request(id) {
-    delete basketProducts.splice(id, 1);
+    // delete basketProducts[basketProducts.findIndex(game => game.id == id)];
+    basketProducts.splice(basketProducts.findIndex(game => game.id == id), 1)
+    console.log(basketProducts);
 }
 
 function delete_game_basket(game_id) {
     delete_basket_request(game_id);
     make_basket_info();
-
     document.querySelector(`[gameId$="${game_id}"]`).classList.add('basketContainer__gameList__games__game_hidden');
+    if (basketProducts.length == 0) {
+        make_basket();
+    }
     // document.querySelectorAll('.basketContainer__gameList__games__game')[n].classList.add('basketContainer__gameList__games__game_hidden');
 }
 

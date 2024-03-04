@@ -164,7 +164,7 @@ const get_basket_game_html = (game) => {
                     </div>
                 </div>
                 <div class="basketContainer__gameList__games__game__right">
-                    <div class="basketContainer__gameList__games__game__right__price txt">${game.newPrice} ₽</div>
+                    <div class="basketContainer__gameList__games__game__right__price txt">${game.newPrice} ₽<span>${game.oldPrice} ₽</span></div>
                     <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="delete_game_basket(${game.id})" onmouseover="hover_close_basket(${game.id})" onmouseout="unhover_close_basket(${game.id})">
                         <img src="img/icons/cross2_32.png" alt="">
                     </div>

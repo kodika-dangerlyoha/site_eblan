@@ -374,6 +374,10 @@ $circle_size: 16px;
     padding-top: calc(80px + 50px);
 }
 
+.bodyBasket {
+    padding-top: calc(80px + 20px);
+}
+
 .namePage {
     text-align: center;
     margin-top: calc(80px + 30px);
@@ -507,6 +511,9 @@ header {
             &:hover {
                 background-color: rgba(1, 162, 255, 1);
             }
+            &:hover img {
+                animation: header_nav_hover 0.25s ease-out 1;
+            }
         }
         &_searchPage {
             & input {
@@ -599,14 +606,28 @@ header {
     z-index: 2;
     display: flex;
     align-items: center;
+    gap: 5px;
     &__nav {
         height: 30px;
         width: 30px;
-        margin-right: 10px;
-        margin-left: 10px;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: 0.15s;
+        cursor: pointer;
         img {
             width: 100%;
             filter: invert(1);
+            transition: 0.25s;
+        }
+        &:hover {
+            background-color: $lightBlue;
+        }
+        &:hover img {
+            animation: header_nav_hover 0.25s ease-out 1;
+        }
+        &:active img {
+            transform: scale(0.8);
         }
     }
 }
@@ -1854,8 +1875,10 @@ header {
     justify-content: center;
     align-items: start;
     gap: 50px;
+    transition: 0.25s;
     &__gameList {
         width: 740px;
+        transition: 0.2s;
         & h2 {
 
         }
@@ -1931,24 +1954,45 @@ header {
                     &__price {
                         font-weight: 700;
                         font-size: 18px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        & > span {
+                            border-top: 1px solid rgb(70, 70, 70);
+                            font-size: 14px;
+                            color: rgb(220, 220, 220);
+                            font-weight: 300;
+                            text-decoration: line-through;
+                        }
                     }
                     &__closeBlock {
                         height: 14px;
                         width: 14px;
+                        padding: 10px;
+                        box-sizing: content-box;
+                        border-radius: 50%;
+                        background-color: rgba(161, 40, 40, 0);
                         cursor: pointer;
                         transition: 0.2s;
-                        margin-left: 15px;
+                        margin-left: 10px;
                         & img {
                             height: 100%;
                             filter: invert(1);
                             transition: 0.2s;
                         }
                         &:hover img{
-                            transform: rotate(90deg);
+                            transform: rotate(90deg) scale(0.75);
+                        }
+                        &:hover {
+                            background-color: rgb(170, 22, 22);
+                        }
+                        &:active img{
+                            transform: rotate(90deg) scale(0.35);
                         }
                         &_hidden {
                             margin-left: 0px;
                             width: 0px;
+                            padding: 0;
                             transform: scale(0);
                             visibility: hidden;
                         }
@@ -2009,12 +2053,51 @@ header {
                 height: 1px;
                 background: inherit;
             }
+            &__empty {
+                position: relative;
+                z-index: 5;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                padding: 0;
+                max-height: 0px;
+                opacity: 0;
+                overflow: hidden;
+                transition: 0.25s;
+                & > img {
+                    filter: invert(0.5);
+                }
+                &__text {
+                    font-size: 20px;
+                    font-weight: 800;
+                    color: #888888;
+                }
+                & > a {
+                    margin-top: 10px;
+                    padding: 0;
+                    cursor: pointer;
+                    transition: 0.15s;
+                    &:hover {
+                        color: $lightBlue;
+                    }
+                }
+                &_active {
+                    max-height: 1000px;
+                    opacity: 1;
+                    padding: 20px;
+                }
+            }
         }
     }
     &__info {
         width: 400px;
+        max-height: 2000px;
         position: sticky;
         top: 85px;
+        transition: 0.25s;
+        overflow: hidden;
         & h2 {
         }
         &__totalBlock {
@@ -2426,6 +2509,14 @@ header {
                 visibility: hidden;
             }
         }
+        &_hidden {
+            opacity: 0;
+            max-height: 0;
+            width: 0;
+        }
+    }
+    &_empty {
+        gap: 0;
     }
 }
 

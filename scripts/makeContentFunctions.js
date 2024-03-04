@@ -244,10 +244,25 @@ function make_basket_info() {
 }
 
 function make_basket() {
+    let gameListInfo = get_basket_game_list();
     let gameList = `<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
-                    <div class="basketContainer__gameList__games__border"></div>`;
+                    <div class="basketContainer__gameList__games__border"></div>
+                    <div class="basketContainer__gameList__games__empty" id="gameList_emptyBlock">
+                        <img src="img/icons/sad.png" alt="">
+                        <div class="basketContainer__gameList__games__empty__text txt">Корзина пуста</div>
+                        <a href="index.html" class="basketContainer__gameList__games__empty__exitButton txt">Вернуться к покупкам</a>
+                    </div>`;
 
-    get_basket_game_list().forEach(game => {
+    if (!gameListInfo.length) {
+        setTimeout(() => {
+            document.querySelector('#gameList_emptyBlock').classList.add('basketContainer__gameList__games__empty_active');
+            document.querySelector('#basket_info').classList.add('basketContainer__info_hidden');
+            document.querySelector('#basket_container').classList.add('basketContainer_empty')
+        }, 200)
+        return
+    }
+
+    gameListInfo.forEach(game => {
         gameList += get_basket_game_html(game);
     })
 
