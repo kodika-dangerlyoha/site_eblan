@@ -6,8 +6,7 @@ function get_basket_list_request() {
 
 function delete_basket_request(id) {
     // delete basketProducts[basketProducts.findIndex(game => game.id == id)];
-    basketProducts.splice(basketProducts.findIndex(game => game.id == id), 1)
-    console.log(basketProducts);
+    basketProducts.splice(basketProducts.findIndex(game => game.id == id), 1);
 }
 
 function delete_game_basket(game_id) {

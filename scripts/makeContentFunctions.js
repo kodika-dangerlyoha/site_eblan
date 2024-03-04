@@ -1,4 +1,5 @@
 // import {get_horizont_game_html} from './HTMLelements.js';
+let basket_game_list = get_basket_game_list();
 
 function getGames() {
     return games;
@@ -228,23 +229,16 @@ function make_game_card_info() {
 }
 
 function make_basket_info() {
-    let new_price = 0;
-    let old_price = 0;
+    const new_price = basket_game_list.reduce((b, a) => b + a.newPrice, 0);
+    const old_price = basket_game_list.reduce((b, a) => b + a.oldPrice, 0);
 
-    get_basket_game_list().forEach(game => {
-        new_price += game.newPrice;
-        old_price += game.oldPrice;
-    })
-
-    let discount = Math.round((old_price - new_price) / old_price * 100);
-
-    document.getElementById('basket_newPrice').innerText = new_price + " ₽";
-    document.getElementById('basket_oldPrice').innerText = old_price + " ₽";
-    document.getElementById('basket_discount').innerText = discount + "%";
+    document.getElementById('basket_newPrice').innerText = `${new_price} ₽`;
+    document.getElementById('basket_oldPrice').innerText = `${old_price} ₽`;
+    document.getElementById('basket_discount').innerText = `${Math.round((old_price - new_price) / old_price * 100)}%`;
 }
 
 function make_basket() {
-    let gameListInfo = get_basket_game_list();
+    // let gameListInfo = get_basket_game_list();
     let gameList = `<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
                     <div class="basketContainer__gameList__games__border"></div>
                     <div class="basketContainer__gameList__games__empty" id="gameList_emptyBlock">
@@ -253,7 +247,7 @@ function make_basket() {
                         <a href="index.html" class="basketContainer__gameList__games__empty__exitButton txt">Вернуться к покупкам</a>
                     </div>`;
 
-    if (!gameListInfo.length) {
+    if (!basket_game_list.length) {
         setTimeout(() => {
             document.querySelector('#gameList_emptyBlock').classList.add('basketContainer__gameList__games__empty_active');
             document.querySelector('#basket_info').classList.add('basketContainer__info_hidden');
@@ -262,7 +256,10 @@ function make_basket() {
         return
     }
 
-    gameListInfo.forEach(game => {
+    // gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game));
+    // console.log(gameList)
+
+    basket_game_list.forEach(game => {
         gameList += get_basket_game_html(game);
     })
 
