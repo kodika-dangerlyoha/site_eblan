@@ -246,11 +246,9 @@ function make_basket_info() {
 function make_basket() {
     let gameList = `<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
                     <div class="basketContainer__gameList__games__border"></div>`;
-    let n = 0;
 
     get_basket_game_list().forEach(game => {
-        gameList += get_basket_game_html(game, n);
-        n++;
+        gameList += get_basket_game_html(game);
     })
 
     make_basket_info();

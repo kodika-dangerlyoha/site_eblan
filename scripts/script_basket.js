@@ -5,7 +5,7 @@ function get_basket_list_request() {
 }
 
 function delete_basket_request(id) {
-    delete basketProducts[id];
+    delete basketProducts.splice(id, 1);
 }
 
 function delete_game_basket(game_id) {
@@ -27,19 +27,29 @@ function open_notifacation_gray() {
     document.getElementById('notification_gray').style.visibility = "visible";
 }
 
-function close_notification(n) {
-    document.querySelectorAll('.for-input__notification')[n].style.visibility = "hidden";
+function close_notification(title) {
+    document.querySelector(`.for-input__notification_${title}`).style.visibility = "hidden";
 }
 
 function goBuy() {
-    function open_stepBuy(n) {
+    function open_stepBuy(title) {
+        const basket_info_h2 = document.querySelector('#basketInfo_h2');
+        const dictionary_for_basketH2 = {
+            'bot_inviting': "Бот добавляет вас в друзья", 
+            'bot_profile': "Примите приглашение от ", 
+            'bot_gifting': "Ожидайте подарок от бота", 
+            'giftbox': "Примите подарок от бота", 
+            'thx': "Спасибо за покупку"
+        };
+        let botName = "Yeat";
+
         document.querySelectorAll('.basketContainer__info__totalBlock__basketBlock').forEach(elem => {
             elem.style.display = "none";
         })
-        document.querySelectorAll('.basketContainer__info__totalBlock__basketBlock')[n].style.display = "flex";
-        document.querySelector('#basketInfo_h2').innerHTML = dictionary_for_basketH2[n - 1];
-        if (n == 2) {
-            document.querySelector('#basketInfo_h2').innerHTML += botName;
+        document.querySelector(`[buyStepTitle$="step_${title}"]`).style.display = "flex";
+        basket_info_h2.innerHTML = dictionary_for_basketH2[title];
+        if (title == 'bot_profile') {
+            basket_info_h2.innerHTML += botName;
         }
     }
 
@@ -65,7 +75,7 @@ function goBuy() {
             'message': "Укажите Email" // text error
         });
     }
-    if (!selected_paymentMethod) {
+    if (!buyForm.bank_id.value) {
         error_dict.push({
             'name': "paymentMethod",
             'message': "Выберите способ оплаты" // text error
@@ -82,7 +92,7 @@ function goBuy() {
         }
     }
 
-    if (!check_active_basket_checkBox) {
+    if (!document.querySelector('.basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark_active')) {
         document.querySelector(`.basketContainer__info__totalBlock__agreeBlock`).classList.add('basketContainer__info__totalBlock__agreeBlock_notification');
         error_dict.push({
             'name': "checkBox",
@@ -93,7 +103,7 @@ function goBuy() {
     open_notifications(error_dict);
 
     if (!error_dict.length) {
-        open_stepBuy(1);
+        open_stepBuy('bot_inviting');
 
         document.querySelectorAll('.basketContainer__gameList__games__game__right__closeBlock').forEach(elem => {
             elem.classList.add('basketContainer__gameList__games__game__right__closeBlock_hidden')
@@ -102,16 +112,16 @@ function goBuy() {
         document.getElementById("exit_button").classList.add('basketContainer__info__exitButton_hidden');
 
         setTimeout(function() {
-            open_stepBuy(2);
-        }, 2000)
-        setTimeout(function() {
-            open_stepBuy(3);
+            open_stepBuy('bot_profile');
         }, 4000)
         setTimeout(function() {
-            open_stepBuy(4);
+            open_stepBuy('bot_gifting');
         }, 6000)
         setTimeout(function() {
-            open_stepBuy(5);
+            open_stepBuy('giftbox');
+        }, 8000)
+        setTimeout(function() {
+            open_stepBuy('thx');
 
             document.querySelectorAll('.basketContainer__gameList__games__game__forHover').forEach(elem => {
                 elem.style.opacity = "0";
@@ -120,7 +130,7 @@ function goBuy() {
             document.getElementById("exit_button").classList.remove('basketContainer__info__exitButton_hidden');
 
             document.querySelector('#basket_games_list_bg').style.opacity = "1";
-        }, 8000)
+        }, 10000)
     }
 }
 
@@ -134,42 +144,39 @@ function get_bank_list_request() {
     };
 }
 // от n избавляться
-function choose_bank(n, bank_id) {
+function choose_bank(bank_id) {
     document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active').forEach(elem => {
         elem.classList.remove('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
     })
-    document.querySelectorAll('.basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank')[n].classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
+    document.querySelector(`#bank_${bank_id}`).classList.add('basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_active');
     
     buyForm.bank_id.value = bank_id;
-    close_notification(3);
+    close_notification('paymentMethod');
     // console.log(bank_id);
     open_payment_methods_handler();
     document.getElementById("text_pay_method").textContent = get_bank_list_request()[bank_id];
 }
 
 function basket_checkBox_click() {
-    if (check_active_basket_checkBox) {
-        document.querySelector('#basket_checkMark').style.opacity = "0";
-        document.querySelector('#basket_checkMark').style.transform = "translateY(-5px)";
-        check_active_basket_checkBox = false;
+    const checkMark = document.querySelector('.basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark');
+    if (document.querySelector('.basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark_active')) {
+        checkMark.classList.remove('basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark_active');
+        return
     }
-    else {
-        document.querySelector(`.basketContainer__info__totalBlock__agreeBlock`).classList.remove('basketContainer__info__totalBlock__agreeBlock_notification');
-        document.querySelector('#basket_checkMark').style.opacity = "1";
-        document.querySelector('#basket_checkMark').style.transform = "translateY(0px)";
-        check_active_basket_checkBox = true;
-    }
+
+    document.querySelector(`.basketContainer__info__totalBlock__agreeBlock`).classList.remove('basketContainer__info__totalBlock__agreeBlock_notification');
+    checkMark.classList.add('basketContainer__info__totalBlock__agreeBlock__checkBox__checkMark_active');
 }
 
 // сделать с id вместо n
-function hover_close_basket(n) { 
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_blue')[n].style.opacity = "0";
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_red')[n].style.opacity = "1";
+function hover_close_basket(game_id) { 
+    document.querySelector(`[bgBlueId$="${game_id}"]`).style.opacity = "0";
+    document.querySelector(`[bgRedId$="${game_id}"]`).style.opacity = "1";
 }
 
-function unhover_close_basket(n) {
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_blue')[n].style.opacity = "1";
-    document.querySelectorAll('.basketContainer__gameList__games__game__forHover__bg_red')[n].style.opacity = "0";
+function unhover_close_basket(game_id) {
+    document.querySelector(`[bgBlueId$="${game_id}"]`).style.opacity = "1";
+    document.querySelector(`[bgRedId$="${game_id}"]`).style.opacity = "0";
 }
 
 function open_payment_methods_handler() {

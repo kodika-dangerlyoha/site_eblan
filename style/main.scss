@@ -10,6 +10,23 @@ $lightBlue: rgba(1, 162, 255, 1);
 $icon_width: 2px;
 $circle_size: 16px;
 
+.loadingBlock {
+    width: 100%;
+    gap: 8px;
+    &__point {
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        filter: blur(0px);
+        background-color: rgb(255, 255, 255);
+        @for $i from 0 through 2 {
+            &:nth-child(#{$i + 1}) {
+              animation: loading_point 0.7s (#{$i/5})+s infinite linear alternate;
+            }
+        }
+    }
+}
+
 .iconBlock_search {
     position: relative;
     display: flex;
@@ -2261,7 +2278,6 @@ header {
                 position: relative;
                 background: $mainGradient_100;
                 border-radius: 7px;
-                overflow: hidden;
                 padding-top: 15px;
                 padding-bottom: 15px;
                 margin-bottom: 10px;
@@ -2272,21 +2288,32 @@ header {
                     font-size: 18px;
                     font-weight: 600;
                     position: relative;
-                    z-index: 2;
+                    z-index: 3;
                     text-align: center;
                     cursor: pointer;
                 }
                 &__forHover {
-                    z-index: 1;
+                    z-index: 2;
+                    border-radius: inherit;
                     background-color: $lightBlue;
                     opacity: 0;
                     transition: 0.15s;
+                }
+                &__forActive {
+                    opacity: 0;
+                    z-index: 1;
+                    border-radius: inherit;
+                    transition: 0.15s;
+                    background-color: $lightBlue;
                 }
                 &:hover &__forHover{
                     opacity: 1;
                 }
                 &:active {
                     transform: scale(0.98);
+                }
+                &:active &__forActive{
+                    animation: button_active 0.15s ease-in-out 1;
                 }
             }
             &__agreeBlock {
@@ -2315,6 +2342,10 @@ header {
                         & img {
                             filter: invert(1);
                             height: 100%;
+                        }
+                        &_active {
+                            opacity: 1;
+                            transform: translate(0px);
                         }
                     }
                     &:hover {
@@ -2735,7 +2766,6 @@ header {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    // border: 2px solid rgb(152, 152, 152);
                     border-radius: 10px;
                     background-color: rgb(58, 58, 58);
                     cursor: pointer;
@@ -2745,10 +2775,11 @@ header {
                         filter: invert(1);
                     }
                     &:hover {
-                        border: 2px solid rgb(255, 255, 255);
+                        transform: scale(0.97);
+                        background-color: rgb(54, 54, 54);
                     }
                     &:active {
-                        transform: scale(0.98);
+                        transform: scale(0.95);
                     }
                     &_active {
                         background: $redGradient;
@@ -2773,27 +2804,37 @@ header {
                     justify-content: center;
                     border-radius: 10px;
                     background: $mainGradient_100;
-                    overflow: hidden;
                     cursor: pointer;
                     transition: 0.15s;
                     &__text {
                         position: relative;
-                        z-index: 2;
+                        z-index: 3;
                         font-size: 26px;
                         font-weight: 600;
                         cursor: pointer;
                     }
                     &__forHover {
-                        z-index: 1;
+                        z-index: 2;
                         opacity: 0;
+                        border-radius: inherit;
                         background: $lightBlue;
                         transition: 0.15s;
+                    }
+                    &__forActive {
+                        opacity: 0;
+                        z-index: 1;
+                        border-radius: inherit;
+                        transition: 0.15s;
+                        background-color: $lightBlue;
                     }
                     &:hover &__forHover{
                         opacity: 1;
                     }
                     &:active {
                         transform: scale(0.98);
+                    }
+                    &:active &__forActive{
+                        animation: button_active 0.15s ease-in-out 1;
                     }
                 }
                 &__buttonBasket {
@@ -2802,7 +2843,6 @@ header {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    // border: 2px solid rgb(152, 152, 152);
                     border-radius: 10px;
                     background-color: rgb(58, 58, 58);
                     cursor: pointer;
@@ -2813,10 +2853,11 @@ header {
                         transform: translateX(-2px);
                     }
                     &:hover {
-                        border: 2px solid rgb(255, 255, 255);
+                        transform: scale(0.97);
+                        background-color: rgb(54, 54, 54);
                     }
                     &:active {
-                        transform: scale(0.98);
+                        transform: scale(0.95);
                     }
                     &_active {
                         background: $mainGradient_100;

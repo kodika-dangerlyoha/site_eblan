@@ -127,6 +127,7 @@ const get_info_game_html = (game, discount, categoriesHTML) => {
                     <div class="mainInfo__info__interactions__bottom__buttonBuy">
                         <div class="mainInfo__info__interactions__bottom__buttonBuy__text txt">Купить</div>
                         <div class="mainInfo__info__interactions__bottom__buttonBuy__forHover absolute-zero"></div>
+						<div class="mainInfo__info__interactions__bottom__buttonBuy__forActive absolute-zero"></div>
                     </div>
                     <div class="mainInfo__info__interactions__bottom__buttonBasket" onclick="addInBasket(${game.id})">
                         <img src="img/icons/basket64_2.png" alt="">
@@ -144,11 +145,11 @@ const get_categories_game_html = (category) => {
             </a>`
 };
 
-const get_basket_game_html = (game, n) => {
+const get_basket_game_html = (game) => {
     return `<div class="basketContainer__gameList__games__game" gameId="${game.id}">
                 <div class="basketContainer__gameList__games__game__forHover">
-                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue"></div>
-                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red"></div>
+                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_blue" bgBlueId="${game.id}"></div>
+                    <div class="basketContainer__gameList__games__game__forHover__bg basketContainer__gameList__games__game__forHover__bg_red" bgRedId="${game.id}"></div>
                 </div>
                 <div class="basketContainer__gameList__games__game__left">
                     <div class="basketContainer__gameList__games__game__left__imgBlock">
@@ -164,7 +165,7 @@ const get_basket_game_html = (game, n) => {
                 </div>
                 <div class="basketContainer__gameList__games__game__right">
                     <div class="basketContainer__gameList__games__game__right__price txt">${game.newPrice} ₽</div>
-                    <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="delete_game_basket(${game.id}, ${n})" onmouseover="hover_close_basket(${n})" onmouseout="unhover_close_basket(${n})">
+                    <div class="basketContainer__gameList__games__game__right__closeBlock" onclick="delete_game_basket(${game.id})" onmouseover="hover_close_basket(${game.id})" onmouseout="unhover_close_basket(${game.id})">
                         <img src="img/icons/cross2_32.png" alt="">
                     </div>
                 </div>

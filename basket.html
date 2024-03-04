@@ -84,9 +84,9 @@
 					<div class="basketContainer__info__totalBlock">
 						<form class="basketContainer__info__totalBlock__basketBlock" action="" name="buy">
 							<div class="for-input">
-								<input type="text" class="def-input txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification(1)">
+								<input type="text" class="def-input txt" placeholder="Трейд ссылка" name="input_tradeLink" onclick="close_notification('trade_link')">
 								<div class="for-input__questionIconBlock">
-									<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notifacation_gray()" onmouseout="close_notification(0)">
+									<div class="for-input__questionIconBlock__icon flex-center" onmouseover="open_notifacation_gray()" onmouseout="close_notification('gray')">
 										<img src="img/icons/question16.png" alt="">
 									</div>
 								</div>
@@ -104,7 +104,7 @@
 								</div>
 							</div>
 							<div class="for-input">
-								<input type="email" class="def-input txt" placeholder="Email" name="input_email" onclick="close_notification(2)">
+								<input type="email" class="def-input txt" placeholder="Email" name="input_email" onclick="close_notification('email')">
 								<div class="for-input__notification for-input__notification_email">
 									<div class="for-input__notification__heading txt"></div>
 									<!-- <div class="for-input__notification__info txt">Укажите свой Email для продолжения покупки</div> -->
@@ -120,19 +120,19 @@
 									<div class="basketContainer__info__totalBlock__nav__border" onclick="open_payment_methods_handler()"></div>
 									<div class="basketContainer__info__totalBlock__nav__floatBlock basketContainer__info__totalBlock__nav__floatBlock_paymentMethods">
 										<div class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid">
-											<div onclick="choose_bank(0, '00001')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
+											<div onclick="choose_bank('00001')" id="bank_00001" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mir">
 												<img src="img/banks/mir.svg" alt="">
 											</div>
-											<div onclick="choose_bank(1, '00003')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank">
+											<div onclick="choose_bank('00003')" id="bank_00003" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_kiwi">
 												<img src="img/banks/kiwi.svg" alt="">
 											</div>
-											<div onclick="choose_bank(2, '00002')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
+											<div onclick="choose_bank('00002')" id="bank_00002" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_visa">
 												<img src="img/banks/visa.svg" alt="">
 											</div>
-											<div onclick="choose_bank(3, '00004')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
+											<div onclick="choose_bank('00004')" id="bank_00004" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_ukassa">
 												<img src="img/banks/ukassa.svg" alt="">
 											</div>
-											<div onclick="choose_bank(4, '00005')" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
+											<div onclick="choose_bank('00005')" id="bank_00005" class="basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank basketContainer__info__totalBlock__nav__floatBlock_paymentMethods__grid__bank_mc">
 												<img src="img/banks/mc.svg" alt="">
 											</div>
 										</div>
@@ -146,7 +146,7 @@
 								</div>
 							</div>
 							<div class="for-input">
-								<input type="text" class="def-input txt" placeholder="Промокод" name="input_promocode" onclick="close_notification(4)">
+								<input type="text" class="def-input txt" placeholder="Промокод" name="input_promocode" onclick="close_notification('promocode')">
 								<div class="for-input__notification for-input__notification_promocode">
 									<div class="for-input__notification__heading txt"></div>
 									<!-- <div class="for-input__notification__info txt">Недействительные промокоды не могут быть использованы при покупке</div> -->
@@ -171,6 +171,7 @@
 							<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
 								<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
 								<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
+								<div class="basketContainer__info__totalBlock__buyButton__forActive absolute-zero"></div>
 							</div>
 							<div class="basketContainer__info__totalBlock__agreeBlock">
 								<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">
@@ -181,10 +182,21 @@
 								<div class="basketContainer__info__totalBlock__agreeBlock__label txt">Я согласен с Условиями и <a href="">политикой конфиденциальности</a></div>
 							</div>
 						</form>
-						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center">
-							<img src="img/gif/loading.gif" alt="">
+						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center" buyStepTitle="step_bot_inviting">
+							<div class="loadingBlock flex-center">
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+							</div>
 						</div>
-						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center" buyStepTitle="step_bot_gifting">
+							<div class="loadingBlock flex-center">
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+							</div>
+						</div>
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center" buyStepTitle="step_bot_profile">
 							<div class="basketContainer__info__totalBlock__basketBlock__profile">
 								<div class="basketContainer__info__totalBlock__basketBlock__profile__avatar">
 									<img src="img/avatar/ef3211dba7d1269a0a56d88a776a6ccc.jpg" alt="">
@@ -192,13 +204,10 @@
 								<div class="basketContainer__info__totalBlock__basketBlock__profile__nickname txt">Yeat</div>
 							</div>
 						</div>
-						<div class="basketContainer__info__totalBlock__basketBlock basketContainer__info__totalBlock__basketBlock_gif flex-center">
-							<img src="img/gif/loading.gif" alt="">
-						</div>
-						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center" buyStepTitle="step_giftbox">
 							<img class="basketContainer__info__totalBlock__basketBlock__invertImg" src="img/icons/giftbox128.png" alt="">
 						</div>
-						<div class="basketContainer__info__totalBlock__basketBlock flex-center">
+						<div class="basketContainer__info__totalBlock__basketBlock flex-center" buyStepTitle="step_thx">
 							<img src="img/icons/heart128.png" alt="">
 						</div>
 					</div>
