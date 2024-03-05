@@ -19,10 +19,17 @@
 		
 			<div class="blackoutBlock" onclick="openCatalogNavs()"></div>
 		
-			<div class="basketContainer" id="basket_container">
+			<div class="basketContainer basketContainer_empty" id="basket_container">
 				<div class="basketContainer__gameList" id="basket_gameList">
 					<h2 class="txt">Корзина</h2>
 					<div class="basketContainer__gameList__games" id="basket_games_list">
+						<div class="basketContainer__gameList__games__loading" id="gameList_loading">
+							<div class="loadingBlock flex-center">
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+								<div class="loadingBlock__point"></div>
+							</div>
+						</div>
 						<!-- <div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
 						<div class="basketContainer__gameList__games__border"></div>
 						<div class="basketContainer__gameList__games__empty" id="gameList_emptyBlock">
@@ -85,7 +92,7 @@
 						</div> -->
 					</div>
 				</div>
-				<div class="basketContainer__info" id="basket_info">
+				<div class="basketContainer__info basketContainer__info_hidden" id="basket_info">
 					<h2 class="txt" id="basketInfo_h2">Итого</h2>
 					<div class="basketContainer__info__totalBlock">
 						<form class="basketContainer__info__totalBlock__basketBlock" action="" name="buy">
@@ -177,7 +184,6 @@
 							<div class="basketContainer__info__totalBlock__buyButton" onclick="goBuy()">
 								<div class="basketContainer__info__totalBlock__buyButton__text txt">Перейти к оплате</div>
 								<div class="basketContainer__info__totalBlock__buyButton__forHover absolute-zero"></div>
-								<div class="basketContainer__info__totalBlock__buyButton__forActive absolute-zero"></div>
 							</div>
 							<div class="basketContainer__info__totalBlock__agreeBlock">
 								<div class="basketContainer__info__totalBlock__agreeBlock__checkBox" onclick="basket_checkBox_click()">

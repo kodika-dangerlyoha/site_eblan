@@ -235,6 +235,11 @@ function make_basket_info() {
     document.getElementById('basket_newPrice').innerText = `${new_price} ₽`;
     document.getElementById('basket_oldPrice').innerText = `${old_price} ₽`;
     document.getElementById('basket_discount').innerText = `${Math.round((old_price - new_price) / old_price * 100)}%`;
+
+    if (document.querySelector('.basketContainer__info_hidden') && document.querySelector('.basketContainer_empty')) {
+        document.querySelector('#basket_info').classList.remove('basketContainer__info_hidden');
+        document.querySelector('#basket_container').classList.remove('basketContainer_empty');
+    }
 }
 
 function make_basket() {
@@ -251,7 +256,7 @@ function make_basket() {
         setTimeout(() => {
             document.querySelector('#gameList_emptyBlock').classList.add('basketContainer__gameList__games__empty_active');
             document.querySelector('#basket_info').classList.add('basketContainer__info_hidden');
-            document.querySelector('#basket_container').classList.add('basketContainer_empty')
+            document.querySelector('#basket_container').classList.add('basketContainer_empty');
         }, 200)
         return
     }
@@ -264,6 +269,5 @@ function make_basket() {
     })
 
     make_basket_info();
-
     document.querySelector('#basket_games_list').innerHTML = gameList;
 }
