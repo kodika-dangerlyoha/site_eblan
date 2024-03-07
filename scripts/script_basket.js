@@ -192,6 +192,4 @@ function open_payment_methods_handler() {
     document.querySelector('.basketContainer__info__totalBlock__nav').classList.add('basketContainer__info__totalBlock__nav_active');
 }
 
-setTimeout(() => {
-    make_basket();
-}, 2000)
+make_basket();
