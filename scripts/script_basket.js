@@ -36,6 +36,7 @@ function close_notification(title) {
 
 function goBuy() {
     function open_stepBuy(title) {
+        let botName = "Yeat";
         const basket_info_h2 = document.querySelector('#basketInfo_h2');
         const dictionary_for_basketH2 = {
             'bot_inviting': "Бот добавляет вас в друзья", 
@@ -44,7 +45,6 @@ function goBuy() {
             'giftbox': "Примите подарок от бота", 
             'thx': "Спасибо за покупку"
         };
-        let botName = "Yeat";
 
         document.querySelectorAll('.basketContainer__info__totalBlock__basketBlock').forEach(elem => {
             elem.style.display = "none";
@@ -155,7 +155,7 @@ function choose_bank(bank_id) {
     
     buyForm.bank_id.value = bank_id;
     close_notification('paymentMethod');
-    // console.log(bank_id);
+
     open_payment_methods_handler();
     document.getElementById("text_pay_method").textContent = get_bank_list_request()[bank_id];
 }
@@ -191,6 +191,7 @@ function open_payment_methods_handler() {
 
     document.querySelector('.basketContainer__info__totalBlock__nav').classList.add('basketContainer__info__totalBlock__nav_active');
 }
+
 setTimeout(() => {
     make_basket();
 }, 2000)

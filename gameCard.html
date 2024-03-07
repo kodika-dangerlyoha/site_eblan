@@ -102,14 +102,14 @@
 				<img src="img/icons/like64.png" alt="">
 			</a>
 		</div>
-        <div class="miniGameCard">
+        <div class="miniGameCard miniGameCard_loading loadingContent" id="miniGameCard">
             <div class="miniGameCard__left">
                 <div class="miniGameCard__left__imgBlock">
-                    <img src="img/banners/52nahuy.jpg" alt="">
+                    <img src="" alt="" id="img_miniGameCard">
                 </div>
                 <div class="miniGameCard__left__info">
-                    <div class="miniGameCard__left__info__title txt">52 No Gletcher Gang</div>
-                    <div class="miniGameCard__left__info__price txt">1812 ₽ <span>2199 ₽</span></div>
+                    <div class="miniGameCard__left__info__title txt" id="title_game"></div>
+                    <div class="miniGameCard__left__info__price txt" id="price_game"><span></span></div>
                 </div>
             </div>
             <div class="miniGameCard__right">
@@ -129,17 +129,17 @@
 
 	<div class="blackoutBlock fixed-zero" onclick="openCatalogNavs()"></div>
 
-    <div class="bigImgBlock">
+    <div class="bigImgBlock bigImgBlock_loading loadingContent">
         <div class="bigImgBlock__bg"></div>
         <div class="bigImgBlock__border"></div>
-        <img src="img/banners/ngg.jpg" alt="" id="game_banner">
+        <img src="" alt="" id="game_banner">
     </div>
 
     <div class="forScroll"></div>
 
     <div class="mainInfo">
-        <div class="mainInfo__banner">
-            <img src="img/banners/52nahuy.jpg" alt="" id="game_img">
+        <div class="mainInfo__banner mainInfo__banner_loading loadingContent">
+            <img src="" alt="" id="game_img">
             <div class="mainInfo__banner__playButton absolute-zero flex-center" onclick="play_treiler()">
                 <div class="mainInfo__banner__playButton__icon">
                     <img src="img/icons/play-button64.png" alt="">
@@ -147,7 +147,7 @@
                 <div class="mainInfo__banner__playButton__text txt">Смотреть трейлер</div>
             </div>
             <div class="mainInfo__banner__treilerBlock absolute-zero">
-                <video src="video/50.MP4" id="treiler" loop></video>
+                <video src="" id="treiler" loop></video>
                 <div class="mainInfo__banner__treilerBlock__interface">
                     <div class="mainInfo__banner__treilerBlock__interface__button mainInfo__banner__treilerBlock__interface__button_hover" onclick="play_pause_treiler()">
                         <img src="img/icons/pause24.png" alt="" id="button_icon_play_pause">
@@ -168,9 +168,9 @@
                 </div>
             </div>
         </div>
-        <div class="mainInfo__info" id="game_info">
-            <!-- <div>
-                <div class="mainInfo__info__title txt">52 No Gletcher Gang</div>
+        <div class="mainInfo__info mainInfo__info_loading loadingContent" id="game_info">
+            <div>
+                <div class="mainInfo__info__title txt"></div>
                 <div class="mainInfo__info__category">
                     <a href="" class="mainInfo__info__category__nav">
                         <img src="img/icons/game32.png" alt="">
@@ -228,12 +228,17 @@
                         <img src="img/icons/basket64_2.png" alt="">
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 
     <div class="editions" id="edition">
-        <div class="editions__grid" id="edition_grid">
+        <div class="editions__grid editions__grid_loading loadingContent" id="edition_grid">
+            <div class="loadingBlock flex-center">
+                <div class="loadingBlock__point"></div>
+                <div class="loadingBlock__point"></div>
+                <div class="loadingBlock__point"></div>
+            </div>
             <!-- <a href="#" class="editions__grid__edition editions__grid__edition_active">
                 <div class="editions__grid__edition__left">
                     <div class="editions__grid__edition__left__title txt">titleEdition</div>
@@ -265,7 +270,7 @@
         </div>
     </div>
 
-    <div class="head">
+    <div class="head head_loading loadingContent">
         <div class="head__nav">
             <div class="head__nav__text txt">Описание</div>
             <div class="head__nav__strip head__nav__strip_active"></div>
@@ -280,7 +285,7 @@
         </div>
     </div>
 
-    <div class="information">
+    <div class="information information_loading loadingContent">
         <div class="information__description" id="description">
             <h3 class="txt">Титулованная серия впервые на ПК</h3>
             <p class="txt">Первая часть серии в своё время вышла на консолях прошлого поколения, 
@@ -302,7 +307,7 @@
         </div>
     </div>
 
-    <div class="similar" id="similar">
+    <div class="similar similar_loading loadingContent" id="similar">
         <h3 class="txt">Похожие игры</h3>
         <div class="similar__grid gridHorizontalGames" id="content">
 			

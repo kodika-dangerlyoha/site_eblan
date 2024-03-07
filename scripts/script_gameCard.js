@@ -1,7 +1,5 @@
-makeSimilar_gameCard();
-make_editions();
-make_desscription();
 make_game_card_info();
+
 
 const for_scroll = document.querySelector('.forScroll');
 const header_center = document.querySelector('#centerHeader_gameCard');

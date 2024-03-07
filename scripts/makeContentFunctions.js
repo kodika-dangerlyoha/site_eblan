@@ -211,6 +211,12 @@ function make_game_card_info() {
     let gameList = "";
     let categories_list = "";
 
+    document.querySelector('#miniGameCard').classList.remove('miniGameCard_loading');
+
+    document.getElementById('img_miniGameCard').src = games[0].imgH;
+    document.getElementById('price_game').innerHTML = `${games[0].newPrice}₽ <span>${games[0].oldPrice} ₽</span>`;
+    document.getElementById('title_game').innerHTML = games[0].name;
+
     document.getElementById('game_banner').src = games[0].bigBanner;
     document.getElementById('treiler').src = games[0].treilerSrc;
     document.getElementById('game_img').src = games[0].imgH;
@@ -226,6 +232,23 @@ function make_game_card_info() {
     )
 
     document.querySelector('#game_info').innerHTML = gameList;
+
+    makeSimilar_gameCard();
+    make_editions();
+    make_desscription();
+
+    document.querySelectorAll('.loadingContent').forEach(elem => {
+        if (elem.classList[1].search('_loading')) {
+            elem.classList.remove(elem.classList[1]);
+        }
+        elem.classList.add('open_content');
+        elem.classList.remove('loadingContent');
+    })
+
+    setTimeout(() => {
+        let class_open_content = document.getElementsByClassName('open_content');
+        while (class_open_content.length) class_open_content[0].classList.remove("open_content");
+    }, 800);
 }
 
 function make_basket_info() {
@@ -270,4 +293,18 @@ function make_basket() {
 
     make_basket_info();
     document.querySelector('#basket_games_list').innerHTML = gameList;
+}
+
+function make_index() {
+    makeCarousel_index(0);
+    makeSalesHits_index();
+    makeOffers_index();
+    makeBanner_index(games[3]);
+
+    document.querySelectorAll('.loadingContent').forEach(elem => {
+        if (elem.classList[1].search('_loading')) {
+            elem.classList.remove(elem.classList[1]);
+        }
+        elem.classList.remove('loadingContent');
+    })
 }
