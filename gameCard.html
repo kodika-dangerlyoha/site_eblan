@@ -271,39 +271,31 @@
     </div>
 
     <div class="head head_loading loadingContent">
-        <div class="head__nav">
+        <div class="head__nav" onclick="open_page_game_info('description')">
             <div class="head__nav__text txt">Описание</div>
-            <div class="head__nav__strip head__nav__strip_active"></div>
+            <div class="head__nav__strip head__nav__strip_active strip_description"></div>
         </div>
-        <div class="head__nav">
-            <div class="head__nav__text txt">Сситемные требования</div>
-            <div class="head__nav__strip"></div>
+        <div class="head__nav" onclick="open_page_game_info('systemRequirements')">
+            <div class="head__nav__text txt">Ситемные требования</div>
+            <div class="head__nav__strip strip_systemRequirements"></div>
         </div>
-        <div class="head__nav">
+        <div class="head__nav" onclick="open_page_game_info('activation')">
             <div class="head__nav__text txt">Активация</div>
-            <div class="head__nav__strip"></div>
+            <div class="head__nav__strip strip_activation"></div>
         </div>
     </div>
 
     <div class="information information_loading loadingContent">
-        <div class="information__description" id="description">
-            <h3 class="txt">Титулованная серия впервые на ПК</h3>
-            <p class="txt">Первая часть серии в своё время вышла на консолях прошлого поколения, 
-                собрала уйму наград и благополучно миновала просторы ПК, чем вызвала массу негодования и скорби в игровом сообществе. 
-                Вторая часть следует курсом, взятым ещё при выпуске GTA V, когда спустя год после релиза, 
-                улучшенная версия игры появляется на ПК, чтобы предстать во всей своей технологической красе.
-                События Red Dead Redemption 2 разворачиваются в Америке образца 1899 года. Эпоха Дикого Запада подходит к концу. 
-                Главный герой - Артур Морган, бандит, скрывается от правосудия вместе с членами своей банды после неудачного ограбления банка. 
-                По пятам за героем следуют федеральные агенты, внутри банды растут противоречия. 
-                Артуру предстоит выбрать, что для него важнее: его банда, которая его вырастила или же собственные идеалы.
-                Red Dead Redemption 2 - это боевик от третьего лица с колоссальным бюджетом и голливудским размахом. 
-                В игре вас ждёт открытая территория, доступная для исследования и с многочисленными ситуациями. Мир игры кипит жизнью. 
-                Вы почувствуете себя жителем Америки 1899 года, которому не чужды драки, пьянки, азартные игры, дуэли и перестрелки. 
-                За вашу голову назначена награда, поэтому вам всегда придётся оглядываться, но и не забывать о своём призвании - бандита с большой буквы.
-                Специально для ПК-версии разработчики максимально выкрутили графику. Теперь наслаждаться природой и различными биомами Америки можно в разрешении 4K, 
-                60 FPS и с детально проработанной графикой. 
-                Игра порадует всех поклонников вестернов и игр Rockstar.
-            </p>
+        <div class="information__description information_block information_block_active" id="description">
+            <!-- <h3 class="txt"></h3>
+            <p class="txt">
+            </p> -->
+        </div>
+        <div class="information__systemRequirements information_block" id="systemRequirements">
+
+        </div>
+        <div class="information__activation information_block">
+            
         </div>
     </div>
 

@@ -1,11 +1,9 @@
 @keyframes exit_banner {
     0% {
         transform: scale(1.05);
-        filter: blur(10px);
     }
     100% {
         transform: scale(1);
-        filter: blur(0px);
     }
 }
 
@@ -94,5 +92,39 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+/* @keyframes open_game_information {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+} */
+
+@keyframes open_offers_games {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes for_carousel_block_0 {
+    0% {
+        z-index: 6;
+    }
+    99% {
+        z-index: 6;
+    }
+    100% {
+        z-index: 1;
     }
 }

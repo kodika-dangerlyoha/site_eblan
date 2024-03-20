@@ -21,6 +21,9 @@ function openCatalogNavs() {
     if (check_open_catalogNavs) {
         document.querySelector('.blackoutBlock').classList.remove('blackoutBlock_active');
         document.querySelector('.centerBlock__catalogNavsBlock').classList.remove('centerBlock__catalogNavsBlock_active');
+
+        document.querySelector('.centerBlock__nav').classList.remove('centerBlock__nav_active');
+
         setTimeout(() => {
             document.querySelector('.blackoutBlock').style.display = "none";
             document.querySelector('.centerBlock__catalogNavsBlock').style.display = "none";
@@ -31,6 +34,9 @@ function openCatalogNavs() {
     else {
         document.querySelector('.blackoutBlock').style.display = "block";
         document.querySelector('.centerBlock__catalogNavsBlock').style.display = "block";
+
+        document.querySelector('.centerBlock__nav').classList.add('centerBlock__nav_active');
+
         setTimeout(() => {
             document.querySelector('.blackoutBlock').classList.add('blackoutBlock_active');
             document.querySelector('.centerBlock__catalogNavsBlock').classList.add('centerBlock__catalogNavsBlock_active');
@@ -118,4 +124,19 @@ function open_authorization() {
 function openRegistration() {
     document.querySelector(".authorization__block_logIn").style.display = "none";
     document.querySelector(".authorization__block_registration").style.display = "block";
+}
+
+function open_page_game_info(title) {
+    document.querySelectorAll('.information_block').forEach(elem => elem.classList.remove('information_block_active'));
+    document.querySelector(`.information__${title}`).classList.add('information_block_active');
+    document.querySelector('.head__nav__strip_active').classList.remove(`head__nav__strip_active`);
+    document.querySelector(`.strip_${title}`).classList.add('head__nav__strip_active');
+}
+
+function open_offers_games(category) {
+    document.querySelector('.offers__grid_active').classList.remove("offers__grid_active");
+    document.querySelector(`.offers__grid_${category}`).classList.add("offers__grid_active");
+
+    document.querySelector('.offers__head__nav__strip_active').classList.remove(`offers__head__nav__strip_active`);
+    document.querySelector(`.strip_${category}`).classList.add('offers__head__nav__strip_active');
 }

@@ -1,3 +1,4 @@
+const bank_list = get_bank_list_request();
 let buyForm = document.forms.buy;
 
 function get_basket_list_request() {
@@ -157,7 +158,7 @@ function choose_bank(bank_id) {
     close_notification('paymentMethod');
 
     open_payment_methods_handler();
-    document.getElementById("text_pay_method").textContent = get_bank_list_request()[bank_id];
+    document.getElementById("text_pay_method").textContent = bank_list[bank_id];
 }
 
 function basket_checkBox_click() {
@@ -172,12 +173,12 @@ function basket_checkBox_click() {
 }
 
 // сделать с id вместо n
-function hover_close_basket(game_id) { 
-    document.querySelector(`[bgBlueId$="${game_id}"]`).style.opacity = "0";
-    document.querySelector(`[bgRedId$="${game_id}"]`).style.opacity = "1";
-}
-
-function unhover_close_basket(game_id) {
+function hover_close_basket(status, game_id) { 
+    if (status) {
+        document.querySelector(`[bgBlueId$="${game_id}"]`).style.opacity = "0";
+        document.querySelector(`[bgRedId$="${game_id}"]`).style.opacity = "1";
+        return
+    }
     document.querySelector(`[bgBlueId$="${game_id}"]`).style.opacity = "1";
     document.querySelector(`[bgRedId$="${game_id}"]`).style.opacity = "0";
 }

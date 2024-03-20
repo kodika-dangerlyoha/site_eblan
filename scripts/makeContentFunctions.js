@@ -1,9 +1,12 @@
 // import {get_horizont_game_html} from './HTMLelements.js';
 let basket_game_list = get_basket_game_list();
+let games_list = getGames();
 
 function getGames() {
     return games;
 }
+
+// -----------------------
 
 function getGames_for_salesHits() {
     return games.slice(0, 5);
@@ -30,16 +33,39 @@ function get_basket_game_list() {
 }
 
 function makeOffers_index() {
-    let gameList = "";
+    // let gameList_new = "";
+    let gameList_expected = "";
+    let gameList_ourChoice = "";
+
+    // gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game), "");
+    // gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game), "");
+    // gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game), "");
     
-    getGames().forEach(game => {
-        gameList += get_horizont_game_html(
+    // games_list.forEach(game => {
+    //     gameList_new += get_horizont_game_html(
+    //         game, 
+    //         Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
+    //     )
+    // });
+    games_list.forEach(game => {
+        gameList_expected += get_horizont_game_html(
+            game, 
+            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
+        )
+    });
+    games_list.forEach(game => {
+        gameList_ourChoice += get_horizont_game_html(
             game, 
             Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
         )
     });
 
-    document.querySelector('#offers #content_offers__grid').innerHTML = gameList;
+    // records.filter(({gender}) => gender === 'BOYS').reduce((sum, record) => sum + record.value)
+
+    document.querySelector('#offers #offers_grid_new').innerHTML += games_list.filter(({status}) => status == "new").reduce(
+        (summ_game, game) => summ_game + get_horizont_game_html(game, Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)), "");
+    document.querySelector('#offers #offers_grid_expected').innerHTML = gameList_expected;
+    document.querySelector('#offers #offers_grid_ourChoice').innerHTML = gameList_ourChoice;
 }
 
 function makeSimilar_gameCard() {
@@ -53,48 +79,6 @@ function makeSimilar_gameCard() {
     });
 
     document.querySelector('#similar #content').innerHTML = gameList;
-}
-
-function makeSalesHits_index() {
-    let gameList = "";
-    
-    getGames_for_salesHits().forEach(game => {
-        gameList += get_vertical_game_html(
-            game, 
-            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
-        )
-    });
-
-    document.querySelector('#salesHits #salesHits_content').innerHTML = gameList;
-}
-
-function makeBanner_index(game_info) {
-    let discount = Math.round((game_info.oldPrice - game_info.newPrice) / game_info.oldPrice * 100);
-
-    document.getElementById('bannerSecond').src = game_info.link;
-    document.getElementById('banners_second_img').src = game_info.bigBanner;
-    document.getElementById('banner_second_discount').innerText = discount + "%";
-    document.getElementById('banner_second_price').innerText = game_info.newPrice + " ₽";
-    document.getElementById('banner_second_title').innerText = game_info.name;
-    
-    // gameList += get_banner_game_html(
-    //     get_game_banner(), 
-    //     Math.round((get_game_banner().oldPrice - get_game_banner().newPrice) / get_game_banner().oldPrice * 100)
-    // )
-
-    // document.querySelector('#containerWborder #bannerSecond').innerHTML = gameList;
-}
-
-function makeCarousel_index(n) {
-    let gameList = "";
-    
-        gameList += get_carousel_game_html(
-            n,
-            games[n], 
-            Math.round((games[n].oldPrice - games[n].newPrice) / games[n].oldPrice * 100)
-        );
-
-    document.querySelector('#banner').innerHTML = gameList;
 }
 
 function makeCatalog_catalog() {
@@ -203,8 +187,8 @@ function make_editions() {
 }
 
 function make_desscription() {
-    console.log(games[0].description.replace('<br>', ''));
     document.querySelector('#description').innerHTML = games[0].description.replace(/<br>/g, '');
+    document.querySelector('#systemRequirements').innerHTML = games[0].systemRequirements;
 }
 
 function make_game_card_info() {
@@ -284,27 +268,63 @@ function make_basket() {
         return
     }
 
-    // gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game));
-    // console.log(gameList)
+    gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game), "");
+    console.log(gameList);
 
-    basket_game_list.forEach(game => {
-        gameList += get_basket_game_html(game);
-    })
+    // basket_game_list.forEach(game => {
+    //     gameList += get_basket_game_html(game);
+    // })
 
     make_basket_info();
     document.querySelector('#basket_games_list').innerHTML = gameList;
 }
 
+function makeSalesHits_index() {
+    let gameList = "";
+    
+    getGames_for_salesHits().forEach(game => {
+        gameList += get_vertical_game_html(
+            game, 
+            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
+        )
+    });
+
+    document.querySelector('#salesHits #salesHits_content').innerHTML = gameList;
+}
+
+function makeBanner_index(game_info) {
+    let discount = Math.round((game_info.oldPrice - game_info.newPrice) / game_info.oldPrice * 100);
+
+    document.getElementById('bannerSecond').src = game_info.link;
+    document.getElementById('banners_second_img').src = game_info.bigBanner;
+    document.getElementById('banner_second_discount').innerText = discount + "%";
+    document.getElementById('banner_second_price').innerText = game_info.newPrice + " ₽";
+    document.getElementById('banner_second_title').innerText = game_info.name;
+}
+
+function makeCarousel_index(n) {
+    let gameList = "";
+    
+        gameList += get_carousel_game_html(
+            n,
+            games[n], 
+            Math.round((games[n].oldPrice - games[n].newPrice) / games[n].oldPrice * 100)
+        );
+
+    document.querySelector('#banner').innerHTML = gameList;
+}
+
 function make_index() {
-    makeCarousel_index(0);
+    // makeCarousel_index(0);
     makeSalesHits_index();
     makeOffers_index();
-    makeBanner_index(games[3]);
+    // makeBanner_index(games[3]);
 
     document.querySelectorAll('.loadingContent').forEach(elem => {
         if (elem.classList[1].search('_loading')) {
             elem.classList.remove(elem.classList[1]);
         }
         elem.classList.remove('loadingContent');
+        elem.remove;
     })
 }

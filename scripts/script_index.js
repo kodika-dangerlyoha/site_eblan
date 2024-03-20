@@ -10,12 +10,4 @@ function get_game_banner() {
     return games[3];
 }
 
-
-
-
-
-
-
-
-
 make_index();

@@ -46,6 +46,64 @@ let games = [
         <br>Pluck fresh salmon directly from streams in spring and summer. Collect and store meat for the cold winter months. You're not alone on this island, so as winter rolls in and food and resources become scarce you won't be the only one looking for a meal.
         <h2 class="bb_tag"><strong>Co-op Gameplay</strong></h2>
         <br>Survive alone, or with friends. Share items and work together to build defenses. Bring back-up to explore above and below ground.`,
+        'systemRequirements': `
+          <ul>
+            <strong>Минимальные:</strong>
+            <br>
+            <ul class="bb_ul">
+              <li>64-разрядные процессор и операционная система
+                <br>
+              </li>
+              <li><strong>ОС:</strong> Windows 10 (x64) - Windows 11 (x64)
+                <br>
+              </li>
+              <li><strong>Процессор:</strong> Intel Core i5-2310
+                <br>
+              </li>
+              <li><strong>Оперативная память:</strong> 6 GB ОЗУ
+                <br>
+              </li>
+              <li><strong>Видеокарта:</strong> Geforce GTS 450 or equivalent or better
+                <br>
+              </li>
+              <li><strong>DirectX:</strong> версии 11
+                <br>
+              </li>
+              <li><strong>Сеть:</strong> Широкополосное подключение к интернету
+                <br>
+              </li>
+              <li><strong>Место на диске:</strong> 2 GB</li>
+            </ul>
+          </ul>
+        </div>
+          <ul>
+            <strong>Рекомендованные:</strong>
+            <br>
+            <ul class="bb_ul">
+              <li>64-разрядные процессор и операционная система
+                <br>
+              </li>
+              <li><strong>ОС:</strong> Windows 10 (x64) - Windows 11 (x64)
+                <br>
+              </li>
+              <li><strong>Процессор:</strong> Intel Core i5 4th Generation and above
+                <br>
+              </li>
+              <li><strong>Оперативная память:</strong> 8 GB ОЗУ
+                <br>
+              </li>
+              <li><strong>Видеокарта:</strong> Geforce GTX 600 Series or equivalent or better
+                <br>
+              </li>
+              <li><strong>DirectX:</strong> версии 11
+                <br>
+              </li>
+              <li><strong>Сеть:</strong> Широкополосное подключение к интернету
+                <br>
+              </li>
+              <li><strong>Место на диске:</strong> 2 GB</li>
+            </ul>
+          </ul>`,
         'categories': [
           {
             'name': "shooter",
@@ -60,6 +118,7 @@ let games = [
             'link': ""
           },
         ],
+        'status': "new",
     },
     {
         'id': 1,

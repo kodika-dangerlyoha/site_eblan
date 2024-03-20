@@ -1,14 +1,4 @@
-$mainGradient_0: linear-gradient(to bottom, rgba(1, 162, 255, 0), rgba(1, 74, 255, 0));
-$mainGradient_100: linear-gradient(to bottom, rgba(1, 162, 255, 1), rgba(1, 74, 255, 1));
-$lightBlue: rgba(1, 162, 255, 1);
-$darkBlue: rgba(1, 74, 255, 1);
-$colorBody: rgba(39, 39, 39, 1);
-$redGradient: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
-
-$lightBlue: rgba(1, 162, 255, 1);
-
-$icon_width: 2px;
-$circle_size: 16px;
+@use 'base';
 
 .open_content {
     animation: open_content 0.8s ease 1;
@@ -42,16 +32,16 @@ $circle_size: 16px;
         left: 0;
         top: 0;
         border-radius: 50%;
-        border: $icon_width solid rgb(255, 255, 255);
-        height: $circle_size;
-        width: $circle_size;
+        border: base.$icon_width solid rgb(255, 255, 255);
+        height: base.$circle_size;
+        width: base.$circle_size;
         transition: 0.15s;
     }
     &__stick {
         position: absolute;
-        top: calc($circle_size - 2px);
-        left: calc($circle_size - 2px);
-        height: $icon_width;
+        top: calc(base.$circle_size - 2px);
+        left: calc(base.$circle_size - 2px);
+        height: base.$icon_width;
         width: 8px;
         background-color: rgb(255, 255, 255);
         transform: rotate(45deg) translateY(3px);
@@ -95,7 +85,7 @@ $circle_size: 16px;
                 right: 0;
                 opacity: 0;
                 // background-color: rgb(0, 0, 0);
-                background: linear-gradient(to bottom, $colorBody, rgb(0, 0, 0), rgb(0, 0, 0), $colorBody);
+                background: linear-gradient(to bottom, base.$colorBody, rgb(0, 0, 0), rgb(0, 0, 0), base.$colorBody);
                 transition: 0.15s;
                 & video {
                     width: 100%;
@@ -109,15 +99,15 @@ $circle_size: 16px;
                 left: 0;
                 padding: 4px 4px 0 0;
                 border-radius: 0 10px 0 10px;
-                background-color: $colorBody;
+                background-color: base.$colorBody;
                 cursor: pointer;
                 transition: .15s;
                 opacity: 1;
                 &__inner {
                     padding: 5px 10px 5px 10px;
                     border-radius: 0 10px 0 10px;
-                    background: $mainGradient_100;
-                    font-family: robotoFlex;
+                    background: base.$mainGradient_100;
+                    font-family: base.$fonts;
                     font-size: 15px;
                     font-weight: 700;
                     cursor: pointer;
@@ -133,12 +123,12 @@ $circle_size: 16px;
             &__name {
                 position: relative;
                 z-index: 1;
-                font-family: robotoFlex;
+                font-family: base.$fonts;
             }
             &__price {
                 position: relative;
                 z-index: 2;
-                font-family: robotoFlex;
+                font-family: base.$fonts;
                 font-weight: 700;
                 transition: 0.15s;
             }
@@ -175,7 +165,7 @@ $circle_size: 16px;
                         opacity: 0;
                         transition: 0.15s;
                         &_blue {
-                            background: $mainGradient_100;
+                            background: base.$mainGradient_100;
                         }
                         &_red {
                             background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
@@ -206,7 +196,7 @@ $circle_size: 16px;
         }
         &:hover &__info__price{
             transform: translateX(-85px);
-            text-shadow: 0 0 10px $colorBody;
+            text-shadow: 0 0 10px base.$colorBody;
         }
         &:hover &__banner img{
             opacity: 0;
@@ -248,7 +238,7 @@ $circle_size: 16px;
     background: transparent;
     overflow: hidden;
     &__inner {
-        background: $colorBody;
+        background: base.$colorBody;
         position: absolute;
         transform: rotate(2deg);
         height: 100%;
@@ -401,7 +391,6 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
 .basket_header {
     display: flex;
@@ -451,7 +440,7 @@ header {
         cursor: pointer;
         transition: 0.15s;
         font-weight: 600;
-        font-family: robotoFlex;
+        font-family: base.$fonts;
         &__forHover {
             position: absolute;
             z-index: 1;
@@ -459,7 +448,7 @@ header {
             bottom: 0;
             right: 0;
             left: 0;
-            background: $mainGradient_100;
+            background: base.$mainGradient_100;
             opacity: 0;
             transition: 0.15s;
         }
@@ -476,6 +465,41 @@ header {
             border: 2px solid rgba(255, 255, 255, 0);
         }
     }
+    &__nav {
+        display: flex;
+        height: 45px;
+        max-width: 45px;
+        padding: 10px;
+        border-radius: 50%;
+        // background-color: transparent;
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
+        background-color: rgba(186, 186, 186, 0.5);
+        border: 1px solid rgba(186, 186, 186, 0.6);
+        backdrop-filter: blur(5px);
+        transition: 0.15s;
+        cursor: pointer;
+        margin-right: 10px;
+        & > img {
+            width: 100%;
+            filter: invert(1);
+            transition: 0.25s;
+        }
+        &:hover {
+            background-color: base.$lightBlue;
+        }
+        &:hover img {
+            animation: header_nav_hover 0.25s ease-out 1;
+        }
+        &:active img {
+            transform: scale(0.8);
+        }
+        &_active {
+            background-color: base.$lightBlue;
+            &:hover {
+                background-color: base.$red_close;
+            }
+        }
+    }
     &__searchBlock {
         position: relative;
         & input {
@@ -484,9 +508,18 @@ header {
             height: 45px;
             width: 600px;
             background-color: rgba(186, 186, 186, 50%);
+            border: 1px solid rgba(186, 186, 186, 0.6);
+            box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
             border-radius: 23px;
-            padding-left: 20px;
-            font-family: robotoFlex;
+            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+            padding:  {
+                left: 20px;
+                right: 50px;
+                top: 0;
+                bottom: 0;
+            }
+            font-family: base.$fonts;
             font-size: 16px;
             color: rgb(255, 255, 255);
             transition: 0.15s;
@@ -500,13 +533,15 @@ header {
         &__icon {
             position: absolute;
             right: 0px;
-            box-sizing: content-box;
-            padding-right: 15px;
-            padding-left: 15px;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 45px;
+            width: 45px;
             top: 0;
             bottom: 0;
             display: flex;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
             
             border-radius: 50%;
@@ -526,9 +561,9 @@ header {
         }
         &_searchPage {
             & input {
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 &:focus {
-                    background: $lightBlue;
+                    background: base.$lightBlue;
                 }
             }
         }
@@ -552,7 +587,7 @@ header {
         &__head {
             border-radius: 7px;
             background: rgba(16, 16, 16, 0.30);
-            font-family: robotoFlex;
+            font-family: base.$fonts;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -585,7 +620,7 @@ header {
             &__nav {
                 border-radius: 7px;
                 background: rgba(16, 16, 16, 0.30);
-                font-family: robotoFlex;
+                font-family: base.$fonts;
                 font-size: 14px;
                 padding: 7px;
                 display: flex;
@@ -620,12 +655,16 @@ header {
     display: flex;
     align-items: center;
     gap: 5px;
+    // gap: 10px;
     &__nav {
-        height: 30px;
-        width: 30px;
-        padding: 10px;
+        height: 45px;
+        width: 45px;
+        box-sizing: border-box;
+        padding: 8px;
         border-radius: 50%;
         background-color: transparent;
+        // background-color: rgba(186, 186, 186, 50%);
+        // border: 1px solid rgba(186, 186, 186, 0.6);
         transition: 0.15s;
         cursor: pointer;
         img {
@@ -634,7 +673,7 @@ header {
             transition: 0.25s;
         }
         &:hover {
-            background-color: $lightBlue;
+            background-color: base.$lightBlue;
         }
         &:hover img {
             animation: header_nav_hover 0.25s ease-out 1;
@@ -678,7 +717,7 @@ header {
             &__price {
                 font-size: 16px;
                 font-weight: 600;
-                color: $lightBlue;
+                color: base.$lightBlue;
                 & span {
                     margin-left: 5px;
                     font-size: 14px;
@@ -715,7 +754,7 @@ header {
                 transform: scale(0.95);
             }
             &_active {
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 border: 0px solid transparent;
                 &:hover {
                     border: 0px solid transparent;
@@ -733,7 +772,7 @@ header {
             align-items: center;
             justify-content: center;
             border-radius: 7px;
-            background: $mainGradient_100;
+            background: base.$mainGradient_100;
             overflow: hidden;
             cursor: pointer;
             transition: 0.15s;
@@ -749,7 +788,7 @@ header {
             &__forHover {
                 z-index: 1;
                 opacity: 0;
-                background: $lightBlue;
+                background: base.$lightBlue;
                 transition: 0.15s;
             }
             &:hover &__forHover{
@@ -794,136 +833,353 @@ header {
 // ----------------------
 
 // ---------------------- content
-.banner {
-    height: 500px;
-    position: relative;
-    z-index: 1;
+
+.carousel {
     display: flex;
-    align-items: end;
-    padding: 0 150px 30px 150px;
-    &__imgBlock {
-        z-index: 1;
-        animation: exit_banner 0.7s 1 ease-out;
-        & img {
-            width: 100%;
+    padding: 100px 150px 15px 150px;
+    position: relative;
+    &__buttons {
+        position: absolute;
+        top: 100px;
+        bottom: 15px;
+        right: 150px;
+        z-index: 6;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        &__button {
+            width: 55px;
+            height: 55px;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: .15s;
+            cursor: pointer;
+            & > img {
+                width: 100%;
+                filter: invert(1);
+            }
+            &:nth-child(2) img {
+                transform: rotate(180deg) translateX(2px);
+            }
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            &:active {
+                transform: scale(0.95);
+            }
+            &_disactive {
+                cursor: default;
+                opacity: 0.5;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                &:active {
+                    transform: scale(1);
+                }
+            }
         }
     }
-    &__content {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &__banner {
+        width: 90%;
+        margin-left: -90%;
+        box-sizing: border-box;
+        transition: 0.5s;
+        &__imgBlock {
+            width: 100%;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            & > img {
+                width: 100%;
+                display: block;
+            }
+        }
+        &__interaction {
+            transform: translateY(-100%);
+            padding-left: 25px;
+            padding-bottom: 25px;
+            margin-bottom: -159px;
+            &__info {
+                display: inline-block;
+                &__title {
+                    font-family: robotoFlex;
+                    font-size: 28px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    margin-bottom: 10px;
+                }
+                &__shopInfo {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(30px);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+                    border-radius: 20px;
+                    padding: 15px;
+                    min-width: 350px;
+                    &__buttons {
+                        display: flex;
+                        gap: 10px;
+                        &__button {
+                            width: 55px;
+                            height: 55px;
+                            padding: 12px;
+                            background-color: rgba(255, 255, 255, 0.1);
+                            border: 1px solid rgba(255, 255, 255, 0.3);
+                            border-radius: 50%;
+                            transition: .15s;
+                            cursor: pointer;
+                            & > img {
+                                width: 100%;
+                                filter: invert(1);
+                            }
+                            &:hover {
+                                background-color: rgba(255, 255, 255, 0.2);
+                            }
+                            &:hover img {
+                                animation: header_nav_hover .25s ease-out 1;
+                            }
+                            &:active {
+                                transform: scale(0.95);
+                            }
+                            &_active.banner__interaction__info__shopInfo__buttons__button_favorite {
+                                // background-color: base.$lightRed;
+                                background: base.$redGradient;
+                            }
+                            &_active.banner__interaction__info__shopInfo__buttons__button_basket {
+                                // background-color: base.$lightBlue;
+                                background: base.$mainGradient_100;
+                            }
+                        }
+                    }   
+                    &__priceTag {
+                        display: flex;
+                        gap: 10px;
+                        &__prices {
+                            &__newPrice {
+                                font-size: 20px;
+                                font-weight: 500;
+                            }
+                            &__oldPrice {
+                                font-size: 18px;
+                                font-weight: 400;
+                                color: rgb(200, 200, 200);
+                                text-decoration: line-through;
+                                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                            }
+                        }
+                        &__discount {
+                            background-color: rgba(255, 255, 255, 0.1);
+                            // border: 1px solid rgba(255, 255, 255, 0.5);
+                            border-radius: 10px;
+                            height: 100%;
+                            font-size: 22px;
+                            font-weight: 500;
+                            padding: {
+                                left: 15px;
+                                right: 15px;
+                            }
+                        }
+                    }
+                    &_dark {
+                        border: 1px solid rgba(255, 255, 255, 0.5);
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                    &_dark &__buttons__button {
+                        border: 1px solid rgba(255, 255, 255, 0.5);
+                        background-color: rgba(255, 255, 255, 0.15);
+                    }
+                    &_dark &__priceTag__discount {
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            }
+        }
+        &_0 {
+            z-index: 7;
+            transform: scale(1.1) translateX(80%);
+            filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+        }
+        &_1 {
+            margin-left: 0;
+            z-index: 6;
+            transform: scale(1) translateX(0);
+            filter: blur(0px);
+        }
+        &_2 {
+            z-index: 5;
+            transform: scale(0.95) translateX(5%);
+            // filter: grayscale(1);
+            filter: blur(2px);
+        }
+        &_3 {
+            z-index: 4;
+            transform: scale(0.9) translateX(10%);
+            // filter: grayscale(1);
+            filter: blur(3px);
+        }
+        &_4 {
+            z-index: 3;
+            transform: scale(0.85) translateX(15%);
+            // filter: grayscale(1);
+            filter: blur(4px);
+        }
+        &_5 {
+            z-index: 2;
+            transform: scale(0.8) translateX(20%);
+            // filter: grayscale(1);
+            filter: blur(5px);
+        }
+        // &:first-child {
+            
+        // }
+        // &:nth-child(1) {
+            
+        // }
+        // &:nth-child(2) {
+            
+        //     // opacity: 0.65;
+        // }
+        // &:nth-child(3) {
+            
+        //     // opacity: 0.45;
+        // }
+        // &:nth-child(4) {
+            
+        //     // opacity: 0.25;
+        // }
+        // &:nth-child(5) {
+            
+        //     // opacity: 0.05;
+        // }
+    }
+}
+
+.banner {
+    box-sizing: border-box;
+    padding: 20px 150px 15px 150px;
+    &__imgBlock {
         width: 100%;
+        border-radius: 25px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        & > img {
+            width: 100%;
+            display: block;
+        }
+    }
+    &__interaction {
+        transform: translateY(-100%);
+        padding-left: 25px;
+        padding-bottom: 25px;
+        margin-bottom: -159px;
         &__info {
-            &__gameName {
-                font-size: 32px;
+            display: inline-block;
+            &__title {
+                font-family: robotoFlex;
+                font-size: 28px;
                 font-weight: 700;
-                margin-bottom: 10px;
                 letter-spacing: 1px;
                 text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                // font-family: robotoConc;
+                margin-bottom: 10px;
             }
-            &__priceBlock {
+            &__shopInfo {
                 display: flex;
-                align-items: center;
-                &__buttonBasket {
-                    position: relative;
-                    background: $mainGradient_100;
-                    padding: 12px 20px 12px 20px;
-                    border-radius: 11px;
-                    transition: 0.15s;
-                    margin-right: 20px;
-                    cursor: pointer;
-                    overflow: hidden;
-                    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
-                    &__text {
-                        font-size: 16px;
-                        font-weight: 600;
-                        z-index: 2;
+                justify-content: space-between;
+                background-color: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(30px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+                border-radius: 20px;
+                padding: 15px;
+                min-width: 350px;
+                &__buttons {
+                    display: flex;
+                    gap: 10px;
+                    &__button {
+                        width: 55px;
+                        height: 55px;
+                        padding: 12px;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transition: .15s;
                         cursor: pointer;
-                        // font-family: robotoConc;
+                        & > img {
+                            width: 100%;
+                            filter: invert(1);
+                        }
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.2);
+                        }
+                        &:hover img {
+                            animation: header_nav_hover .25s ease-out 1;
+                        }
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                        &_active.banner__interaction__info__shopInfo__buttons__button_favorite {
+                            // background-color: base.$lightRed;
+                            background: base.$redGradient;
+                        }
+                        &_active.banner__interaction__info__shopInfo__buttons__button_basket {
+                            // background-color: base.$lightBlue;
+                            background: base.$mainGradient_100;
+                        }
                     }
-                    &__forHover {
-                        z-index: 1;
-                        background: linear-gradient(to bottom, rgba(1, 162, 255, 1), rgba(1, 162, 255, 1));
-                        opacity: 0;
-                        transition: 0.15s;
+                }   
+                &__priceTag {
+                    display: flex;
+                    gap: 10px;
+                    &__prices {
+                        &__newPrice {
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+                        &__oldPrice {
+                            font-size: 18px;
+                            font-weight: 400;
+                            color: rgb(200, 200, 200);
+                            text-decoration: line-through;
+                            border-top: 1px solid rgba(255, 255, 255, 0.2);
+                        }
                     }
-                    &:hover &__forHover {
-                        opacity: 1;
-                    }
-                    &:active {
-                        transform: scale(0.97);
+                    &__discount {
+                        background-color: rgba(255, 255, 255, 0.1);
+                        // border: 1px solid rgba(255, 255, 255, 0.5);
+                        border-radius: 10px;
+                        height: 100%;
+                        font-size: 22px;
+                        font-weight: 500;
+                        padding: {
+                            left: 15px;
+                            right: 15px;
+                        }
                     }
                 }
-                &__price {
-                    font-weight: 700;
-                    font-size: 28px;
-                    margin-right: 16px;
-                    // font-family: robotoConc;
+                &_dark {
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    background-color: rgba(0, 0, 0, 0.2);
                 }
-                &__percent {
-                    border-radius: 7px;
-                    padding: 4px 8px 4px 8px;
-                    background: $mainGradient_100;
-                    font-size: 16px;
-                    font-weight: 700;
-                    // font-family: robotoConc;
+                &_dark &__buttons__button {
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    background-color: rgba(255, 255, 255, 0.15);
+                }
+                &_dark &__priceTag__discount {
+                    background-color: rgba(255, 255, 255, 0.2);
                 }
             }
         }
-        &__arrows {
-            display: flex;
-            transform: translateY(50px);
-            &__arrow {
-                padding: 10px;
-                border: 2px solid rgba(255, 255, 255, 1);
-                margin-right: 5px;
-                margin-left: 5px;
-                opacity: 0.8;
-                transition: 0.15s;
-                cursor: pointer;
-                & img {
-                    filter: invert(1);
-                    width: 16px;
-                }
-                &_left {
-                    border-radius: 50% 0 0 50%;
-                    & img {
-                        transform: rotate(180deg);
-                    }
-                }
-                &_right {
-                    border-radius: 0 50% 50% 0;
-                }
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    &_loading &__imgBlock {
-        bottom: -100px;
-        background-color: rgb(55, 55, 55);
-    }
-    &_loading &__content__arrows {
-        display: none;
-    }
-    &_loading &__content__info__gameName {
-        border-radius: 4px;
-        height: 32px;
-        width: 300px;
-        animation: loading_block 1.5s ease infinite;
-    }
-    &_loading &__content__info__priceBlock {
-        border-radius: 4px;
-        height: 30px;
-        width: 200px;
-        animation: loading_block 1.5s ease infinite;
-    }
-    &_loading &__content__info__priceBlock > * {
-        display: none;
     }
 }
 
@@ -956,7 +1212,7 @@ header {
             align-items: center;
             &__buttonBasket {
                 position: relative;
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 padding: 7px 20px 7px 20px;
                 border-radius: 10px;
                 transition: 0.15s;
@@ -990,7 +1246,7 @@ header {
             &__percent {
                 border-radius: 7px;
                 padding: 5px;
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 font-size: 14px;
                 font-weight: 700;
             }
@@ -1009,7 +1265,7 @@ header {
         left: -20px;
         right: -20px;
         z-index: 1;
-        background: linear-gradient(to bottom, rgba(39, 39, 39, 0.8), $colorBody);
+        background: linear-gradient(to bottom, rgba(39, 39, 39, 0.8), base.$colorBody);
         backdrop-filter: blur(100px);
         transform: rotate(2deg);
         border-top: 2px solid rgb(255, 255, 255);
@@ -1018,7 +1274,7 @@ header {
         position: relative;
         z-index: 2;
         margin-bottom: 30px;
-        font-family: robotoFlex;
+        font-family: base.$fonts;
     }
     &__games {
         position: relative;
@@ -1047,13 +1303,13 @@ header {
         //             left: 0;
         //             padding: 4px 4px 0 0;
         //             border-radius: 0 10px 0 10px;
-        //             background-color: $colorBody;
+        //             background-color: base.$colorBody;
         //             cursor: pointer;
         //             &__inner {
         //                 padding: 5px 10px 5px 10px;
         //                 border-radius: 0 10px 0 10px;
-        //                 background: $mainGradient_100;
-        //                 font-family: robotoFlex;
+        //                 background: base.$mainGradient_100;
+        //                 font-family: base.$fonts;
         //                 font-size: 15px;
         //                 font-weight: 700;
         //                 cursor: pointer;
@@ -1069,12 +1325,12 @@ header {
         //         &__name {
         //             position: relative;
         //             z-index: 1;
-        //             font-family: robotoFlex;
+        //             font-family: base.$fonts;
         //         }
         //         &__price {
         //             position: relative;
         //             z-index: 2;
-        //             font-family: robotoFlex;
+        //             font-family: base.$fonts;
         //             font-weight: 700;
         //             transition: 0.15s;
         //         }
@@ -1111,7 +1367,7 @@ header {
         //                     opacity: 0;
         //                     transition: 0.15s;
         //                     &_blue {
-        //                         background: $mainGradient_100;
+        //                         background: base.$mainGradient_100;
         //                     }
         //                     &_red {
         //                         background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
@@ -1139,7 +1395,7 @@ header {
         //     }
         //     &:hover &__info__price{
         //         transform: translateX(-85px);
-        //         text-shadow: 0 0 10px $colorBody;
+        //         text-shadow: 0 0 10px base.$colorBody;
         //     }
         // }
     }
@@ -1152,7 +1408,7 @@ header {
         &__button {
             display: flex;
             align-items: center;
-            font-family: robotoFlex;
+            font-family: base.$fonts;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;
@@ -1220,180 +1476,28 @@ header {
                 border-radius: 2px;
                 background: transparent;
                 transition: 0.15s;
+                transform: translateY(3px);
                 &_active {
-                    background: $lightBlue;
-                    &:hover {
-                        background: $lightBlue;
-                    }
+                    transform: translateY(0px);
+                    background: base.$lightBlue;
                 }
             }
             &:hover &__strip{
+                transform: translateY(0px);
                 background: rgb(255, 255, 255);
+            }
+            &:hover &__strip_active{
+                background: base.$lightBlue;
             }
         }
     }
-    // &__grid {
-    //     display: grid;
-    //     grid-gap: 35px;
-    //     grid-template-columns: repeat(4, minmax(0px, 1fr));
-    //     align-items: center;
-    //     justify-content: space-between;
-    //     &__game {
-    //         &__banner {
-    //             width: 100%;
-    //             position: relative;
-    //             border-radius: 10px;
-    //             // background-image: src('img/banner/img1.jpg');
-    //             background-size: cover;
-    //             transition: 0.15s;
-    //             cursor: pointer;
-    //             overflow: hidden;
-    //             & img {
-    //                 position: relative;
-    //                 z-index: 2;
-    //                 border-radius: 10px;
-    //                 width: 100%;
-    //                 transition: 0.15s;
-    //             }
-    //             &__videoBlock {
-    //                 display: flex;
-    //                 align-items: center;
-    //                 justify-content: center;
-    //                 position: absolute;
-    //                 z-index: 1;
-    //                 top: 0;
-    //                 left: 0;
-    //                 bottom: 0;
-    //                 right: 0;
-    //                 opacity: 0;
-    //                 background-color: $colorBody;
-    //                 transition: 0.15s;
-    //                 & video {
-    //                     border-radius: 10px;
-    //                     width: 100%;
-    //                     display: none;
-    //                 }
-    //             }
-    //             &__discount {
-    //                 position: absolute;
-    //                 z-index: 4;
-    //                 bottom: 4px;
-    //                 left: 0;
-    //                 padding: 4px 4px 0 0;
-    //                 border-radius: 0 10px 0 10px;
-    //                 background-color: $colorBody;
-    //                 cursor: pointer;
-    //                 transition: .15s;
-    //                 opacity: 1;
-    //                 &__inner {
-    //                     padding: 5px 10px 5px 10px;
-    //                     border-radius: 0 10px 0 10px;
-    //                     background: $mainGradient_100;
-    //                     font-family: robotoFlex;
-    //                     font-size: 15px;
-    //                     font-weight: 700;
-    //                     cursor: pointer;
-    //                 }
-    //             }
-    //         }
-    //         &__info {
-    //             position: relative;
-    //             padding-top: 8px;
-    //             display: flex;
-    //             justify-content: space-between;
-    //             transition: 0.15s;
-    //             &__name {
-    //                 position: relative;
-    //                 z-index: 1;
-    //                 font-family: robotoFlex;
-    //             }
-    //             &__price {
-    //                 position: relative;
-    //                 z-index: 2;
-    //                 font-family: robotoFlex;
-    //                 font-weight: 700;
-    //                 transition: 0.15s;
-    //             }
-    //             &__buttons {
-    //                 right: 0;
-    //                 left: 0;
-    //                 top: 4px;
-    //                 position: absolute;
-    //                 z-index: 2;
-    //                 display: flex;
-    //                 justify-content: end;
-    //                 transform: translateY(-10px);
-    //                 opacity: 0;
-    //                 transition: 0.15s;
-    //                 background: linear-gradient(to right, rgba(39, 39, 39, 0.2), rgba(39, 39, 39, 1), rgba(39, 39, 39, 1));
-    //                 &__button {
-    //                     position: relative;
-    //                     height: 35px;
-    //                     width: 35px;
-    //                     margin-left: 5px;
-    //                     background: linear-gradient(to bottom, rgba(89, 89, 89, 1), rgba(64, 64, 64, 1));
-    //                     border-radius: 7px;
-    //                     display: flex;
-    //                     align-items: center;
-    //                     justify-content: center;
-    //                     cursor: pointer;
-    //                     overflow: hidden;
-    //                     transition: 0.15s;
-    //                     & img {
-    //                         height: 18px;
-    //                         filter: invert(1);
-    //                     }
-    //                     &__forHover {
-    //                         opacity: 0;
-    //                         transition: 0.15s;
-    //                         &_blue {
-    //                             background: $mainGradient_100;
-    //                         }
-    //                         &_red {
-    //                             background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
-    //                         }
-    //                     }
-    //                     &:hover &__forHover{
-    //                         opacity: 1;
-    //                     }
-    //                     &:active {
-    //                         transform: scale(0.90);
-    //                     }
-    //                 }
-    //             }
-    //         }
-
-    //         &:hover &__banner__discount{
-    //             opacity: 0;
-    //         }
-    //         &:hover &__banner{
-    //             transform: scale(1.05);
-    //         }
-    //         &:hover &__info{
-    //             transform: translateY(8px);
-    //         }
-    //         &:hover &__info__buttons{
-    //             transform: translateY(-2px);
-    //             opacity: 1;
-    //         }
-    //         &:hover &__info__price{
-    //             transform: translateX(-85px);
-    //             text-shadow: 0 0 10px $colorBody;
-    //         }
-    //         &:hover &__banner img{
-    //             opacity: 0;
-    //             transition-delay: 1s;
-    //         }
-    //         &:hover &__banner__videoBlock video{
-    //             display: block;
-    //             transition-delay: 1s;
-    //         }
-    //         &:hover &__banner__videoBlock{
-    //             opacity: 1;
-    //             transition-delay: 1s;
-    //         }
-    //     }
-    // }
+    &__grid {
+        display: none;
+        &_active {
+            display: grid;
+            animation: open_offers_games 0.5s ease 1;
+        }
+    }
     &__blockButtonMore {
         display: flex;
         justify-content: end;
@@ -1401,7 +1505,7 @@ header {
         &__button {
             display: flex;
             align-items: center;
-            font-family: robotoFlex;
+            font-family: base.$fonts;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;
@@ -1575,7 +1679,7 @@ header {
                             bottom: 0;
                             left: 0;
                             right: 50px;
-                            background-color: $lightBlue;
+                            background-color: base.$lightBlue;
                         }
                     }
                     &__valuesInterval {
@@ -1648,13 +1752,13 @@ header {
                     left: 0;
                     padding: 4px 4px 0 0;
                     border-radius: 0 10px 0 10px;
-                    background-color: $colorBody;
+                    background-color: base.$colorBody;
                     cursor: pointer;
                     &__inner {
                         padding: 5px 10px 5px 10px;
                         border-radius: 0 10px 0 10px;
-                        background: $mainGradient_100;
-                        font-family: robotoFlex;
+                        background: base.$mainGradient_100;
+                        font-family: base.$fonts;
                         font-size: 15px;
                         font-weight: 700;
                         cursor: pointer;
@@ -1670,12 +1774,12 @@ header {
                 &__name {
                     position: relative;
                     z-index: 1;
-                    font-family: robotoFlex;
+                    font-family: base.$fonts;
                 }
                 &__price {
                     position: relative;
                     z-index: 2;
-                    font-family: robotoFlex;
+                    font-family: base.$fonts;
                     font-weight: 700;
                     transition: 0.15s;
                 }
@@ -1712,7 +1816,7 @@ header {
                             opacity: 0;
                             transition: 0.15s;
                             &_blue {
-                                background: $mainGradient_100;
+                                background: base.$mainGradient_100;
                             }
                             &_red {
                                 background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
@@ -1740,7 +1844,7 @@ header {
             }
             &:hover &__info__price{
                 transform: translateX(-85px);
-                text-shadow: 0 0 10px $colorBody;
+                text-shadow: 0 0 10px base.$colorBody;
             }
         }
     }
@@ -1911,9 +2015,13 @@ header {
                     height: 3px;
                     border-radius: 2px;
                     background: rgba(0, 0, 0, 0);
+                    transition: 0.15s;
                     &_active {
-                        background-color: $lightBlue;
+                        background-color: base.$lightBlue;
                     }
+                }
+                &:hover &__strip{
+                    background: rgb(255, 255, 255);
                 }
             }
         }
@@ -1949,8 +2057,8 @@ header {
                         &__inner {
                             padding: 5px 10px 5px 10px;
                             border-radius: 0 10px 0 10px;
-                            background: $mainGradient_100;
-                            font-family: robotoFlex;
+                            background: base.$mainGradient_100;
+                            font-family: base.$fonts;
                             font-size: 15px;
                             font-weight: 700;
                             cursor: pointer;
@@ -1966,7 +2074,7 @@ header {
                     &__name {
                         position: relative;
                         z-index: 1;
-                        font-family: robotoFlex;
+                        font-family: base.$fonts;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -1974,7 +2082,7 @@ header {
                     &__price {
                         position: relative;
                         z-index: 2;
-                        font-family: robotoFlex;
+                        font-family: base.$fonts;
                         font-weight: 700;
                         transition: 0.15s;
                     }
@@ -2011,7 +2119,7 @@ header {
                                 opacity: 0;
                                 transition: 0.15s;
                                 &_blue {
-                                    background: $mainGradient_100;
+                                    background: base.$mainGradient_100;
                                 }
                                 &_red {
                                     background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
@@ -2139,7 +2247,7 @@ header {
                                 cursor: pointer;
                                 transition: 0.15s;
                                 &:hover {
-                                    color: $lightBlue;
+                                    color: base.$lightBlue;
                                 }
                             }
                         }
@@ -2193,7 +2301,7 @@ header {
                             transform: rotate(90deg) scale(0.75);
                         }
                         &:hover {
-                            background-color: rgb(170, 22, 22);
+                            background-color: base.$red_close;
                         }
                         &:active img{
                             transform: rotate(90deg) scale(0.35);
@@ -2289,7 +2397,7 @@ header {
                     cursor: pointer;
                     transition: 0.15s;
                     &:hover {
-                        color: $lightBlue;
+                        color: base.$lightBlue;
                     }
                 }
                 &_active {
@@ -2360,7 +2468,7 @@ header {
                         transform: translateY(calc(-50% - 5px));
                         visibility: hidden;
                         &_gray {
-                            border: 3px solid $colorBody;
+                            border: 3px solid base.$colorBody;
                             z-index: 2;
                         }
                         &__heading {
@@ -2386,7 +2494,7 @@ header {
                             border: 3px solid rgb(134, 58, 58);
                             background-color: rgb(50, 50, 50);
                             &_gray {
-                                border: 3px solid $colorBody;
+                                border: 3px solid base.$colorBody;
                             }
                         }
                         &__hideTriangle {
@@ -2571,7 +2679,7 @@ header {
             }
             &__buyButton {
                 position: relative;
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 border-radius: 7px;
                 padding-top: 15px;
                 padding-bottom: 15px;
@@ -2590,7 +2698,7 @@ header {
                 &__forHover {
                     z-index: 2;
                     border-radius: inherit;
-                    background-color: $lightBlue;
+                    background-color: base.$lightBlue;
                     opacity: 0;
                     transition: 0.15s;
                 }
@@ -2634,7 +2742,7 @@ header {
                         }
                     }
                     &:hover {
-                        border-color: $lightBlue;
+                        border-color: base.$lightBlue;
                     }
                 }
                 &__label {
@@ -2646,7 +2754,7 @@ header {
                         color: rgb(255, 255, 255);
                         transition: 0.15s;
                         &:hover {
-                            color: $lightBlue;
+                            color: base.$lightBlue;
                         }
                     }
                 }
@@ -2735,7 +2843,7 @@ header {
     z-index: 2;
     right: 0;
     left: 0;
-    background-color: $colorBody;
+    background-color: base.$colorBody;
     opacity: 0;
     height: 525px;
     transform: translateY(0px);
@@ -2757,7 +2865,7 @@ header {
     //     bottom: 0;
     //     right: 0;
     //     left: 0;
-    //     background-color: $colorBody;
+    //     background-color: base.$colorBody;
     //     opacity: 0;
     // }
     // &__border {
@@ -3092,7 +3200,7 @@ header {
                         transform: scale(0.95);
                     }
                     &_active {
-                        background: $redGradient;
+                        background: base.$redGradient;
                         border: 0px solid transparent;
                         &:hover {
                             border: 0px solid transparent;
@@ -3113,7 +3221,7 @@ header {
                     align-items: center;
                     justify-content: center;
                     border-radius: 10px;
-                    background: $mainGradient_100;
+                    background: base.$mainGradient_100;
                     cursor: pointer;
                     transition: 0.15s;
                     &__text {
@@ -3127,7 +3235,7 @@ header {
                         z-index: 2;
                         opacity: 0;
                         border-radius: inherit;
-                        background: $lightBlue;
+                        background: base.$lightBlue;
                         transition: 0.15s;
                     }
                     &__forActive {
@@ -3135,7 +3243,7 @@ header {
                         z-index: 1;
                         border-radius: inherit;
                         transition: 0.15s;
-                        background-color: $lightBlue;
+                        background-color: base.$lightBlue;
                     }
                     &:hover &__forHover{
                         opacity: 1;
@@ -3170,7 +3278,7 @@ header {
                         transform: scale(0.95);
                     }
                     &_active {
-                        background: $mainGradient_100;
+                        background: base.$mainGradient_100;
                         border: 0px solid transparent;
                         &:hover {
                             border: 0px solid transparent;
@@ -3265,7 +3373,7 @@ header {
                 justify-content: center;
                 cursor: pointer;
                 &_active {
-                    border: 2px solid $lightBlue;
+                    border: 2px solid base.$lightBlue;
                 }
             }
             &:hover {
@@ -3279,7 +3387,7 @@ header {
             }
             &_active {
                 background-color: rgba(53, 118, 255, 0.4);
-                border: 1px solid $lightBlue;
+                border: 1px solid base.$lightBlue;
                 box-shadow: 0 0 10px -2px rgba(1, 162, 255, 0.5);
                 &:hover {
                     background-color: rgba(53, 118, 255, 0.4);
@@ -3338,15 +3446,18 @@ header {
             border-radius: 2px;
             background: transparent;
             transition: 0.15s;
+            transform: translateY(3px);
             &_active {
-                background: $lightBlue;
-                &:hover {
-                    background: $lightBlue;
-                }
+                transform: translateY(0px);
+                background: base.$lightBlue;
             }
         }
         &:hover &__strip{
+            transform: translateY(0px);
             background: rgb(255, 255, 255);
+        }
+        &:hover &__strip_active{
+            background: base.$lightBlue;
         }
     }
     &_loading {
@@ -3360,12 +3471,7 @@ header {
     margin: auto;
     width: 1220px;
     &__description {
-        background-color: $colorBody;
-        border: 2px solid rgb(77, 77, 77);
-        border-radius: 10px;
-        padding: 10px 20px 20px 20px;
-
-        font-family: robotoFlex;
+        font-family: base.$fonts;
         color: white;
         cursor: default;
         font-size: 16px;
@@ -3373,19 +3479,12 @@ header {
         margin: 0;
         color: rgb(220, 220, 220);
         line-height: 26px;
-        // & h3 {
-        //     font-family: robotoFlex;
-        //     color: white;
-        //     cursor: default;
-        //     font-size: 24px;
-        //     font-weight: 600;
-        //     padding: 0;
-        //     margin: 0 0 10px;
-        // }
-        
 
+        @include base.information_game_style;
+        display: none;
+        animation: open_offers_games 0.5s ease 1;
         & h2 {
-            font-family: robotoFlex;
+            font-family: base.$fonts;
             color: white;
             cursor: default;
             font-size: 20px;
@@ -3397,7 +3496,7 @@ header {
             }
         }
         & p {
-            font-family: robotoFlex;
+            font-family: base.$fonts;
             color: white;
             cursor: default;
             font-size: 18px;
@@ -3409,14 +3508,62 @@ header {
         & img {
             display: block;
             border-radius: 10px;
-            margin: 10px;
+            margin: 10px 0 10px 0;
             // float: right;
         }
+        // &_active {
+        //     display: block;
+        // }
+    }
+    &__description.information_block_active {
+        display: block;
+    }
+    &__systemRequirements {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        animation: open_offers_games 0.5s ease 1;
+        & > ul {
+            list-style-type: none;
+            font-family: robotoFlex;
+            color: rgb(255, 255, 255);
+            margin-bottom: 0;
+            margin-top: 0;
+            @include base.information_game_style;
+            & > strong {
+                font-size: 20px;
+            }
+            & > ul {
+                margin-top: 5px;
+                line-height: 25px;
+                list-style-type: none;
+                padding-left: 0;
+                & > li {
+                    & > strong {
+                        font-weight: 400;
+                        color: rgb(200, 200, 200);
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        &_active {
+            display: flex;
+        }
+    }
+    &__systemRequirements.information_block_active {
+        display: flex;
     }
     &_loading {
         display: none;
     }
 }
+
+.information__description.information_block_active {
+
+}
+
 
 .similar {
     position: relative;
@@ -3454,15 +3601,15 @@ header {
         //             left: 0;
         //             padding: 4px 4px 0 0;
         //             border-radius: 0 10px 0 10px;
-        //             background-color: $colorBody;
+        //             background-color: base.$colorBody;
         //             cursor: pointer;
         //             transition: .15s;
         //             opacity: 1;
         //             &__inner {
         //                 padding: 5px 10px 5px 10px;
         //                 border-radius: 0 10px 0 10px;
-        //                 background: $mainGradient_100;
-        //                 font-family: robotoFlex;
+        //                 background: base.$mainGradient_100;
+        //                 font-family: base.$fonts;
         //                 font-size: 15px;
         //                 font-weight: 700;
         //                 cursor: pointer;
@@ -3478,12 +3625,12 @@ header {
         //         &__name {
         //             position: relative;
         //             z-index: 1;
-        //             font-family: robotoFlex;
+        //             font-family: base.$fonts;
         //         }
         //         &__price {
         //             position: relative;
         //             z-index: 2;
-        //             font-family: robotoFlex;
+        //             font-family: base.$fonts;
         //             font-weight: 700;
         //             transition: 0.15s;
         //         }
@@ -3520,7 +3667,7 @@ header {
         //                     opacity: 0;
         //                     transition: 0.15s;
         //                     &_blue {
-        //                         background: $mainGradient_100;
+        //                         background: base.$mainGradient_100;
         //                     }
         //                     &_red {
         //                         background: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
@@ -3551,7 +3698,7 @@ header {
         //     }
         //     &:hover &__info__price{
         //         transform: translateX(-85px);
-        //         text-shadow: 0 0 10px $colorBody;
+        //         text-shadow: 0 0 10px base.$colorBody;
         //     }
         // }
     }
@@ -3575,30 +3722,45 @@ header {
     transition: .15s;
     &__block {
         width: 430px;
-        & h2 {
-            position: relative;
-            margin: 0;
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
-            font-size: 32px;
+            & > h2 {
+                position: relative;
+                margin: 0;
+                font-size: 32px;
+            }
             & > div {
+                width: 35px;
+                height: 35px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.12);
                 display: flex;
                 align-items: center;
-                position: absolute;
-                right: 0;
-                top: 0;
-                bottom: 0;
+                border-radius: 50%;
+                // position: absolute;
+                // right: 0;
+                // top: 0;
+                // bottom: 0;
                 padding: 10px;
                 cursor: pointer;
+                transition: 0.15s;
                 & > img {
                     filter: invert(1);
-                    height: 20px;
-                    transition: 0.15s;
+                    height: 100%;
+                    transition: 0.2s;
                 }
                 &:hover img {
-                    opacity: .8;
+                    transform: rotate(90deg);
+                }
+                &:hover {
+                    background-color: base.$red_close;
                 }
             }
         }
+        
         & form {
             width: 100%;
             margin-bottom: 10px;
@@ -3607,7 +3769,7 @@ header {
             }
             & button {
                 position: relative;
-                background: $mainGradient_100;
+                background: base.$mainGradient_100;
                 border-radius: 7px;
                 overflow: hidden;
                 padding-top: 15px;
@@ -3627,7 +3789,7 @@ header {
                 }
                 & .forHover {
                     z-index: 1;
-                    background-color: $lightBlue;
+                    background-color: base.$lightBlue;
                     opacity: 0;
                     transition: 0.15s;
                 }
