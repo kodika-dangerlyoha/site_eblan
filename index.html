@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="navs">
+		<nav class="navs">
 			<a class="navs__nav">
 				<img src="img/icons/bell64.png" alt="">
 			</a>
@@ -103,7 +103,7 @@
 			<a href="favorite.html" class="navs__nav">
 				<img src="img/icons/like64.png" alt="">
 			</a>
-		</div>
+		</nav>
 	</header>
 
 	<div class="blackoutBlock fixed-zero" onclick="openCatalogNavs()"></div>
@@ -160,14 +160,30 @@
 		</div>
 	</div>
 
-	<div class="carousel">
+	<section class="carousel">
+		<h2 class="hidden">Баннер</h2>
+		<div class="carousel__bg carousel__bg_1 carousel__bg_active">
+			<img src="img/banners/image 10.png" alt="">
+		</div>
+		<div class="carousel__bg carousel__bg_2">
+			<img src="img/banners/big.png" alt="">
+		</div>
+		<div class="carousel__bg carousel__bg_3">
+			<img src="img/banners/b3.jpg" alt="">
+		</div>
+		<div class="carousel__bg carousel__bg_4">
+			<img src="img/banners/b4.jpg" alt="">
+		</div>
+		<div class="carousel__bg carousel__bg_5">
+			<img src="img/banners/b5.jpg" alt="">
+		</div>
 		<div class="carousel__buttons">
-			<div class="carousel__buttons__button carousel__buttons__button_disactive" onclick="scroll_carousel(-1)" id="carousel_button_top">
+			<button class="carousel__buttons__button carousel__buttons__button_disactive" onclick="scroll_carousel(-1)" id="carousel_button_left" disabled>
 				<img src="img/icons/arrRight32.png" alt="">
-			</div>
-			<div class="carousel__buttons__button" onclick="scroll_carousel(1)" id="carousel_button_bottom">
+			</button>
+			<button class="carousel__buttons__button" onclick="scroll_carousel(1)" id="carousel_button_right">
 				<img src="img/icons/arrRight32.png" alt="">
-			</div>
+			</button>
 		</div>
 		<div class="carousel__banner carousel__banner_1">
 			<div class="carousel__banner__imgBlock">
@@ -175,6 +191,7 @@
 			</div>
 			<div class="carousel__banner__interaction">
 				<div class="carousel__banner__interaction__info">
+					<a href="#1" class="carousel__banner__interaction__info__link"></a>
 					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
 					<div class="carousel__banner__interaction__info__shopInfo">
 						<div class="carousel__banner__interaction__info__shopInfo__buttons">
@@ -202,6 +219,7 @@
 			</div>
 			<div class="carousel__banner__interaction">
 				<div class="carousel__banner__interaction__info">
+					<a href="#2" class="carousel__banner__interaction__info__link"></a>
 					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
 					<div class="carousel__banner__interaction__info__shopInfo">
 						<div class="carousel__banner__interaction__info__shopInfo__buttons">
@@ -229,6 +247,7 @@
 			</div>
 			<div class="carousel__banner__interaction">
 				<div class="carousel__banner__interaction__info">
+					<a href="#" class="carousel__banner__interaction__info__link"></a>
 					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
 					<div class="carousel__banner__interaction__info__shopInfo">
 						<div class="carousel__banner__interaction__info__shopInfo__buttons">
@@ -256,6 +275,7 @@
 			</div>
 			<div class="carousel__banner__interaction">
 				<div class="carousel__banner__interaction__info">
+					<a href="#" class="carousel__banner__interaction__info__link"></a>
 					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
 					<div class="carousel__banner__interaction__info__shopInfo">
 						<div class="carousel__banner__interaction__info__shopInfo__buttons">
@@ -283,6 +303,7 @@
 			</div>
 			<div class="carousel__banner__interaction">
 				<div class="carousel__banner__interaction__info">
+					<a href="#" class="carousel__banner__interaction__info__link"></a>
 					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
 					<div class="carousel__banner__interaction__info__shopInfo">
 						<div class="carousel__banner__interaction__info__shopInfo__buttons">
@@ -304,7 +325,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<div class="salesHits salesHits_loading loadingContent" id="salesHits">
 		<h3 class="txt">Хиты продаж</h3>
@@ -428,7 +449,7 @@
 		</div>
 	</footer>
      
-
+	<script type="text/javascript" src="scripts/cookie.js"></script>
 	<script type="text/javascript" src="scripts/variables.js"></script>
 	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
 	<script type="text/javascript" src="scripts/lists.js"></script>
@@ -437,8 +458,6 @@
 	<script type="text/javascript" src="scripts/carousel.js"></script>
 	<script type="text/javascript" src="scripts/script.js"></script>
 	<script type="text/javascript" src="scripts/script_index.js"></script>
-
-	
 </body>
 </html>
 

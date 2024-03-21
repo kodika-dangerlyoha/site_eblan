@@ -21,3 +21,19 @@ $circle_size: 16px;
     box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
     background: rgb(45, 45, 45);
 }
+
+@mixin absolute_zero {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+}
+
+@mixin pos_absolute($t, $r, $b, $l) {
+    position: absolute;
+    right: $r;
+    bottom: $b;
+    top: $t;
+    left: $l;
+}
