@@ -27,6 +27,7 @@
 					<img src="img/icons/search32.png" alt="">
 				</div>
 			</div>
+
 			<div class="centerBlock__catalogNavsBlock">
 				<div class="centerBlock__catalogNavsBlock__head">
 					<h3 class="txt">Категории</h3>
@@ -91,19 +92,56 @@
 			</div>
 		</div>
 		<nav class="navs">
-			<a class="navs__nav">
+			<a class="navs__nav" onclick="open_notifications()" id="notification_button">
 				<img src="img/icons/bell64.png" alt="">
 			</a>
 			<a href="basket.html" class="navs__nav">
 				<img src="img/icons/basket64.png" alt="">
 			</a>
-			<a class="navs__nav" onclick="open_authorization()">
+			<a href="profile.html" class="navs__nav" onclick="open_authorization()">
 				<img src="img/icons/user64.png" alt="">
 			</a>
 			<a href="favorite.html" class="navs__nav">
 				<img src="img/icons/like64.png" alt="">
 			</a>
 		</nav>
+		<div class="header__notification">
+			<div class="header__notification__grid" id="grid_notification">
+				<div class="header__notification__grid__notification notification_nothing">
+					<div class="header__notification__grid__notification__point txt">
+						<div class="header__notification__grid__notification__point__circle header__notification__grid__notification__point__circle_nothing"></div>
+					</div>
+					<div class="header__notification__grid__notification__text txt">Нет новый уведомлений</div>
+				</div>
+				<div class="header__notification__grid__notification notification_addGame">
+					<div class="header__notification__grid__notification__point txt">
+						<div class="header__notification__grid__notification__point__circle"></div>
+					</div>
+					<div class="header__notification__grid__notification__text txt">Игра <span>FPV Kamikadze Drone</span> добавлена в корзину</div>
+				</div>
+				<div class="header__notification__grid__notification notification_addGame">
+					<div class="header__notification__grid__notification__point txt">
+						<div class="header__notification__grid__notification__point__circle"></div>
+					</div>
+					<div class="header__notification__grid__notification__text txt">Игра <span>FPV Kamikadze Drone</span> добавлена в избранное</div>
+				</div>
+				<div class="header__notification__grid__notification notification_error">
+					<div class="header__notification__grid__notification__point txt">
+						<div class="header__notification__grid__notification__point__circle header__notification__grid__notification__point__circle_error"></div>
+					</div>
+					<div class="header__notification__grid__notification__text txt">Произошла ошибка</div>
+				</div>
+
+				<!-- <div class="header__notification__grid__nothing">
+					<div class="header__notification__grid__nothing__text txt">Тут пусто :(</div>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="header__notification_temporary" id="temporary_notification">
+			<div class="header__notification_temporary__grid" id="grid_temporary_notification">
+			</div>
+		</div>
 	</header>
 
 	<div class="blackoutBlock fixed-zero" onclick="openCatalogNavs()"></div>
@@ -160,251 +198,262 @@
 		</div>
 	</div>
 
-	<section class="carousel">
-		<h2 class="hidden">Баннер</h2>
-		<div class="carousel__bg carousel__bg_1 carousel__bg_active">
-			<img src="img/banners/image 10.png" alt="">
-		</div>
-		<div class="carousel__bg carousel__bg_2">
-			<img src="img/banners/big.png" alt="">
-		</div>
-		<div class="carousel__bg carousel__bg_3">
-			<img src="img/banners/b3.jpg" alt="">
-		</div>
-		<div class="carousel__bg carousel__bg_4">
-			<img src="img/banners/b4.jpg" alt="">
-		</div>
-		<div class="carousel__bg carousel__bg_5">
-			<img src="img/banners/b5.jpg" alt="">
-		</div>
-		<div class="carousel__buttons">
-			<button class="carousel__buttons__button carousel__buttons__button_disactive" onclick="scroll_carousel(-1)" id="carousel_button_left" disabled>
-				<img src="img/icons/arrRight32.png" alt="">
-			</button>
-			<button class="carousel__buttons__button" onclick="scroll_carousel(1)" id="carousel_button_right">
-				<img src="img/icons/arrRight32.png" alt="">
-			</button>
-		</div>
-		<div class="carousel__banner carousel__banner_1">
-			<div class="carousel__banner__imgBlock">
+	<main>
+		<section class="carousel">
+			<h2 class="hidden">Карусель</h2>
+			<div class="carousel__gridBG" id="carousel_grid_bg">
+				<!-- <div class="carousel__bg carousel__bg_1 carousel__bg_active">
+					<img src="img/banners/image 10.png" alt="">
+				</div>
+				<div class="carousel__bg carousel__bg_2">
+					<img src="img/banners/big.png" alt="">
+				</div>
+				<div class="carousel__bg carousel__bg_3">
+					<img src="img/banners/b3.jpg" alt="">
+				</div>
+				<div class="carousel__bg carousel__bg_4">
+					<img src="img/banners/b4.jpg" alt="">
+				</div>
+				<div class="carousel__bg carousel__bg_5">
+					<img src="img/banners/b5.jpg" alt="">
+				</div> -->
+			</div>
+			
+			<div class="carousel__buttons">
+				<button class="carousel__buttons__button carousel__buttons__button_disactive" onclick="scroll_carousel(false)" id="carousel_button_left" disabled>
+					<img src="img/icons/arrRight32.png" alt="">
+				</button>
+				<button class="carousel__buttons__button" onclick="scroll_carousel(true)" id="carousel_button_right">
+					<img src="img/icons/arrRight32.png" alt="">
+				</button>
+			</div>
+			<div class="carousel__grid" id="grid_banners">
+				<!-- <div class="carousel__banner carousel__banner_1">
+					<div class="carousel__banner__imgBlock">
+						<img src="img/banners/image 10.png" alt="">
+					</div>
+					<div class="carousel__banner__interaction">
+						<div class="carousel__banner__interaction__info">
+							<a href="#1" class="carousel__banner__interaction__info__link"></a>
+							<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+							<div class="carousel__banner__interaction__info__shopInfo">
+								<div class="carousel__banner__interaction__info__shopInfo__buttons">
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+										<img src="img/icons/basket32.png" alt="">
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+										<img src="img/icons/heart32.png" alt="">
+									</div>
+								</div>
+								<div class="carousel__banner__interaction__info__shopInfo__priceTag">
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel__banner carousel__banner_2">
+					<div class="carousel__banner__imgBlock">
+						<img src="img/banners/big.png" alt="">
+					</div>
+					<div class="carousel__banner__interaction">
+						<div class="carousel__banner__interaction__info">
+							<a href="#2" class="carousel__banner__interaction__info__link"></a>
+							<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+							<div class="carousel__banner__interaction__info__shopInfo">
+								<div class="carousel__banner__interaction__info__shopInfo__buttons">
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+										<img src="img/icons/basket32.png" alt="">
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+										<img src="img/icons/heart32.png" alt="">
+									</div>
+								</div>
+								<div class="carousel__banner__interaction__info__shopInfo__priceTag">
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel__banner carousel__banner_3">
+					<div class="carousel__banner__imgBlock">
+						<img src="img/banners/b3.jpg" alt="">
+					</div>
+					<div class="carousel__banner__interaction">
+						<div class="carousel__banner__interaction__info">
+							<a href="#" class="carousel__banner__interaction__info__link"></a>
+							<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+							<div class="carousel__banner__interaction__info__shopInfo">
+								<div class="carousel__banner__interaction__info__shopInfo__buttons">
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+										<img src="img/icons/basket32.png" alt="">
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+										<img src="img/icons/heart32.png" alt="">
+									</div>
+								</div>
+								<div class="carousel__banner__interaction__info__shopInfo__priceTag">
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel__banner carousel__banner_4">
+					<div class="carousel__banner__imgBlock">
+						<img src="img/banners/b4.jpg" alt="">
+					</div>
+					<div class="carousel__banner__interaction">
+						<div class="carousel__banner__interaction__info">
+							<a href="#" class="carousel__banner__interaction__info__link"></a>
+							<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+							<div class="carousel__banner__interaction__info__shopInfo">
+								<div class="carousel__banner__interaction__info__shopInfo__buttons">
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+										<img src="img/icons/basket32.png" alt="">
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+										<img src="img/icons/heart32.png" alt="">
+									</div>
+								</div>
+								<div class="carousel__banner__interaction__info__shopInfo__priceTag">
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel__banner carousel__banner_5">
+					<div class="carousel__banner__imgBlock">
+						<img src="img/banners/b5.jpg" alt="">
+					</div>
+					<div class="carousel__banner__interaction">
+						<div class="carousel__banner__interaction__info">
+							<a href="#" class="carousel__banner__interaction__info__link"></a>
+							<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+							<div class="carousel__banner__interaction__info__shopInfo">
+								<div class="carousel__banner__interaction__info__shopInfo__buttons">
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+										<img src="img/icons/basket32.png" alt="">
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+										<img src="img/icons/heart32.png" alt="">
+									</div>
+								</div>
+								<div class="carousel__banner__interaction__info__shopInfo__priceTag">
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+										<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+									</div>
+									<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			
+		</section>
+	
+		<section class="salesHits salesHits_loading loadingContent" id="salesHits">
+			<h2 class="hidden">Лидеры продаж</h2>
+			<h3 class="txt">Хиты продаж</h3>
+			<!-- <div class="loadingBlock flex-center">
+				<div class="loadingBlock__point"></div>
+				<div class="loadingBlock__point"></div>
+				<div class="loadingBlock__point"></div>
+			</div> -->
+			<div class="salesHits__games" id="salesHits_content">
+			</div>
+			<div class="salesHits__blockButtonMore">
+				<div class="salesHits__blockButtonMore__button txt">
+					Показать еще
+					<img src="img/icons/arrRight32.png" alt="">
+				</div>
+			</div>
+		</section>
+	
+		<section class="banner">
+			<h2 class="hidden">Баннер</h2>
+			<div class="banner__imgBlock">
 				<img src="img/banners/image 10.png" alt="">
 			</div>
-			<div class="carousel__banner__interaction">
-				<div class="carousel__banner__interaction__info">
-					<a href="#1" class="carousel__banner__interaction__info__link"></a>
-					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-					<div class="carousel__banner__interaction__info__shopInfo">
-						<div class="carousel__banner__interaction__info__shopInfo__buttons">
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
+			<div class="banner__interaction">
+				<div class="banner__interaction__info">
+					<div class="banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
+					<div class="banner__interaction__info__shopInfo">
+						<div class="banner__interaction__info__shopInfo__buttons">
+							<div class="banner__interaction__info__shopInfo__buttons__button banner__interaction__info__shopInfo__buttons__button_basket">
 								<img src="img/icons/basket32.png" alt="">
 							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
+							<div class="banner__interaction__info__shopInfo__buttons__button banner__interaction__info__shopInfo__buttons__button_favorite">
 								<img src="img/icons/heart32.png" alt="">
 							</div>
 						</div>
-						<div class="carousel__banner__interaction__info__shopInfo__priceTag">
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
+						<div class="banner__interaction__info__shopInfo__priceTag">
+							<div class="banner__interaction__info__shopInfo__priceTag__prices">
+								<div class="banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
+								<div class="banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
 							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
+							<div class="banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="carousel__banner carousel__banner_2">
-			<div class="carousel__banner__imgBlock">
-				<img src="img/banners/big.png" alt="">
-			</div>
-			<div class="carousel__banner__interaction">
-				<div class="carousel__banner__interaction__info">
-					<a href="#2" class="carousel__banner__interaction__info__link"></a>
-					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-					<div class="carousel__banner__interaction__info__shopInfo">
-						<div class="carousel__banner__interaction__info__shopInfo__buttons">
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
-								<img src="img/icons/basket32.png" alt="">
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
-								<img src="img/icons/heart32.png" alt="">
-							</div>
-						</div>
-						<div class="carousel__banner__interaction__info__shopInfo__priceTag">
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
-						</div>
-					</div>
+		</section>
+	
+		<section class="offers offers_loading loadingContent" id="offers">
+			<h2 class="hidden">Предложения</h2>
+			<div class="offers__head">
+				<div class="offers__head__nav" onclick="open_offers_games('new')">
+					<div class="offers__head__nav__text txt">Новинки</div>
+					<div class="offers__head__nav__strip strip_new offers__head__nav__strip_active"></div>
+				</div>
+				<div class="offers__head__nav" onclick="open_offers_games('expected')">
+					<div class="offers__head__nav__text txt">Ожидаемое</div>
+					<div class="offers__head__nav__strip strip_expected"></div>
+				</div>
+				<div class="offers__head__nav" onclick="open_offers_games('ourChoice')">
+					<div class="offers__head__nav__text txt">Наш выбор</div>
+					<div class="offers__head__nav__strip strip_ourChoice"></div>
 				</div>
 			</div>
-		</div>
-		<div class="carousel__banner carousel__banner_3">
-			<div class="carousel__banner__imgBlock">
-				<img src="img/banners/b3.jpg" alt="">
-			</div>
-			<div class="carousel__banner__interaction">
-				<div class="carousel__banner__interaction__info">
-					<a href="#" class="carousel__banner__interaction__info__link"></a>
-					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-					<div class="carousel__banner__interaction__info__shopInfo">
-						<div class="carousel__banner__interaction__info__shopInfo__buttons">
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
-								<img src="img/icons/basket32.png" alt="">
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
-								<img src="img/icons/heart32.png" alt="">
-							</div>
-						</div>
-						<div class="carousel__banner__interaction__info__shopInfo__priceTag">
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
-						</div>
-					</div>
+	
+			<section class="offers__grid offers__grid_new offers__grid_active gridHorizontalGames" id="offers_grid_new">
+				<h2 class="hidden">Новый игры</h2>
+			</section>
+			<section class="offers__grid offers__grid_expected gridHorizontalGames" id="offers_grid_expected">
+				<h2 class="hidden">Ожидаемые игры</h2>
+			</section>
+			<section class="offers__grid offers__grid_ourChoice gridHorizontalGames" id="offers_grid_ourChoice">
+				<h2 class="hidden">Наш выбор</h2>
+			</section>
+	
+			<div class="offers__blockButtonMore">
+				<div class="offers__blockButtonMore__button txt">
+					Показать еще
+					<img src="img/icons/arrRight32.png" alt="">
 				</div>
 			</div>
-		</div>
-		<div class="carousel__banner carousel__banner_4">
-			<div class="carousel__banner__imgBlock">
-				<img src="img/banners/b4.jpg" alt="">
-			</div>
-			<div class="carousel__banner__interaction">
-				<div class="carousel__banner__interaction__info">
-					<a href="#" class="carousel__banner__interaction__info__link"></a>
-					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-					<div class="carousel__banner__interaction__info__shopInfo">
-						<div class="carousel__banner__interaction__info__shopInfo__buttons">
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
-								<img src="img/icons/basket32.png" alt="">
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
-								<img src="img/icons/heart32.png" alt="">
-							</div>
-						</div>
-						<div class="carousel__banner__interaction__info__shopInfo__priceTag">
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="carousel__banner carousel__banner_5">
-			<div class="carousel__banner__imgBlock">
-				<img src="img/banners/b5.jpg" alt="">
-			</div>
-			<div class="carousel__banner__interaction">
-				<div class="carousel__banner__interaction__info">
-					<a href="#" class="carousel__banner__interaction__info__link"></a>
-					<div class="carousel__banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-					<div class="carousel__banner__interaction__info__shopInfo">
-						<div class="carousel__banner__interaction__info__shopInfo__buttons">
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_basket">
-								<img src="img/icons/basket32.png" alt="">
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__buttons__button carousel__banner__interaction__info__shopInfo__buttons__button_favorite">
-								<img src="img/icons/heart32.png" alt="">
-							</div>
-						</div>
-						<div class="carousel__banner__interaction__info__shopInfo__priceTag">
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices">
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-								<div class="carousel__banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
-							</div>
-							<div class="carousel__banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<div class="salesHits salesHits_loading loadingContent" id="salesHits">
-		<h3 class="txt">Хиты продаж</h3>
-		<!-- <div class="loadingBlock flex-center">
-			<div class="loadingBlock__point"></div>
-			<div class="loadingBlock__point"></div>
-			<div class="loadingBlock__point"></div>
-		</div> -->
-		<div class="salesHits__games" id="salesHits_content">
-		</div>
-		<div class="salesHits__blockButtonMore">
-			<div class="salesHits__blockButtonMore__button txt">
-				Показать еще
-				<img src="img/icons/arrRight32.png" alt="">
-			</div>
-		</div>
-	</div>
-
-	<div class="banner">
-		<div class="banner__imgBlock">
-			<img src="img/banners/image 10.png" alt="">
-		</div>
-		<div class="banner__interaction">
-			<div class="banner__interaction__info">
-				<div class="banner__interaction__info__title txt">Call Of Duty: Warzone 2</div>
-				<div class="banner__interaction__info__shopInfo">
-					<div class="banner__interaction__info__shopInfo__buttons">
-						<div class="banner__interaction__info__shopInfo__buttons__button banner__interaction__info__shopInfo__buttons__button_basket">
-							<img src="img/icons/basket32.png" alt="">
-						</div>
-						<div class="banner__interaction__info__shopInfo__buttons__button banner__interaction__info__shopInfo__buttons__button_favorite">
-							<img src="img/icons/heart32.png" alt="">
-						</div>
-					</div>
-					<div class="banner__interaction__info__shopInfo__priceTag">
-						<div class="banner__interaction__info__shopInfo__priceTag__prices">
-							<div class="banner__interaction__info__shopInfo__priceTag__prices__newPrice txt">3290 ₽</div>
-							<div class="banner__interaction__info__shopInfo__priceTag__prices__oldPrice txt">3990 ₽</div>
-						</div>
-						<div class="banner__interaction__info__shopInfo__priceTag__discount flex-center txt">15%</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="offers offers_loading loadingContent" id="offers">
-		<div class="offers__head">
-			<div class="offers__head__nav" onclick="open_offers_games('new')">
-				<div class="offers__head__nav__text txt">Новинки</div>
-				<div class="offers__head__nav__strip strip_new offers__head__nav__strip_active"></div>
-			</div>
-			<div class="offers__head__nav" onclick="open_offers_games('expected')">
-				<div class="offers__head__nav__text txt">Ожидаемое</div>
-				<div class="offers__head__nav__strip strip_expected"></div>
-			</div>
-			<div class="offers__head__nav" onclick="open_offers_games('ourChoice')">
-				<div class="offers__head__nav__text txt">Наш выбор</div>
-				<div class="offers__head__nav__strip strip_ourChoice"></div>
-			</div>
-		</div>
-
-		<div class="offers__grid offers__grid_new offers__grid_active gridHorizontalGames" id="offers_grid_new">
-
-		</div>
-		<div class="offers__grid offers__grid_expected gridHorizontalGames" id="offers_grid_expected">
-			
-		</div>
-		<div class="offers__grid offers__grid_ourChoice gridHorizontalGames" id="offers_grid_ourChoice">
-			
-		</div>
-
-		<div class="offers__blockButtonMore">
-			<div class="offers__blockButtonMore__button txt">
-				Показать еще
-				<img src="img/icons/arrRight32.png" alt="">
-			</div>
-		</div>
-	</div>
+		</section>
+	</main>
 	
 	<footer class="footer">
 		<div class="footer__top">
@@ -449,11 +498,12 @@
 		</div>
 	</footer>
      
+	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
 	<script type="text/javascript" src="scripts/cookie.js"></script>
 	<script type="text/javascript" src="scripts/variables.js"></script>
-	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
 	<script type="text/javascript" src="scripts/lists.js"></script>
 	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script type="text/javascript" src="scripts/notification.js"></script>
 	<script type="text/javascript" src="scripts/makeContentFunctions.js"></script>
 	<script type="text/javascript" src="scripts/carousel.js"></script>
 	<script type="text/javascript" src="scripts/script.js"></script>

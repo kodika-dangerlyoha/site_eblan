@@ -1,5 +1,13 @@
 @use 'base';
 
+article > .hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 section > .hidden {
     display: none;
     visibility: hidden;
@@ -696,6 +704,12 @@ header {
         &:active img {
             transform: scale(0.8);
         }
+        &_active {
+            background-color: base.$lightBlue;
+            &:hover {
+                background-color: base.$red_close;
+            }
+        }
     }
 }
 .miniGameCard {
@@ -845,6 +859,182 @@ header {
 #centerHeader_gameCard {
     transition: 0.15s;
 }
+
+
+.header__notification {
+    @include base.pos_absolute(90px, 15px, auto, auto);
+    width: 300px;
+    transition: 0.15s;
+
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    &__grid {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        &__notification {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 3px solid base.$colorBody;
+            background-color: base.$lightGray;
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            &__point {
+                @include base.flex-center;
+                &__circle {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: base.$lightBlue;
+                    &_error {
+                        background-color: base.$red_close;
+                    }
+                    &_nothing {
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+                &__smile {
+                    font-size: 14px;
+                    transform: rotate(90deg);
+                }
+            }
+            &__text {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: rgb(245, 245, 245);
+                & > span {
+                    font-weight: 700;
+                    color: rgb(255, 255, 255);
+                }
+            }
+            &__buttonClose {
+                @include base.pos_absolute(0px, 0px, auto, auto);
+                width: 20px;
+                height: 20px;
+                padding: 6px;
+                border-radius: 50%;
+                background-color: red;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.1);
+                & > img {
+                    width: 100%;
+                }
+            }
+        }
+        &__nothing {
+            height: 100%;
+            @include base.flex_center;
+            &__text {
+                padding-bottom: 18px;
+                font-size: 18px;
+                font-weight: 800;
+                color: rgb(100, 100, 100);
+            }
+        }
+    }
+    &_active {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.header__notification_temporary {
+    @include base.pos_absolute(100px, 15px, auto, auto);
+    width: 300px;
+    transition: 0.15s;
+
+    display: block;
+    visibility: hidden;
+    opacity: 1;
+    transform: translateY(-10px);
+    &__grid {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        &__notification {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 3px solid base.$colorBody;
+            background-color: base.$lightGray;
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transition-delay: 5s;
+            animation: show_notification 5s ease-out 1;
+            &__point {
+                @include base.flex-center;
+                &__circle {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    &_false {
+                        background-color: base.$red_close;
+                    }
+                    &_true {
+                        background-color: base.$lightBlue;
+                    }
+                    &_nothing {
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+                &__smile {
+                    font-size: 14px;
+                    transform: rotate(90deg);
+                }
+            }
+            &__text {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: rgb(245, 245, 245);
+                & > span {
+                    font-weight: 700;
+                    color: rgb(255, 255, 255);
+                }
+            }
+            &__buttonClose {
+                @include base.pos_absolute(0px, 0px, auto, auto);
+                width: 20px;
+                height: 20px;
+                padding: 6px;
+                border-radius: 50%;
+                background-color: red;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.1);
+                & > img {
+                    width: 100%;
+                }
+            }
+        }
+        &__nothing {
+            height: 100%;
+            @include base.flex_center;
+            &__text {
+                padding-bottom: 18px;
+                font-size: 18px;
+                font-weight: 800;
+                color: rgb(100, 100, 100);
+            }
+        }
+    }
+    &_show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 // ----------------------
 
 // ---------------------- content
@@ -854,8 +1044,7 @@ header {
     padding: 100px 150px 15px 150px;
     position: relative;
     &__bg {
-        @include base.pos_absolute(-100px, 0px, 0px, 0px);
-        z-index: 1;
+        @include base.absolute-zero;
         transition: 1s;
         opacity: 0;
         filter: blur(50px);
@@ -877,17 +1066,18 @@ header {
         justify-content: center;
         gap: 10px;
 
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
+        // background-color: rgba(255, 255, 255, 0.1);
+        // backdrop-filter: blur(30px);
+        // border: 1px solid rgba(255, 255, 255, 0.3);
+        // box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+        // border-radius: 20px;
         padding: 15px;
         &__button {
             width: 55px;
             height: 55px;
             padding: 16px;
             background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transition: .15s;
@@ -917,8 +1107,18 @@ header {
             }
         }
     }
+    &__grid {
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+    &__gridBG {
+        @include base.pos_absolute(-100px, 0px, -100px, 0px);
+        z-index: 1;
+    }
     &__banner {
         width: 100%;
+        height: 515px;
         margin-left: -100%;
         box-sizing: border-box;
         transition: 0.5s;
@@ -926,6 +1126,7 @@ header {
         overflow: hidden;
         &__imgBlock {
             width: 100%;
+            height: 100%;
             border-radius: 25px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             // box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
@@ -933,6 +1134,7 @@ header {
             & > img {
                 width: 100%;
                 display: block;
+                transition: 0.3s;
             }
         }
         &__interaction {
@@ -949,7 +1151,7 @@ header {
                     right: 0;
                     left: 0;
                     z-index: 2;
-                    display: none;
+                    display: block;
                 }
                 &__title {
                     font-family: robotoFlex;
@@ -970,7 +1172,7 @@ header {
                     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
                     border-radius: 20px;
                     padding: 15px;
-                    min-width: 350px;
+                    width: 350px;
                     position: relative;
                     z-index: 3;
                     &__buttons {
@@ -1051,62 +1253,66 @@ header {
                 }
             }
         }
-        &_0 {
-            z-index: 7;
-            transform: scale(1.1) translateX(80%);
-            filter: blur(10px);
-            opacity: 0;
-            visibility: hidden;
-        }
-        &_1 {
-            margin-left: 0;
-            z-index: 6;
-            transform: scale(1) translateX(0);
-            filter: blur(0px);
-        }
-        &_2 {
-            z-index: 5;
-            transform: scale(0.95) translateX(5%);
-            // filter: grayscale(1);
-            filter: blur(2px);
-        }
-        &_3 {
-            z-index: 4;
-            transform: scale(0.9) translateX(10%);
-            // filter: grayscale(1);
-            filter: blur(3px);
-        }
-        &_4 {
-            z-index: 3;
-            transform: scale(0.85) translateX(15%);
-            // filter: grayscale(1);
-            filter: blur(4px);
-        }
-        &_5 {
-            z-index: 2;
-            transform: scale(0.8) translateX(20%);
-            // filter: grayscale(1);
-            filter: blur(5px);
-        }
+        
+        // &_0 {
+        //     z-index: 7;
+        //     transform: scale(1.1) translateX(80%);
+        //     filter: blur(10px);
+        //     opacity: 0;
+        //     visibility: hidden;
+        // }
+        // &_1 {
+        //     margin-left: 0;
+        //     z-index: 6;
+        //     transform: scale(1) translateX(0);
+        //     filter: blur(0px);
+        //     &:hover .carousel__banner__imgBlock > img{
+        //         transform: scale(1.03);
+        //     }
+        // }
+        // &_2 {
+        //     z-index: 5;
+        //     transform: scale(0.95) translateX(5%);
+        //     // filter: grayscale(1);
+        //     filter: blur(2px);
+        // }
+        // &_3 {
+        //     z-index: 4;
+        //     transform: scale(0.9) translateX(10%);
+        //     // filter: grayscale(1);
+        //     filter: blur(3px);
+        // }
+        // &_4 {
+        //     z-index: 3;
+        //     transform: scale(0.85) translateX(15%);
+        //     // filter: grayscale(1);
+        //     filter: blur(4px);
+        // }
+        // &_5 {
+        //     z-index: 2;
+        //     transform: scale(0.8) translateX(20%);
+        //     // filter: grayscale(1);
+        //     filter: blur(5px);
+        // }
 
-        &_0 &__interaction__info__link{
-            display: none;
-        }
-        &_1 &__interaction__info__link{
-            display: block;
-        }
-        &_2 &__interaction__info__link{
-            display: none;
-        }
-        &_3 &__interaction__info__link{
-            display: none;
-        }
-        &_4 &__interaction__info__link{
-            display: none;
-        }
-        &_5 &__interaction__info__link{
-            display: none;
-        }
+        // &_0 &__interaction__info__link{
+        //     display: none;
+        // }
+        // &_1 &__interaction__info__link{
+        //     display: block;
+        // }
+        // &_2 &__interaction__info__link{
+        //     display: none;
+        // }
+        // &_3 &__interaction__info__link{
+        //     display: none;
+        // }
+        // &_4 &__interaction__info__link{
+        //     display: none;
+        // }
+        // &_5 &__interaction__info__link{
+        //     display: none;
+        // }
     }
 }
 
@@ -1769,6 +1975,29 @@ header {
     position: relative;
     z-index: 2;
     padding: 0 150px 0 150px;
+    &__nothing {
+        @include base.flex-center;
+        flex-direction: column;
+        margin: auto;
+        width: 200px;
+        padding: 50px;
+        box-sizing: content-box;
+        border-radius: 15px;
+        background-color: base.$lightGray;
+        gap: 10px;
+        &__text {
+            font-weight: 700;
+            font-size: 20px;
+            color: rgb(100, 100, 100);
+        }
+        &__link {
+            transition: 0.15s;
+            cursor: pointer;
+            &:hover {
+                color: base.$lightBlue;
+            }
+        }
+    }
     &__grid {
         display: grid;
         grid-gap: 35px;
@@ -1776,11 +2005,11 @@ header {
         align-items: center;
         justify-content: space-between;
         &__game {
-            width: 280px;
-            height: 340px;
+            @include base.game_banner_size(280px);
             margin-bottom: 35px;
             &__banner {
-                width: 100%;
+                display: block;
+                object-fit: cover;
                 height: 100%;
                 position: relative;
                 border-radius: 10px;
@@ -2079,7 +2308,7 @@ header {
             justify-content: space-between;
             margin-bottom: 20px;
             &__game {
-                width: 200px;
+                @include base.game_banner_size(200px);
                 &__banner {
                     display: block;
                     width: 100%;
@@ -2093,9 +2322,7 @@ header {
                         width: 100%;
                     }
                     &__discount {
-                        position: absolute;
-                        bottom: 5px;
-                        left: 0;
+                        @include base.pos_absolute(auto, auto, 0, 0);
                         padding: 4px 4px 0 0;
                         border-radius: 0 10px 0 10px;
                         background-color: rgb(35, 35, 35);
@@ -2113,7 +2340,7 @@ header {
                 }
                 &__info {
                     position: relative;
-                    padding-top: 8px;
+                    padding-top: 10px;
                     display: flex;
                     justify-content: space-between;
                     transition: 0.15s;
@@ -2121,6 +2348,7 @@ header {
                         position: relative;
                         z-index: 1;
                         font-family: base.$fonts;
+                        padding-right: 0;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -2135,7 +2363,7 @@ header {
                     &__buttons {
                         right: 0;
                         left: 0;
-                        top: 4px;
+                        top: 5px;
                         position: absolute;
                         z-index: 2;
                         display: flex;
@@ -2198,6 +2426,7 @@ header {
             }
         }
         &__buttonMore {
+            display: block;
             text-align: center;
             padding: 12px;
             width: 150px;
@@ -2933,9 +3162,10 @@ header {
     position: relative;
     z-index: 3;
     display: flex;
-    align-content: center;
+    align-content: flex-end;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
     margin-bottom: 20px;
     transform: translateY(0px) scale(1);
     opacity: 1;
@@ -2944,11 +3174,33 @@ header {
         position: relative;
         width: 700px;
         height: 400px;
-        overflow: hidden;
+        // overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
-        & img {
+        &__discount {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 10;
+            background-color: base.$lightBlue;
+            border-radius: 10px;
+            padding: 10px 20px 10px 20px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.15s;
+            opacity: 1;
+            &_hidden {
+                opacity: 0;
+            }
+        }
+        &__imgBlock {
             width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            & img {
+                width: 100%;
+            }
         }
         &__playButton {
             opacity: 0;
@@ -2958,6 +3210,8 @@ header {
             flex-direction: column;
             transition: 0.15s;
             cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
             &__icon {
                 transform: scale(1.3);
                 transition: 0.15s;
@@ -2974,6 +3228,7 @@ header {
                 text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                 transform: translateY(-10px);
                 transition: 0.15s;
+                cursor: pointer;
             }
         }
         &__treilerBlock {
@@ -2984,6 +3239,8 @@ header {
             justify-content: center;
             align-items: center;
             background-color: rgba(0, 0, 0, 1);
+            overflow: hidden;
+            border-radius: 10px;
             & > video {
                 width: 100%;
             }
@@ -3009,6 +3266,7 @@ header {
                     & > img {
                         filter: invert(1);
                         height: 100%;
+                        transition: 0.15s;
                     }
                     &_volume {
                         &:hover .mainInfo__banner__treilerBlock__interface__volumeRace{
@@ -3020,7 +3278,7 @@ header {
                             transform: scale(0.95);
                             opacity: 0.85;
                         }
-                        &:active {
+                        &:active img {
                             transform: scale(0.7);
                         }
                     }
@@ -3097,12 +3355,12 @@ header {
     }
     &__info {
         width: 500px;
-        height: 400px;
+        align-self: flex-end;
         background: rgba(40, 40, 40, 0.6);
         backdrop-filter: blur(20px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
@@ -3162,6 +3420,7 @@ header {
             }
         }
         &__interactions {
+            margin-top: 20px;
             &__top {
                 display: flex;
                 gap: 12px;
@@ -3384,47 +3643,62 @@ header {
         grid-gap: 20px;
         grid-template-columns: repeat(4, minmax(0px, 1fr));
         &__edition {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border: 1px solid transparent;
-            border-radius: 6px;
-            background-color: rgb(55, 55, 55);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: base.$lightGray;
             box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: 0.05s;
-            &__left {
-                &__title {
-                    font-size: 18px;
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-                &__price {
-                    color: rgb(200, 200, 200);
-                    font-size: 18px;
-                    font-weight: 400;
-                    cursor: pointer;
+            transition: 0.15s;
+            &__imgBlock {
+                width: 100%;
+                padding: 4px;
+                padding-bottom: 0;
+                & > img {
+                    box-sizing: border-box;
+                    border-radius: 6px;
+                    width: 100%;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 0.1);
+                    transition: 0.15s;
                 }
             }
-            &__percent {
-                height: 50px;
-                width: 50px;
-                padding: 10px;
-                font-size: 16px;
-                font-weight: 600;
-                border: 2px solid rgb(100, 100, 100);
-                border-radius: 4px;
+            &__info {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                &_active {
-                    border: 2px solid base.$lightBlue;
+                justify-content: space-between;
+                padding: 10px;
+                &__left {
+                    &__title {
+                        font-size: 18px;
+                        font-weight: 600;
+                        cursor: pointer;
+                    }
+                    &__price {
+                        color: rgb(200, 200, 200);
+                        font-size: 18px;
+                        font-weight: 400;
+                        cursor: pointer;
+                    }
+                }
+                &__percent {
+                    height: 50px;
+                    width: 50px;
+                    padding: 10px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border: 2px solid rgb(100, 100, 100);
+                    border-radius: 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    &_active {
+                        border: 2px solid base.$lightBlue;
+                    }
                 }
             }
-            &:hover {
-                background-color: rgb(60, 60, 60);
-                box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.02);
+            
+            &:hover &__imgBlock > img {
                 transform: scale(0.985);
             }
             &:active {
@@ -3435,15 +3709,23 @@ header {
                 background-color: rgba(53, 118, 255, 0.4);
                 border: 1px solid base.$lightBlue;
                 box-shadow: 0 0 10px -2px rgba(1, 162, 255, 0.5);
-                &:hover {
-                    background-color: rgba(53, 118, 255, 0.4);
-                    box-shadow: 0 0 10px -2px rgba(1, 162, 255, 0.5);
+                cursor: default;
+                &:hover .editions__grid__edition__imgBlock > img {
                     transform: scale(1);
                 }
                 &:active {
                     box-shadow: 0 0 10px -2px rgba(1, 162, 255, 0.5);
                     transform: scale(1);
                 }
+            }
+            &_active &__info__left__price {
+                cursor: default;
+            }
+            &_active &__info__left__title {
+                cursor: default;
+            }
+            &_active &__info__percent {
+                cursor: default;
             }
         }
         &_loading {
@@ -3515,8 +3797,12 @@ header {
     position: relative;
     z-index: 3;
     margin: auto;
+    margin-top: 30px;
     width: 1220px;
+    display: flex;
+    gap: 20px;
     &__description {
+        width: 100%;
         font-family: base.$fonts;
         color: white;
         cursor: default;
@@ -3524,39 +3810,50 @@ header {
         font-weight: 300;
         margin: 0;
         color: rgb(220, 220, 220);
-        line-height: 26px;
 
-        @include base.information_game_style;
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         animation: open_offers_games 0.5s ease 1;
-        & h2 {
-            font-family: base.$fonts;
-            color: white;
-            cursor: default;
-            font-size: 20px;
-            font-weight: 500;
-            padding: 0;
-            margin: 8px 0 2px;
-            & > strong {
-                all: inherit;
+        & > h2 {
+            font-size: 22px;
+            margin: 0;
+            padding-left: 20px;
+        }
+        & > div {
+            line-height: 26px;
+            @include base.information_game_style;
+            & h2 {
+                font-family: base.$fonts;
+                color: white;
+                cursor: default;
+                font-size: 20px;
+                font-weight: 500;
+                padding: 0;
+                margin: 8px 0 2px;
+                & > strong {
+                    all: inherit;
+                }
+            }
+            & p {
+                font-family: base.$fonts;
+                color: white;
+                cursor: default;
+                font-size: 18px;
+                font-weight: 300;
+                margin: 0;
+                color: rgb(230, 230, 230);
+                line-height: 26px;
+            }
+            & img {
+                width: 100%;
+                display: block;
+                border-radius: 10px;
+                margin: 10px 0 10px 0;
+                // float: right;
             }
         }
-        & p {
-            font-family: base.$fonts;
-            color: white;
-            cursor: default;
-            font-size: 18px;
-            font-weight: 300;
-            margin: 0;
-            color: rgb(230, 230, 230);
-            line-height: 26px;
-        }
-        & img {
-            display: block;
-            border-radius: 10px;
-            margin: 10px 0 10px 0;
-            // float: right;
-        }
+        
         // &_active {
         //     display: block;
         // }
@@ -3564,43 +3861,101 @@ header {
     &__description.information_block_active {
         display: block;
     }
-    &__systemRequirements {
-        display: none;
-        align-items: center;
-        justify-content: center;
+    &__rightColumn {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-        animation: open_offers_games 0.5s ease 1;
-        & > ul {
-            list-style-type: none;
-            font-family: robotoFlex;
-            color: rgb(255, 255, 255);
-            margin-bottom: 0;
-            margin-top: 0;
-            @include base.information_game_style;
-            & > strong {
-                font-size: 20px;
+        &__systemRequirements {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: open_offers_games 0.5s ease 1;
+            & > h2 {
+                font-size: 22px;
+                margin: 0;
+                // border: 2px solid rgb(50, 50, 50);
+                // padding: 10px;
+                padding-left: 20px;
+                // border-radius: 20px;
+                // box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
+                // background: rgb(45, 45, 45);
             }
-            & > ul {
-                margin-top: 5px;
-                line-height: 25px;
-                list-style-type: none;
-                padding-left: 0;
-                & > li {
+            & > div {
+                @include base.information_game_style;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                & > ul {
+                    list-style-type: none;
+                    font-family: robotoFlex;
+                    color: rgb(255, 255, 255);
+                    margin-bottom: 0;
+                    margin-top: 0;
+                    padding-left: 0;
+                    &:first-child {
+                        padding-bottom: 14px;
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+                    }
                     & > strong {
-                        font-weight: 400;
-                        color: rgb(200, 200, 200);
-                        margin-right: 5px;
+                        font-size: 20px;
+                    }
+                    & > ul {
+                        margin-top: 5px;
+                        line-height: 25px;
+                        list-style-type: none;
+                        padding-left: 0;
+                        & > li {
+                            display: flex;
+                            border-radius: 5px;
+                            padding: {
+                                left: 10px;
+                                top: 2px;
+                                bottom: 2px;
+                            }
+                            &:nth-child(2n) {
+                                background-color: rgba(255, 255, 255, 0.04);
+                            }
+                            & > strong {
+                                width: 100%;
+                                max-width: 180px;
+                                font-weight: 400;
+                                color: rgb(200, 200, 200);
+                                margin-right: 2px;
+                            }
+                        }
                     }
                 }
             }
+            &_active {
+                display: flex;
+            }
         }
-        &_active {
+        &__systemRequirements.information_block_active {
             display: flex;
         }
+        &__activation {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: open_offers_games 0.5s ease 1;
+            & > h2 {
+                font-size: 22px;
+                margin: 0;
+                // border: 2px solid rgb(50, 50, 50);
+                // padding: 10px;
+                padding-left: 20px;
+                // border-radius: 20px;
+                // box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.3);
+                // background: rgb(45, 45, 45);
+            }
+            &__block {
+                @include base.information_game_style;
+                padding: 20px;
+            }
+        }
     }
-    &__systemRequirements.information_block_active {
-        display: flex;
-    }
+    
     &_loading {
         display: none;
     }
@@ -3814,6 +4169,7 @@ header {
                 margin-bottom: 15px;
             }
             & button {
+                display: block;
                 position: relative;
                 background: base.$mainGradient_100;
                 border-radius: 7px;

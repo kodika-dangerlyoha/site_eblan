@@ -1,19 +1,25 @@
 
-function play_treiler() {
-    document.querySelector('.mainInfo__banner__playButton').style.zIndex = "1";
-    document.querySelector('.mainInfo__banner__treilerBlock').style.opacity = "1";
-    document.querySelector('#treiler').play();
-}
+// function play_treiler() {
+//     document.querySelector('.mainInfo__banner__playButton').style.zIndex = "1";
+//     document.querySelector('.mainInfo__banner__treilerBlock').style.opacity = "1";
+//     document.querySelector('#treiler').play();
+// }
 
 function play_pause_treiler() {
     if (!document.querySelector('#treiler').paused) {
         document.querySelector('#treiler').pause();
         document.getElementById('button_icon_play_pause').src = "img/icons/play-button24.png";
+        document.querySelector('.mainInfo__banner__playButton').style.zIndex = "3";
+        document.querySelector('.mainInfo__banner__treilerBlock').style.opacity = "0";
+        document.querySelector('.mainInfo__banner__discount').classList.remove('mainInfo__banner__discount_hidden');
         
     }
     else {
         document.querySelector('#treiler').play();
         document.getElementById('button_icon_play_pause').src = "img/icons/pause24.png";
+        document.querySelector('.mainInfo__banner__playButton').style.zIndex = "1";
+        document.querySelector('.mainInfo__banner__treilerBlock').style.opacity = "1";
+        document.querySelector('.mainInfo__banner__discount').classList.add('mainInfo__banner__discount_hidden');
     }
 }
 

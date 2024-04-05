@@ -1,6 +1,7 @@
 // import {get_horizont_game_html} from './HTMLelements.js';
 let basket_game_list = get_basket_game_list();
 let games_list = getGames();
+let editions = get_editions();
 
 function getGames() {
     return games;
@@ -47,38 +48,31 @@ function makeOffers_index() {
     //         Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
     //     )
     // });
-    games_list.forEach(game => {
-        gameList_expected += get_horizont_game_html(
-            game, 
-            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
-        )
-    });
-    games_list.forEach(game => {
-        gameList_ourChoice += get_horizont_game_html(
-            game, 
-            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
-        )
-    });
+    // games_list.forEach(game => {
+    //     gameList_expected += get_horizont_game_html(
+    //         game, 
+    //         Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
+    //     )
+    // });
+    // games_list.forEach(game => {
+    //     gameList_ourChoice += get_horizont_game_html(
+    //         game, 
+    //         Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
+    //     )
+    // });
 
     // records.filter(({gender}) => gender === 'BOYS').reduce((sum, record) => sum + record.value)
 
     document.querySelector('#offers #offers_grid_new').innerHTML += games_list.filter(({status}) => status == "new").reduce(
         (summ_game, game) => summ_game + get_horizont_game_html(game, Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)), "");
-    document.querySelector('#offers #offers_grid_expected').innerHTML = gameList_expected;
-    document.querySelector('#offers #offers_grid_ourChoice').innerHTML = gameList_ourChoice;
+    document.querySelector('#offers #offers_grid_expected').innerHTML += games_list.filter(({status}) => status == "expected").reduce(
+        (summ_game, game) => summ_game + get_horizont_game_html(game, Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)), "");;
+    document.querySelector('#offers #offers_grid_ourChoice').innerHTML += games_list.filter(({status}) => status == "ourChoice").reduce(
+        (summ_game, game) => summ_game + get_horizont_game_html(game, Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)), "");;
 }
 
 function makeSimilar_gameCard() {
-    let gameList = "";
-    
-    getGames_similar().forEach(game => {
-        gameList += get_horizont_game_html(
-            game, 
-            Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)
-        )
-    });
-
-    document.querySelector('#similar #content').innerHTML = gameList;
+    document.querySelector('#similar #content').innerHTML += games_list.reduce((summ_game, game) => summ_game + get_horizont_game_html(game, Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100)), "");
 }
 
 function makeCatalog_catalog() {
@@ -126,69 +120,24 @@ function makeCatalog_catalog() {
     div.innerHTML = blockSiteHTML;
 }
 
-function makeFavorite_favorite() {
-    let div = document.querySelector('#catalog');
-    div.innerHTML = "";
-
-    function addGame() {
-        let grid = document.createElement('div');
-        
-        getGames().forEach(game => {
-                let discount = Math.round((game.oldPrice - game.newPrice) / game.oldPrice * 100);
-                let blockSiteHTML = ` <div class="catalog__grid__game__banner">
-                                            <img src="${game.imgW}" alt="">
-                                            <div class="catalog__grid__game__banner__discount">
-                                                <div class="catalog__grid__game__banner__discount__inner txt">${discount}%</div>
-                                            </div>
-                                        </div>
-                                        <div class="catalog__grid__game__info">
-                                            <div class="catalog__grid__game__info__buttons">
-                                                <div class="catalog__grid__game__info__buttons__button">
-                                                    <div class="catalog__grid__game__info__buttons__button__forHover catalog__grid__game__info__buttons__button__forHover_blue absolute-zero"></div>
-                                                    <img src="img/icons/basket64.png" alt="">
-                                                </div>
-                                                <div class="catalog__grid__game__info__buttons__button">
-                                                    <div class="catalog__grid__game__info__buttons__button__forHover catalog__grid__game__info__buttons__button__forHover_red absolute-zero"></div>
-                                                    <img src="img/icons/like64.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="catalog__grid__game__info__name txt">${game.name}</div>
-                                            <div class="catalog__grid__game__info__price txt">${game.newPrice} ₽</div>
-                                        </div>`;
-                                        
-                let div = document.createElement('div');
-                div.classList.add("catalog__grid__game");
-                div.innerHTML = blockSiteHTML;
-                grid.append(div);
-        });
-        return grid.innerHTML;
-    }
-
-    let blockSiteHTML = `<div class="catalog__grid">
-                            ${addGame()}
-                        </div>`;
-
-    div.innerHTML = blockSiteHTML;
-}
-
 function make_editions() {
-    let editionList = "";
+    // let editionList = "";
     
-    get_editions().forEach(edition => {
-        editionList += get_edition_game_html(
-            edition, 
-            Math.round((edition.oldPrice - edition.newPrice) / edition.oldPrice * 100)
-        )
-    });
+    // get_editions().forEach(edition => {
+    //     editionList += get_edition_game_html(
+    //         edition, 
+    //         Math.round((edition.oldPrice - edition.newPrice) / edition.oldPrice * 100)
+    //     )
+    // });
 
-    document.querySelector('#edition #edition_grid').innerHTML = editionList;
+    document.querySelector('#edition #edition_grid').innerHTML += editions.reduce((summ_game, edition) => summ_game + get_edition_game_html(edition, Math.round((edition.oldPrice - edition.newPrice) / edition.oldPrice * 100)), "");
     document.getElementsByClassName('editions__grid__edition')[0].classList.add('editions__grid__edition_active');
-    document.getElementsByClassName('editions__grid__edition__percent')[0].classList.add('editions__grid__edition__percent_active');
+    document.getElementsByClassName('editions__grid__edition__info__percent')[0].classList.add('editions__grid__edition__percent_active');
 }
 
 function make_desscription() {
-    document.querySelector('#description').innerHTML = games[0].description.replace(/<br>/g, '');
-    document.querySelector('#systemRequirements').innerHTML = games[0].systemRequirements;
+    document.querySelector('#description').innerHTML += games[0].description.replace(/<br>/g, '');
+    document.querySelector('#systemRequirements').innerHTML += games[0].systemRequirements;
 }
 
 function make_game_card_info() {
@@ -198,12 +147,15 @@ function make_game_card_info() {
     document.querySelector('#miniGameCard').classList.remove('miniGameCard_loading');
 
     document.getElementById('img_miniGameCard').src = games[0].imgH;
+    document.getElementById('img_miniGameCard').alt = games[0].name;
     document.getElementById('price_game').innerHTML = `${games[0].newPrice}₽ <span>${games[0].oldPrice} ₽</span>`;
     document.getElementById('title_game').innerHTML = games[0].name;
 
     document.getElementById('game_banner').src = games[0].bigBanner;
+    document.getElementById('game_banner').alt = games[0].name;
     document.getElementById('treiler').src = games[0].treilerSrc;
     document.getElementById('game_img').src = games[0].imgH;
+    document.getElementById('game_img').alt = games[0].name;
 
     get_categories_game().forEach(category => {
         categories_list += get_categories_game_html(category);
@@ -229,54 +181,12 @@ function make_game_card_info() {
         elem.classList.remove('loadingContent');
     })
 
+    document.querySelectorAll('.loadingBlock').forEach(elem => elem.remove('loadingBlock'));
+
     setTimeout(() => {
         let class_open_content = document.getElementsByClassName('open_content');
         while (class_open_content.length) class_open_content[0].classList.remove("open_content");
     }, 800);
-}
-
-function make_basket_info() {
-    const new_price = basket_game_list.reduce((b, a) => b + a.newPrice, 0);
-    const old_price = basket_game_list.reduce((b, a) => b + a.oldPrice, 0);
-
-    document.getElementById('basket_newPrice').innerText = `${new_price} ₽`;
-    document.getElementById('basket_oldPrice').innerText = `${old_price} ₽`;
-    document.getElementById('basket_discount').innerText = `${Math.round((old_price - new_price) / old_price * 100)}%`;
-
-    if (document.querySelector('.basketContainer__info_hidden') && document.querySelector('.basketContainer_empty')) {
-        document.querySelector('#basket_info').classList.remove('basketContainer__info_hidden');
-        document.querySelector('#basket_container').classList.remove('basketContainer_empty');
-    }
-}
-
-function make_basket() {
-    // let gameListInfo = get_basket_game_list();
-    let gameList = `<div class="basketContainer__gameList__games__bg absolute-zero" id="basket_games_list_bg"></div>
-                    <div class="basketContainer__gameList__games__border"></div>
-                    <div class="basketContainer__gameList__games__empty" id="gameList_emptyBlock">
-                        <img src="img/icons/sad.png" alt="">
-                        <div class="basketContainer__gameList__games__empty__text txt">Корзина пуста</div>
-                        <a href="index.html" class="basketContainer__gameList__games__empty__exitButton txt">Вернуться к покупкам</a>
-                    </div>`;
-
-    if (!basket_game_list.length) {
-        setTimeout(() => {
-            document.querySelector('#gameList_emptyBlock').classList.add('basketContainer__gameList__games__empty_active');
-            document.querySelector('#basket_info').classList.add('basketContainer__info_hidden');
-            document.querySelector('#basket_container').classList.add('basketContainer_empty');
-        }, 200)
-        return
-    }
-
-    gameList += basket_game_list.reduce((summ_game, game) => summ_game + get_basket_game_html(game), "");
-    console.log(gameList);
-
-    // basket_game_list.forEach(game => {
-    //     gameList += get_basket_game_html(game);
-    // })
-
-    make_basket_info();
-    document.querySelector('#basket_games_list').innerHTML = gameList;
 }
 
 function makeSalesHits_index() {

@@ -4,6 +4,7 @@ $lightBlue: rgba(1, 162, 255, 1);
 $lightRed: rgb(204, 30, 30);
 $darkBlue: rgba(1, 74, 255, 1);
 $colorBody: rgba(39, 39, 39, 1);
+$lightGray: rgba(45, 45, 45, 1);
 $redGradient: linear-gradient(to bottom, rgba(255, 73, 73, 1), rgba(167, 0, 0, 1));
 $red_close: rgb(170, 22, 22);
 
@@ -36,4 +37,15 @@ $circle_size: 16px;
     bottom: $b;
     top: $t;
     left: $l;
+}
+
+@mixin flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin game_banner_size($w) {
+    width: $w;
+    height: calc($w / 0.82);
 }

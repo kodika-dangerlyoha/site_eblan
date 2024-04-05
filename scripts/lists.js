@@ -16,18 +16,21 @@ let games = [
                 'newPrice': 5000,
                 'oldPrice': 5500,
                 'link': "",
+                'img': "img/banners/farmsim.png",
             },
             {
                 'title': "Cold War 2: mamamia 2",
                 'newPrice': 5200,
                 'oldPrice': 5600,
                 'link': "",
+                'img': "img/banners/farmsim.png",
             },
             {
                 'title': "Cold War 2: mamamia 3",
                 'newPrice': 5000,
                 'oldPrice': 7000,
                 'link': "",
+                'img': "img/banners/farmsim.png",
             },
         ],
         'description': `
@@ -119,6 +122,7 @@ let games = [
           },
         ],
         'status': "new",
+        'carousel': true,
     },
     {
         'id': 1,
@@ -127,9 +131,11 @@ let games = [
         'imgH': "img/banners/1.jpg",
         'imgW': "img/banners/a1.jpg",
         'treilerSrc': "video/2.MP4",
-        'bigBanner': "img/banners/d5770738dde027118563ae96ae58e7d3.jpg",
+        'bigBanner': "img/banners/b3.jpg",
         'newPrice': 500,
         'oldPrice': 799,
+        'status': "ourChoice",
+        'carousel': true,
     },
     {
         'id': 2,
@@ -138,9 +144,11 @@ let games = [
         'imgH': "img/banners/2.jpg",
         'imgW': "img/banners/a2.jpg",
         'treilerSrc': "video/3.MP4",
-        'bigBanner': "img/banners/52nahuy.jpg",
+        'bigBanner': "img/banners/b5.jpg",
         'newPrice': 679,
         'oldPrice': 800,
+        'status': "expected",
+        'carousel': true,
     },
     {
         'id': 3,
@@ -152,6 +160,8 @@ let games = [
         'bigBanner': "img/banners/image 10.png",
         'newPrice': 120,
         'oldPrice': 350,
+        'status': "ourChoice",
+        'carousel': true,
     },
     {
         'id': 4,
@@ -163,6 +173,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 1255,
         'oldPrice': 1600,
+        'status': "new",
     },
     {
         'id': 5,
@@ -174,6 +185,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 3678,
         'oldPrice': 4000,
+        'status': "new",
     },
     {
         'id': 6,
@@ -185,6 +197,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 7952,
         'oldPrice': 8812,
+        'status': "ourChoice",
     },
     {
         'id': 7,
@@ -196,6 +209,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 812,
         'oldPrice': 1812,
+        'status': "ourChoice",
     },
     {
         'id': 8,
@@ -207,6 +221,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 4599,
         'oldPrice': 5120,
+        'status': "expected",
     },
     {
         'id': 9,
@@ -218,6 +233,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 6700,
         'oldPrice': 7000,
+        'status': "new",
     },
     {
         'id': 10,
@@ -229,6 +245,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 4355,
         'oldPrice': 4500,
+        'status': "expected",
     },
     {
         'id': 11,
@@ -240,6 +257,7 @@ let games = [
         'bigBanner': "",
         'newPrice': 2344,
         'oldPrice': 3050,
+        'status': "new",
     },
 ]
 

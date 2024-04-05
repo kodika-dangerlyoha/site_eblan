@@ -8,16 +8,14 @@
 	<link rel="stylesheet" href="style\style.css">
 </head>
 <body>
-
 	<header id="header">
 		<div id="header__bg"></div>
 		<a href="index.html" class="logoBlock">
 			<img class="logo" src="img/logo/logo.png" alt="">
 		</a>
 		<div class="centerBlock" id="centerHeader_gameCard">
-			<div class="centerBlock__buttonCatalog txt flex-center" onclick="openCatalogNavs()">
-				<div class="centerBlock__buttonCatalog__forHover"></div>
-				<div class="centerBlock__buttonCatalog__text txt">Каталог игр</div>
+			<div class="centerBlock__nav txt" onclick="openCatalogNavs()">
+				<img src="img/icons/catalog32_1.png" alt="">
 			</div>
 			<div class="centerBlock__searchBlock">
 				<input type="text">
@@ -139,8 +137,9 @@
 
     <div class="mainInfo">
         <div class="mainInfo__banner mainInfo__banner_loading loadingContent">
-            <img src="" alt="" id="game_img">
-            <div class="mainInfo__banner__playButton absolute-zero flex-center" onclick="play_treiler()">
+            <div class="mainInfo__banner__discount txt">52%</div>
+            <div class="mainInfo__banner__imgBlock"><img src="" alt="" id="game_img"></div>
+            <div class="mainInfo__banner__playButton absolute-zero flex-center" onclick="play_pause_treiler()">
                 <div class="mainInfo__banner__playButton__icon">
                     <img src="img/icons/play-button64.png" alt="">
                 </div>
@@ -270,7 +269,7 @@
         </div>
     </div>
 
-    <div class="head head_loading loadingContent">
+    <!-- <div class="head head_loading loadingContent">
         <div class="head__nav" onclick="open_page_game_info('description')">
             <div class="head__nav__text txt">Описание</div>
             <div class="head__nav__strip head__nav__strip_active strip_description"></div>
@@ -283,19 +282,22 @@
             <div class="head__nav__text txt">Активация</div>
             <div class="head__nav__strip strip_activation"></div>
         </div>
-    </div>
+    </div> -->
 
     <div class="information information_loading loadingContent">
-        <div class="information__description information_block information_block_active" id="description">
-            <!-- <h3 class="txt"></h3>
-            <p class="txt">
-            </p> -->
+        <div class="information__description information_block" >
+            <h2 class="txt">Описание</h2>
+            <div id="description"></div>
         </div>
-        <div class="information__systemRequirements information_block" id="systemRequirements">
-
-        </div>
-        <div class="information__activation information_block">
-            
+        <div class="information__rightColumn">
+            <div class="information__rightColumn__systemRequirements information_block">
+                <h2 class="txt">Системные требования</h2>
+                <div id="systemRequirements"></div>
+            </div>
+            <div class="information__rightColumn__activation information_block">
+                <h2 class="txt">Активация</h2>
+                <div class="information__rightColumn__activation__block txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque mollitia earum, debitis, vel animi provident dignissimos porro, dolorem libero laboriosam autem aperiam. Doloribus, repudiandae soluta! Laboriosam et at tempore eligendi.</div>
+            </div>
         </div>
     </div>
 

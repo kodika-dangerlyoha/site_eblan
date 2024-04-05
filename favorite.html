@@ -109,8 +109,12 @@
     <h2 class="namePage txt">Избранное</h2>
 
     <div class="catalog" id="catalog">
-        <div class="catalog__grid">
-            <div class="catalog__grid__game">
+		<div class="catalog__nothing" id="catalog_nothing">
+			<div class="catalog__nothing__text txt">Тут пусто :(</div>
+			<a href="index.html" class="catalog__nothing__link txt">Венуться к покупкам</a>
+		</div>
+        <div class="catalog__grid" id="catalog_grid">
+            <!-- <div class="catalog__grid__game">
                 <div class="catalog__grid__game__banner">
 					<img src="img/banners/img1.png" alt="">
 					<div class="catalog__grid__game__banner__discount">
@@ -549,7 +553,7 @@
 					<div class="catalog__grid__game__info__name txt">Call Of Duty: Haha Edition 3</div>
 					<div class="catalog__grid__game__info__price txt">4599₽</div>
 				</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -599,6 +603,8 @@
      
 	<script type="text/javascript" src="scripts/variables.js"></script>
 	<script type="text/javascript" src="scripts/lists.js"></script>
+	<script type="text/javascript" src="scripts/cookie.js"></script>
+	<script type="text/javascript" src="scripts/HTMLelements.js"></script>
 	<script type="text/javascript" src="scripts/functions.js"></script>
 	<script type="text/javascript" src="scripts/makeContentFunctions.js"></script>
 	<script type="text/javascript" src="scripts/script.js"></script>
